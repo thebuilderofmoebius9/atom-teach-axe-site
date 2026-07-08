@@ -37,7 +37,7 @@ def card(lesson):
         <h3>{e(lesson['title'])}</h3>
         <p>{e(lesson['human']['plain'])}</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
-        <a class="button secondary" href="lessons/{e(lesson['slug'])}/">เปิดquests</a>
+        <a class="button secondary" href="lessons/{e(lesson['slug'])}/">เปิดเควส</a>
       </article>'''
 
 bybatch=collections.defaultdict(list)
@@ -46,15 +46,15 @@ for l in lessons:
 sections=[]
 for batch in ['Foundation','Batch 1','Batch 2']:
     if batch in bybatch:
-        sections.append(f'<section class="section"><div class="section-head"><p class="eyebrow">Quest Map</p><h2>{e(batch)}</h2></div><div class="lesson-grid">' + ''.join(card(l) for l in bybatch[batch]) + '</div></section>')
+        sections.append(f'<section class="section"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>{e(batch)}</h2></div><div class="lesson-grid">' + ''.join(card(l) for l in bybatch[batch]) + '</div></section>')
 
 index_body=f'''<main class="wrap">
   <section class="hero hero-split">
     <div>
-      <span class="badge">Atom Teach Axe · Quest Playground</span>
-      <h1>Quest playground สำหรับเรียนเรื่องยากแบบ RPG: อ่านเควสสั้น ๆ แล้วตอบ quiz เก็บ XP</h1>
-      <p>อ่านง่าย ไม่เครียด: เหมือนเข้าเมือง tutorial มีquestsสั้น หลักฐาน public-safe และ quiz 5 ข้อต่อบทเพื่อเก็บ XP ความเข้าใจ</p>
-      <nav class="nav" aria-label="ทางลัดquests">
+      <span class="badge">Atom Teach Axe · Cozy Quest Academy</span>
+      <h1>เรียนเรื่องยากแบบเกมเควส: อ่านง่าย เล่น quiz ได้ ไม่เครียด</h1>
+      <p>บรรยากาศสนามเด็กเล่นผสม RPG academy: บทเรียนสั้นแบบผู้บริหาร หลักฐาน public-safe และ quiz 5 ข้อต่อบทสำหรับเช็คความเข้าใจ</p>
+      <nav class="nav" aria-label="ทางลัดบทเรียน">
         <a href="lessons/tf-idf-mini-lab/">เริ่ม TF-IDF Mini Lab</a>
         <a href="lessons/mirror-not-memory/">Mirror ≠ Memory</a>
         <a href="glossary/">Glossary</a>
@@ -62,21 +62,21 @@ index_body=f'''<main class="wrap">
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>{len(lessons)}</b><span>quests</span></div>
+      <div class="stat"><b>{len(lessons)}</b><span>เควสเรียนรู้</span></div>
       <div class="stat"><b>{len(lessons)*5}</b><span>XP checks</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>{len(tech_glossary)}</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
     </div>
   </section>
   <section class="section three-steps">
-    <div class="section-head"><p class="eyebrow">How to play</p><h2>วิธีเล่น</h2></div>
+    <div class="section-head"><p class="eyebrow">เริ่มเล่น</p><h2>วิธีเล่น</h2></div>
     <div class="grid"><div class="card"><h3>1 · อ่านเควสหลัก</h3><p>เริ่มจาก Executive Brief และ “จำแบบนี้” ก่อน ไม่เริ่มจากศัพท์เทคนิค</p></div><div class="card"><h3>2 · เก็บหลักฐาน</h3><p>หลักฐานจาก mirror อยู่ในโหมด signals only เพื่อให้เห็นที่มาโดยไม่เผยข้อความดิบ</p></div><div class="card"><h3>3 · ตอบ Quiz เก็บ XP</h3><p>ตอบ 5 ข้อท้ายบท ระบบ feedback ทันทีว่าเข้าใจถูกจุดไหม</p></div></div>
   </section>
   <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning: เห็นภาพใหญ่ ตัดสินใจได้ และถามต่อเป็น · ถ้างงศัพท์อย่าง tmux/shell/webhook ให้เปิด <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a></section>
   {''.join(sections)}
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
 </main>'''
-(ROOT/'index.html').write_text(page('Atom Teach Axe — Quest Playground', index_body), encoding='utf-8')
+(ROOT/'index.html').write_text(page('Atom Teach Axe — Cozy Quest Academy', index_body), encoding='utf-8')
 
 for l in lessons:
     d=ROOT/'lessons'/l['slug']; d.mkdir(parents=True, exist_ok=True)
@@ -98,19 +98,19 @@ for l in lessons:
     lesson_body=f'''<main class="wrap lesson-wrap">
   <p class="breadcrumb"><a href="../../">← หน้าแรก</a></p>
   <section class="hero lesson-hero"><span class="badge">{e(l['batch'])} · {e(l['date'])}</span><h1>{e(l['title'])}</h1><p>{e(l['summary'])}</p></section>
-  <section class="section executive"><div class="section-head"><p class="eyebrow">Quest Brief</p><h2>Quest Brief อ่านย่อ</h2></div><div class="card lead-card"><h3>{e(ex['headline'])}</h3><p>{e(ex['brief'])}</p><p><b>ทำไมต้องรู้:</b> {e(ex['why_now'])}</p><p><b>เลนส์ตัดสินใจ:</b> {e(ex['decision_lens'])}</p><p class="result">{e(ex['takeaway'])}</p></div></section>
+  <section class="section executive"><div class="section-head"><p class="eyebrow">Mission Brief</p><h2>Mission Brief อ่านย่อ</h2></div><div class="card lead-card"><h3>{e(ex['headline'])}</h3><p>{e(ex['brief'])}</p><p><b>ทำไมต้องรู้:</b> {e(ex['why_now'])}</p><p><b>เลนส์ตัดสินใจ:</b> {e(ex['decision_lens'])}</p><p class="result">{e(ex['takeaway'])}</p></div></section>
   <section class="section"><div class="section-head"><p class="eyebrow">Human first</p><h2>สอนแบบมนุษย์</h2></div><div class="grid"><div class="card"><h3>จำแบบนี้</h3><p>{e(h['plain'])}</p></div><div class="card"><h3>ทำไมต้องรู้</h3><p>{e(h['why'])}</p></div><div class="card"><h3>ภาพจำ</h3><p>{e(h['metaphor'])}</p></div></div></section>
   <section class="section"><div class="section-head"><p class="eyebrow">Practice</p><h2>ลองทำก่อนดูเฉลย</h2></div><div class="card action-card"><p>{e(h['try'])}</p></div></section>
   <section class="section"><div class="section-head"><p class="eyebrow">Evidence</p><h2>หลักฐานจาก Mirror</h2></div><div class="grid"><div class="card"><h3>พื้นที่ที่พบสัญญาณ</h3><ul>{channels}</ul></div><div class="card"><h3>Topic Signals</h3><div class="progress">{signals}</div><p class="note">public_evidence_mode: signals_only · raw_quote_allowed: false</p></div></div></section>
   <section class="section"><div class="section-head"><p class="eyebrow">Skill</p><h2>ทักษะที่ต้องเรียน</h2></div><div class="card"><p>{e(l['skill'])}</p><div class="progress">{tags}</div></div></section>
   {media}
-  <section class="section quiz-section"><div class="section-head"><p class="eyebrow">Boss Check</p><h2>Boss Check 5 ข้อ</h2></div>{quiz_items}<div class="score-card" id="score-card">ตอบให้ครบ 5 ข้อ ระบบจะสรุปคะแนนให้ตรงนี้</div></section>
+  <section class="section quiz-section"><div class="section-head"><p class="eyebrow">Quiz Arena</p><h2>Quiz Arena 5 ข้อ</h2></div>{quiz_items}<div class="score-card" id="score-card">ตอบให้ครบ 5 ข้อ ระบบจะสรุปคะแนนให้ตรงนี้</div></section>
   <footer class="footer"><a href="../../glossary/">เปิด Glossary</a> · <a href="../../technical-glossary/">Item Glossary: ศัพท์เทคนิค</a> · <a href="../../">กลับหน้าแรก</a></footer>
 </main>'''
     (d/'index.html').write_text(page(l['title'], lesson_body, depth=2, script=True), encoding='utf-8')
 
 gloss_cards=''.join(f'<div class="card"><h3>{e(x["term"])}</h3><p>{e(x["definition"])}</p></div>' for x in glossary)
-g_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p><section class="hero"><span class="badge">Reference</span><h1>Glossary</h1><p>ศัพท์สั้นสำหรับquests Discord Mirror และ Atom Teach Axe</p></section><section class="section"><div class="grid">{gloss_cards}</div></section></main>'''
+g_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p><section class="hero"><span class="badge">Reference</span><h1>Glossary</h1><p>ศัพท์สั้นสำหรับบทเรียน Discord Mirror และ Atom Teach Axe</p></section><section class="section"><div class="grid">{gloss_cards}</div></section></main>'''
 (ROOT/'glossary'/'index.html').write_text(page('Glossary — Atom Teach Axe', g_body, depth=1), encoding='utf-8')
 
 tech_dir=ROOT/'technical-glossary'; tech_dir.mkdir(parents=True, exist_ok=True)
