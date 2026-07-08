@@ -10,6 +10,8 @@
 <main class="wrap">
   <p class="breadcrumb"><a href="../../">← หน้าแรก</a></p>
   <section class="hero"><span class="badge">Batch 2 · 2026-06-29</span><h1>ESP WebRTC / STT / LLM — จาก hardware ไปสู่ voice agent</h1><p>เมื่ออุปกรณ์เล็กเริ่มสื่อสารเสียงได้ จะโยงไป STT, LLM และ realtime interaction</p></section>
+  <section class="section"><h2>สอนแบบมนุษย์</h2><div class="grid"><div class="card"><h3>จำแบบนี้</h3><p>Voice agent คือท่อเสียงหลายชั้น ไม่ใช่แค่ LLM พูดได้</p></div><div class="card"><h3>ทำไมต้องรู้</h3><p>ต้องมี audio capture, network, STT, LLM และการตอบกลับอุปกรณ์ครบ จึงจะใช้งานจริง</p></div><div class="card"><h3>ภาพจำ</h3><p>เหมือนล่าม: ฟังเสียง → แปลเป็นข้อความ → คิดคำตอบ → พูดกลับ</p></div></div></section>
+  <section class="section"><h2>ลองทำ</h2><div class="card"><p>ชี้ว่า STT อยู่ตรงไหนระหว่าง microphone กับ LLM</p></div></section>
   <section class="section"><h2>หลักฐานจาก Mirror</h2><div class="grid"><div class="card"><h3>พื้นที่ที่พบสัญญาณ</h3><ul><li>public classroom chat</li></ul></div><div class="card"><h3>Topic Signals</h3><div class="progress"><span class="dot">espressif</span><span class="dot">esp-webrtc-solution</span><span class="dot">stt</span><span class="dot">llm</span><span class="dot">research</span></div><p class="note">public_evidence_mode: signals_only · raw_quote_allowed: false</p></div></div></section>
   <section class="section"><h2>ทักษะที่ต้องเรียน</h2><div class="card"><p>แยก pipeline voice agent: audio capture → transport → STT → LLM → response → device action</p><div class="progress"><span class="dot">#voice</span><span class="dot">#esp32</span><span class="dot">#llm</span></div></div></section>
   

@@ -40,7 +40,7 @@ index_body=f'''<main class="wrap">
   <section class="hero">
     <span class="badge">⚛️ Atom Teach Axe · Training Lab</span>
     <h1>เว็บฝึกเล็ก ๆ สำหรับเปลี่ยนบทเรียนโรงเรียนให้เป็นของเล่นที่แชร์ได้</h1>
-    <p>สกัดจาก Discord mirror เป็นบทเรียน public-safe: ใช้ topic signals ไม่เผยข้อความดิบ ไม่เผย secret และกลับไปพิสูจน์ด้วย mirror ได้</p>
+    <p>เริ่มจากคำอธิบายแบบมนุษย์ก่อน แล้วค่อยเปิดหลักฐานจาก Discord mirror แบบ public-safe: ใช้ topic signals ไม่เผยข้อความดิบ ไม่เผย secret</p>
     <nav class="nav">
       <a href="lessons/tf-idf-mini-lab/">เริ่ม TF-IDF Mini Lab</a>
       <a href="lessons/mirror-not-memory/">Mirror ≠ Memory</a>
@@ -75,6 +75,8 @@ for i,l in enumerate(lessons):
     lesson_body=f'''<main class="wrap">
   <p class="breadcrumb"><a href="../../">← หน้าแรก</a></p>
   <section class="hero"><span class="badge">{e(l['batch'])} · {e(l['date'])}</span><h1>{e(l['title'])}</h1><p>{e(l['summary'])}</p></section>
+  <section class="section"><h2>สอนแบบมนุษย์</h2><div class="grid"><div class="card"><h3>จำแบบนี้</h3><p>{e(l['human']['plain'])}</p></div><div class="card"><h3>ทำไมต้องรู้</h3><p>{e(l['human']['why'])}</p></div><div class="card"><h3>ภาพจำ</h3><p>{e(l['human']['metaphor'])}</p></div></div></section>
+  <section class="section"><h2>ลองทำ</h2><div class="card"><p>{e(l['human']['try'])}</p></div></section>
   <section class="section"><h2>หลักฐานจาก Mirror</h2><div class="grid"><div class="card"><h3>พื้นที่ที่พบสัญญาณ</h3><ul>{channels}</ul></div><div class="card"><h3>Topic Signals</h3><div class="progress">{signals}</div><p class="note">public_evidence_mode: signals_only · raw_quote_allowed: false</p></div></div></section>
   <section class="section"><h2>ทักษะที่ต้องเรียน</h2><div class="card"><p>{e(l['skill'])}</p><div class="progress">{tags}</div></div></section>
   {extra}

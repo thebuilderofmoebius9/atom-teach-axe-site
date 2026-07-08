@@ -1,17 +1,504 @@
 [
-  {"slug":"mirror-not-memory","batch":"Foundation","date":"2026-07-08","title":"Mirror ไม่ใช่ Memory","summary":"Discord Mirror คือฐานหลักฐานค้นได้ แต่ไม่ใช่ความทรงจำเต็มรูปแบบของห้องเรียน","channels":["public classroom chat"],"signals":["backfill","FTS5","TF-IDF","judgment"],"skill":"แยกฐานหลักฐานออกจากความทรงจำและการตีความบริบท","quiz":"ถ้าถามว่าข้อความไหนมีคำนี้ ควรใช้ FTS5 หรือ TF-IDF?","answer":"FTS5 เหมาะกับการค้นข้อความที่มีคำตรง ๆ","tags":["mirror","memory","search"],"interactive":false},
-  {"slug":"tf-idf-mini-lab","batch":"Foundation","date":"2026-07-08","title":"TF-IDF Mini Lab","summary":"TF-IDF ช่วยดูว่าคำไหนเด่นในช่วงนี้ เมื่อเทียบกับช่วงอื่น","channels":["public classroom chat"],"signals":["TF-IDF","topic","salience","timeline"],"skill":"ใช้ TF-IDF เป็นเรดาร์หัวข้อ แล้วใช้ FTS5 กลับไปพิสูจน์ข้อความจริง","quiz":"ถ้ามี mirror ทั้งเดือนและอยากรู้ว่าสัปดาห์นี้หมกมุ่นเรื่องอะไร ควรเริ่มจากอะไร?","answer":"TF-IDF ต่อช่วงเวลา แล้วค่อยใช้ FTS5 ตรวจหลักฐานจริง","tags":["tf-idf","mirror","interactive"],"interactive":true},
-  {"slug":"day-001-makers-esp32","batch":"Batch 1","date":"2026-06-04","title":"Day 001 — Makers, ESP32 และ Claude เป็นสนามเล่น","summary":"วันแรกของโรงเรียนเริ่มจากสนามทำของ: Claude, makers, ESP32 และ setup จริง","channels":["maker/hardware area","setup area","satellite/system area"],"signals":["makers","code-with-claude","build-with-claude","claude.com"],"skill":"อ่านสัญญาณจากชื่อหัวข้อและ keyword แล้วแปลงเป็นสนามฝึก","quiz":"ถ้าหัวข้อมีทั้ง makers + ESP32 + build-with-claude ควรจัดเป็นบทเรียนแนวไหน?","answer":"บทเรียนแบบทำของจริง/โปรเจกต์ทดลอง ไม่ใช่บทนิยามอย่างเดียว","tags":["hardware","claude","makers"],"interactive":false},
-  {"slug":"atlas-discordjs-voice","batch":"Batch 1","date":"2026-06-07","title":"Atlas / Discord.js / Voice — Oracle ต้องมี runtime ไม่ใช่แค่ prompt","summary":"Oracle ที่ดีต้องมี runtime, connector, voice/websocket และเครื่องมือคุมงาน ไม่ใช่ prompt อย่างเดียว","channels":["public classroom chat","oracle lab area","audio/lounge area"],"signals":["atlas","discord.js","websocket","voice","maw"],"skill":"แยกตัวตนของ Oracle ออกจาก transport/runtime ที่พามันทำงานจริง","quiz":"ถ้า Oracle ตอบได้ในแชท แต่เข้า voice/websocket ไม่ได้ ปัญหาน่าจะอยู่ชั้นไหน?","answer":"ชั้น runtime/transport ไม่ใช่ชั้น personality อย่างเดียว","tags":["runtime","discord","voice"],"interactive":false},
-  {"slug":"workshop-awaken-reply-rules","batch":"Batch 1","date":"2026-06-08","title":"Workshop / Awaken / Reply Rules — เกิด Oracle ต้องมีกติกา","summary":"การทำให้ Oracle เกิดต้องมี protocol: ช่องไหนตอบได้, acknowledge อย่างไร, รักษาบริบทอย่างไร","channels":["public classroom chat","oracle room","rules/context area"],"signals":["workshop","awaken","acknowledgement","reply","channels"],"skill":"มองการเกิดของ agent เป็น protocol ไม่ใช่พิธีเท่ ๆ อย่างเดียว","quiz":"ทำไมการ awaken agent จึงต้องมี reply/channel rules?","answer":"เพื่อกัน identity drift, ตอบผิดห้อง, และทำให้ behavior พิสูจน์ได้","tags":["awaken","rules","protocol"],"interactive":false},
-  {"slug":"gpu-p2p-parquet-proposals","batch":"Batch 1","date":"2026-06-14","title":"GPU / P2P / Parquet — จากแชทสู่ระบบข้อมูล","summary":"โรงเรียนขยับจากคุยกับบอทไปสู่ data/compute substrate: GPU, P2P, Parquet, dataset, proposal","channels":["public classroom chat","exam/planning area","oracle agents area"],"signals":["gpu","p2p","parquet","proposal","phd-satellite-data","a100"],"skill":"แยกคุยเพื่อช่วยงานออกจากการสร้าง data/compute substrate ให้ทีมใช้ซ้ำ","quiz":"Parquet ในบริบทนี้ช่วยอะไรกับโรงเรียน?","answer":"ช่วยเก็บข้อมูลเชิงตาราง/วิเคราะห์ซ้ำได้ ดีกว่ากองข้อความดิบล้วน ๆ","tags":["gpu","data","p2p"],"interactive":false},
-  {"slug":"netbird-wasm-mesh","batch":"Batch 1","date":"2026-06-16","title":"Netbird / WASM / Mesh — เครือข่ายคือห้องเรียนที่ขยายได้","summary":"หลายเครื่อง/agent ต้องเชื่อมกันปลอดภัยผ่าน mesh/network และรันสิ่งเล็ก ๆ อย่าง WASM ได้","channels":["public classroom chat","bot onboarding area","rules/setup area"],"signals":["netbird","wasm","mesh","setup","client","device"],"skill":"มอง fleet เป็น networked system: identity, client, device, admin, key, mesh ต้องชัด","quiz":"ถ้า agent หลายเครื่องต้องทำงานร่วมกัน คำว่า mesh สำคัญเพราะอะไร?","answer":"เพราะมันทำให้แต่ละเครื่องเจอกัน/สื่อสารกันได้โดยไม่ต้องพึ่ง topology เดียวตายตัว","tags":["network","wasm","fleet"],"interactive":false},
-  {"slug":"esp32-wasm-desk-pet","batch":"Batch 1","date":"2026-06-17","title":"ESP32-WASM Desk Pet — ของเล่นที่กลายเป็นบทเรียนระบบฝังตัว","summary":"Hardware lesson ที่ดีแยก asset pack, filesystem, display driver, runtime และ boot flow ออกจากกัน","channels":["public classroom chat","oracle lab area","agent area"],"signals":["workshop-04-esp32-wasm","gif-wamr","littlefs","ili9xxx","desk-pet"],"skill":"อ่าน hardware project เป็น pipeline: asset → pack → filesystem → runtime → display → interaction","quiz":"ทำไม ESP32 desk pet ต้องสนใจ LittleFS/asset pack?","answer":"เพราะหน้าจอ/animation ต้องมีวิธีเก็บและโหลด asset ที่ predictable บนบอร์ดเล็ก","tags":["esp32","wasm","hardware"],"interactive":false},
-  {"slug":"backfill-midterm-nova-p2p","batch":"Batch 1","date":"2026-06-19 ถึง 2026-06-20","title":"Backfill Midterm / Nova / P2P — ความจำทีมต้องย้อนอดีตได้","summary":"ถ้าไม่มี backfill/sync ที่ดี agent จะตอบจากอดีตไม่ครบ และทีมจะเสีย continuity","channels":["public classroom chat","exam/planning area","bot onboarding area"],"signals":["workshop-05-backfill-midterm","nova","op-node","p2p","sync","chain"],"skill":"คิดแบบ evidence pipeline: backfill → index → retrieve → synthesize → cite","quiz":"ทำไม backfill สำคัญกว่าแค่ gateway live message?","answer":"เพราะ gateway เห็นอนาคตหลังออนไลน์ แต่ backfill ทำให้อดีตกลายเป็นหลักฐานค้นได้","tags":["backfill","memory","p2p"],"interactive":false},
-  {"slug":"dropbox-authkey-p2p-safety","batch":"Batch 2","date":"2026-06-21","title":"Dropbox / AUTH_KEY / P2P — แชร์ไฟล์ได้ แต่ secret ต้องไม่รั่ว","summary":"เชื่อม P2P/Dropbox/CLI ได้ แต่ความสะดวกในการแชร์ต้องไม่กลายเป็นการรั่ว secret","channels":["public classroom chat","bot onboarding area","rules/setup area"],"signals":["dropbox","credential-placeholder","export","profile","phd","bash"],"skill":"แยก config ที่แชร์ได้ออกจาก credential ที่ต้องอยู่ใน env/private storage เท่านั้น","quiz":"ถ้าเอกสารสอนมี credential ควรใส่ค่าจริงไหม?","answer":"ไม่ควร ใส่ placeholder และอธิบายว่าให้โหลดจาก env/private store","tags":["security","p2p","docs"],"interactive":false},
-  {"slug":"gale-framework-fleet-launchers","batch":"Batch 2","date":"2026-06-22","title":"Gale Framework / Launchers — ทำ agent ให้เปิดซ้ำได้อย่างเป็นระบบ","summary":"เมื่อมีหลาย Oracle ต้องมี framework/launcher ให้เปิดซ้ำได้ ไม่ขึ้นกับความจำของคนรัน","channels":["public classroom chat"],"signals":["gale-framework","launchers","fork","env","fleet"],"skill":"มอง launcher เป็น contract: env, role, cwd, command, restart boundary ต้องชัด","quiz":"ทำไม launcher ดีกว่าการจำคำสั่งยาว ๆ ในหัว?","answer":"เพราะมันลด human error และทำให้ fleet เปิดซ้ำ/ตรวจซ้ำได้","tags":["fleet","launcher","ops"],"interactive":false},
-  {"slug":"codex-team-shell-hygiene","batch":"Batch 2","date":"2026-06-24","title":"Codex Team / Shell Hygiene — ทีม agent ต้องมีสภาพแวดล้อมสะอาด","summary":"จัด environment ให้ทีม Codex/agent ทำงานได้: shell, nvm, path, command output และลด noise","channels":["public classroom chat","audio/lounge area"],"signals":["codex","team","nvm","sed","echo","dev"],"skill":"ก่อนโทษ model ให้ตรวจ shell/env/path/output contract ก่อน","quiz":"ถ้า agent รันคำสั่งไม่เหมือนใน terminal คน ควรเริ่มตรวจอะไร?","answer":"ตรวจ shell, cwd, PATH, env และ wrapper output ก่อน","tags":["codex","shell","ops"],"interactive":false},
-  {"slug":"esp-webrtc-stt-llm","batch":"Batch 2","date":"2026-06-29","title":"ESP WebRTC / STT / LLM — จาก hardware ไปสู่ voice agent","summary":"เมื่ออุปกรณ์เล็กเริ่มสื่อสารเสียงได้ จะโยงไป STT, LLM และ realtime interaction","channels":["public classroom chat"],"signals":["espressif","esp-webrtc-solution","stt","llm","research"],"skill":"แยก pipeline voice agent: audio capture → transport → STT → LLM → response → device action","quiz":"STT อยู่ตรงไหนใน voice-agent pipeline?","answer":"อยู่ระหว่าง audio input กับ LLM ทำหน้าที่แปลงเสียงเป็นข้อความ","tags":["voice","esp32","llm"],"interactive":false},
-  {"slug":"mirror-index-tfidf-dashboard","batch":"Batch 2","date":"2026-07-03","title":"Mirror Index / TF-IDF Dashboard — จากฐานข้อความสู่แผนที่ความรู้","summary":"index, TF-IDF, dashboard, capture และ deploy ทำให้ความรู้ใน Discord มองเห็นได้","channels":["public classroom chat","audio/lounge area"],"signals":["index","tfidf","capture","deploy","channels","esp32"],"skill":"ออกแบบ dashboard จากคำถาม ไม่ใช่จากกราฟ","quiz":"ถ้าจะรู้ว่าช่วงไหนหัวข้อเปลี่ยน ควรดูอะไรใน dashboard?","answer":"ดู timeline + TF-IDF ต่อช่วงเวลา แล้วค่อยคลิกกลับไปอ่านข้อความจริง","tags":["mirror","dashboard","tf-idf"],"interactive":false},
-  {"slug":"maw-tmux-webhook-control-room","batch":"Batch 2","date":"2026-07-05","title":"MAW / tmux / Webhook Relay — Control Room ต้องเห็นงานที่กำลังวิ่ง","summary":"Control room ต้องมี MAW, tmux, webhook relay, panel และ kill switch เพื่อให้ loop ยาวมองเห็นและหยุดได้","channels":["public classroom chat"],"signals":["maw","tmux","webhook-relay-v3","panel","verb","kill-switch"],"skill":"ระบบ agent ที่ดีต้องมี observe + control: เห็นสถานะ, ส่งคำสั่ง, หยุดเมื่อผิดทาง","quiz":"ทำไม kill switch สำคัญกับ loop ยาว?","answer":"เพราะ loop ยาวอาจวิ่งผิดทางได้นาน ถ้าไม่มีทางหยุดที่ชัดเจนจะเสี่ยงทั้งเวลาและผลลัพธ์","tags":["maw","control-room","ops"],"interactive":false}
+  {
+    "slug": "mirror-not-memory",
+    "batch": "Foundation",
+    "date": "2026-07-08",
+    "title": "Mirror ไม่ใช่ Memory",
+    "summary": "Discord Mirror คือฐานหลักฐานค้นได้ แต่ไม่ใช่ความทรงจำเต็มรูปแบบของห้องเรียน",
+    "channels": [
+      "public classroom chat"
+    ],
+    "signals": [
+      "backfill",
+      "FTS5",
+      "TF-IDF",
+      "judgment"
+    ],
+    "skill": "แยกฐานหลักฐานออกจากความทรงจำและการตีความบริบท",
+    "quiz": "ถ้าถามว่าข้อความไหนมีคำนี้ ควรใช้ FTS5 หรือ TF-IDF?",
+    "answer": "FTS5 เหมาะกับการค้นข้อความที่มีคำตรง ๆ",
+    "tags": [
+      "mirror",
+      "memory",
+      "search"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Mirror คือสมุดจดคำพูด ไม่ใช่ความทรงจำทั้งห้อง",
+      "why": "ถ้าสับสนสองอย่างนี้ เราจะเชื่อฐานข้อมูลมากเกินไป แล้วลืมถามว่า “ตอนนั้นบริบทคืออะไร”",
+      "metaphor": "เหมือนกล้องวงจรปิด: เห็นเหตุการณ์ แต่ไม่รู้ทุกความรู้สึกของคนในห้อง",
+      "try": "ลองแยกคำถามว่าอันไหนต้องค้นข้อความ และอันไหนต้องใช้การตีความ"
+    }
+  },
+  {
+    "slug": "tf-idf-mini-lab",
+    "batch": "Foundation",
+    "date": "2026-07-08",
+    "title": "TF-IDF Mini Lab",
+    "summary": "TF-IDF ช่วยดูว่าคำไหนเด่นในช่วงนี้ เมื่อเทียบกับช่วงอื่น",
+    "channels": [
+      "public classroom chat"
+    ],
+    "signals": [
+      "TF-IDF",
+      "topic",
+      "salience",
+      "timeline"
+    ],
+    "skill": "ใช้ TF-IDF เป็นเรดาร์หัวข้อ แล้วใช้ FTS5 กลับไปพิสูจน์ข้อความจริง",
+    "quiz": "ถ้ามี mirror ทั้งเดือนและอยากรู้ว่าสัปดาห์นี้หมกมุ่นเรื่องอะไร ควรเริ่มจากอะไร?",
+    "answer": "TF-IDF ต่อช่วงเวลา แล้วค่อยใช้ FTS5 ตรวจหลักฐานจริง",
+    "tags": [
+      "tf-idf",
+      "mirror",
+      "interactive"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "TF-IDF คือปากกาไฮไลต์ที่บอกว่า “คำนี้เด่นกว่าปกติ”",
+      "why": "มันช่วยหาเรื่องที่ห้องกำลังสนใจ โดยไม่ต้องอ่านแชททั้งหมดทีละบรรทัด",
+      "metaphor": "เหมือนดูเมนูที่ถูกวงปากกาแดง: ไม่ใช่ทุกคำที่มี แต่คือคำที่ควรสนใจ",
+      "try": "ดูตาราง 3 ช่วง แล้วตอบว่าช่วงไหนพูดเรื่อง topic/tfidf เด่นที่สุด"
+    }
+  },
+  {
+    "slug": "day-001-makers-esp32",
+    "batch": "Batch 1",
+    "date": "2026-06-04",
+    "title": "Day 001 — Makers, ESP32 และ Claude เป็นสนามเล่น",
+    "summary": "วันแรกของโรงเรียนเริ่มจากสนามทำของ: Claude, makers, ESP32 และ setup จริง",
+    "channels": [
+      "maker/hardware area",
+      "setup area",
+      "satellite/system area"
+    ],
+    "signals": [
+      "makers",
+      "code-with-claude",
+      "build-with-claude",
+      "claude.com"
+    ],
+    "skill": "อ่านสัญญาณจากชื่อหัวข้อและ keyword แล้วแปลงเป็นสนามฝึก",
+    "quiz": "ถ้าหัวข้อมีทั้ง makers + ESP32 + build-with-claude ควรจัดเป็นบทเรียนแนวไหน?",
+    "answer": "บทเรียนแบบทำของจริง/โปรเจกต์ทดลอง ไม่ใช่บทนิยามอย่างเดียว",
+    "tags": [
+      "hardware",
+      "claude",
+      "makers"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "วันแรกคือ “จับของจริงก่อน” ไม่ใช่นั่งจำศัพท์",
+      "why": "การเรียน AI/Oracle จะติดหัวกว่าถ้าเริ่มจากของที่จับต้องได้ เช่น ESP32 หรือหน้าเว็บที่กดได้",
+      "metaphor": "เหมือนเรียนทำอาหาร: อ่านสูตรช่วยได้ แต่ต้องจับกระทะจริงถึงจะเข้าใจไฟ",
+      "try": "เลือกของหนึ่งอย่างที่อยากทำ แล้วเขียนว่า input → process → output คืออะไร"
+    }
+  },
+  {
+    "slug": "atlas-discordjs-voice",
+    "batch": "Batch 1",
+    "date": "2026-06-07",
+    "title": "Atlas / Discord.js / Voice — Oracle ต้องมี runtime ไม่ใช่แค่ prompt",
+    "summary": "Oracle ที่ดีต้องมี runtime, connector, voice/websocket และเครื่องมือคุมงาน ไม่ใช่ prompt อย่างเดียว",
+    "channels": [
+      "public classroom chat",
+      "oracle lab area",
+      "audio/lounge area"
+    ],
+    "signals": [
+      "atlas",
+      "discord.js",
+      "websocket",
+      "voice",
+      "maw"
+    ],
+    "skill": "แยกตัวตนของ Oracle ออกจาก transport/runtime ที่พามันทำงานจริง",
+    "quiz": "ถ้า Oracle ตอบได้ในแชท แต่เข้า voice/websocket ไม่ได้ ปัญหาน่าจะอยู่ชั้นไหน?",
+    "answer": "ชั้น runtime/transport ไม่ใช่ชั้น personality อย่างเดียว",
+    "tags": [
+      "runtime",
+      "discord",
+      "voice"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Oracle ไม่ได้มีแค่สมอง มันต้องมีร่างกายที่ต่อกับโลกได้",
+      "why": "ถ้า agent ไม่มี runtime/connector มันจะเก่งในแชทแต่ทำงานจริงไม่ได้",
+      "metaphor": "เหมือนคนเก่งที่ไม่มีมือ ไม่มีโทรศัพท์ ไม่มีประตูออกจากห้อง",
+      "try": "แยกงานหนึ่งงานเป็น personality, runtime, transport, tool"
+    }
+  },
+  {
+    "slug": "workshop-awaken-reply-rules",
+    "batch": "Batch 1",
+    "date": "2026-06-08",
+    "title": "Workshop / Awaken / Reply Rules — เกิด Oracle ต้องมีกติกา",
+    "summary": "การทำให้ Oracle เกิดต้องมี protocol: ช่องไหนตอบได้, acknowledge อย่างไร, รักษาบริบทอย่างไร",
+    "channels": [
+      "public classroom chat",
+      "oracle room",
+      "rules/context area"
+    ],
+    "signals": [
+      "workshop",
+      "awaken",
+      "acknowledgement",
+      "reply",
+      "channels"
+    ],
+    "skill": "มองการเกิดของ agent เป็น protocol ไม่ใช่พิธีเท่ ๆ อย่างเดียว",
+    "quiz": "ทำไมการ awaken agent จึงต้องมี reply/channel rules?",
+    "answer": "เพื่อกัน identity drift, ตอบผิดห้อง, และทำให้ behavior พิสูจน์ได้",
+    "tags": [
+      "awaken",
+      "rules",
+      "protocol"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "การปลุก Oracle ต้องมีกติกา ไม่งั้นมันตอบผิดที่ผิดเวลา",
+      "why": "กติกาช่วยให้ agent รู้ว่าใครเรียกได้ ห้องไหนตอบได้ และต้องอ้างหลักฐานอย่างไร",
+      "metaphor": "เหมือนนักเรียนใหม่เข้าห้อง ต้องรู้ตารางเรียน ที่นั่ง และมารยาทก่อนเริ่มพูด",
+      "try": "เขียนกฎ 3 ข้อให้ agent ตัวหนึ่ง: ใครเรียกได้, ตอบที่ไหน, ห้ามทำอะไร"
+    }
+  },
+  {
+    "slug": "gpu-p2p-parquet-proposals",
+    "batch": "Batch 1",
+    "date": "2026-06-14",
+    "title": "GPU / P2P / Parquet — จากแชทสู่ระบบข้อมูล",
+    "summary": "โรงเรียนขยับจากคุยกับบอทไปสู่ data/compute substrate: GPU, P2P, Parquet, dataset, proposal",
+    "channels": [
+      "public classroom chat",
+      "exam/planning area",
+      "oracle agents area"
+    ],
+    "signals": [
+      "gpu",
+      "p2p",
+      "parquet",
+      "proposal",
+      "phd-satellite-data",
+      "a100"
+    ],
+    "skill": "แยกคุยเพื่อช่วยงานออกจากการสร้าง data/compute substrate ให้ทีมใช้ซ้ำ",
+    "quiz": "Parquet ในบริบทนี้ช่วยอะไรกับโรงเรียน?",
+    "answer": "ช่วยเก็บข้อมูลเชิงตาราง/วิเคราะห์ซ้ำได้ ดีกว่ากองข้อความดิบล้วน ๆ",
+    "tags": [
+      "gpu",
+      "data",
+      "p2p"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "พอทีมโต แชทอย่างเดียวไม่พอ ต้องมีระบบข้อมูลและพลังประมวลผล",
+      "why": "GPU ช่วยคิดหนัก, P2P ช่วยกระจายงาน, Parquet ช่วยเก็บข้อมูลให้วิเคราะห์ซ้ำได้",
+      "metaphor": "เหมือนจากสมุดจดส่วนตัว ย้ายไปเป็นคลังเอกสารกลางที่ทั้งทีมค้นได้",
+      "try": "แยกว่าเรื่องหนึ่งต้องการ compute, storage หรือ network มากที่สุด"
+    }
+  },
+  {
+    "slug": "netbird-wasm-mesh",
+    "batch": "Batch 1",
+    "date": "2026-06-16",
+    "title": "Netbird / WASM / Mesh — เครือข่ายคือห้องเรียนที่ขยายได้",
+    "summary": "หลายเครื่อง/agent ต้องเชื่อมกันปลอดภัยผ่าน mesh/network และรันสิ่งเล็ก ๆ อย่าง WASM ได้",
+    "channels": [
+      "public classroom chat",
+      "bot onboarding area",
+      "rules/setup area"
+    ],
+    "signals": [
+      "netbird",
+      "wasm",
+      "mesh",
+      "setup",
+      "client",
+      "device"
+    ],
+    "skill": "มอง fleet เป็น networked system: identity, client, device, admin, key, mesh ต้องชัด",
+    "quiz": "ถ้า agent หลายเครื่องต้องทำงานร่วมกัน คำว่า mesh สำคัญเพราะอะไร?",
+    "answer": "เพราะมันทำให้แต่ละเครื่องเจอกัน/สื่อสารกันได้โดยไม่ต้องพึ่ง topology เดียวตายตัว",
+    "tags": [
+      "network",
+      "wasm",
+      "fleet"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "หลายเครื่องต้องคุยกันได้อย่างปลอดภัย ก่อนจะเป็น fleet จริง",
+      "why": "ถ้าเครื่องหาไม่เจอหรือ trust กันไม่ได้ งาน agent จะหลุดตั้งแต่ชั้น network",
+      "metaphor": "เหมือนตั้งกลุ่ม walkie-talkie ให้ทุกทีมสื่อสารกันได้ โดยไม่เปิดเสียงให้คนทั้งเมืองฟัง",
+      "try": "วาดจุด 3 จุดแทนเครื่อง แล้วเขียนว่าต้องใช้ identity/key/channel อะไรให้คุยกันได้"
+    }
+  },
+  {
+    "slug": "esp32-wasm-desk-pet",
+    "batch": "Batch 1",
+    "date": "2026-06-17",
+    "title": "ESP32-WASM Desk Pet — ของเล่นที่กลายเป็นบทเรียนระบบฝังตัว",
+    "summary": "Hardware lesson ที่ดีแยก asset pack, filesystem, display driver, runtime และ boot flow ออกจากกัน",
+    "channels": [
+      "public classroom chat",
+      "oracle lab area",
+      "agent area"
+    ],
+    "signals": [
+      "workshop-04-esp32-wasm",
+      "gif-wamr",
+      "littlefs",
+      "ili9xxx",
+      "desk-pet"
+    ],
+    "skill": "อ่าน hardware project เป็น pipeline: asset → pack → filesystem → runtime → display → interaction",
+    "quiz": "ทำไม ESP32 desk pet ต้องสนใจ LittleFS/asset pack?",
+    "answer": "เพราะหน้าจอ/animation ต้องมีวิธีเก็บและโหลด asset ที่ predictable บนบอร์ดเล็ก",
+    "tags": [
+      "esp32",
+      "wasm",
+      "hardware"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Desk pet คือของเล่นที่สอน pipeline ฝังตัวได้ดีมาก",
+      "why": "มันบังคับให้คิดครบตั้งแต่รูปภาพ ไฟล์ หน้าจอ หน่วยความจำ จนถึง loop ที่รันบนบอร์ด",
+      "metaphor": "เหมือนทำตุ๊กตาไขลาน: น่ารักข้างหน้า แต่ข้างในมีเฟืองหลายชั้น",
+      "try": "เรียงลำดับ asset → filesystem → runtime → display → interaction ด้วยคำของตัวเอง"
+    }
+  },
+  {
+    "slug": "backfill-midterm-nova-p2p",
+    "batch": "Batch 1",
+    "date": "2026-06-19 ถึง 2026-06-20",
+    "title": "Backfill Midterm / Nova / P2P — ความจำทีมต้องย้อนอดีตได้",
+    "summary": "ถ้าไม่มี backfill/sync ที่ดี agent จะตอบจากอดีตไม่ครบ และทีมจะเสีย continuity",
+    "channels": [
+      "public classroom chat",
+      "exam/planning area",
+      "bot onboarding area"
+    ],
+    "signals": [
+      "workshop-05-backfill-midterm",
+      "nova",
+      "op-node",
+      "p2p",
+      "sync",
+      "chain"
+    ],
+    "skill": "คิดแบบ evidence pipeline: backfill → index → retrieve → synthesize → cite",
+    "quiz": "ทำไม backfill สำคัญกว่าแค่ gateway live message?",
+    "answer": "เพราะ gateway เห็นอนาคตหลังออนไลน์ แต่ backfill ทำให้อดีตกลายเป็นหลักฐานค้นได้",
+    "tags": [
+      "backfill",
+      "memory",
+      "p2p"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Backfill คือการเอาอดีตกลับมาให้ค้นได้",
+      "why": "ถ้ามีแต่ข้อความหลัง bot ออนไลน์ agent จะจำประวัติห้องผิดและตอบไม่ครบ",
+      "metaphor": "เหมือนย้ายโรงเรียนกลางเทอม ถ้าไม่มีสมุดย้อนหลัง ก็ไม่รู้ว่าครูสอนไปถึงไหนแล้ว",
+      "try": "ถามตัวเองว่า “ข้อมูลนี้มาจาก live gateway หรือ backfill?” ก่อนเชื่อคำตอบ"
+    }
+  },
+  {
+    "slug": "dropbox-authkey-p2p-safety",
+    "batch": "Batch 2",
+    "date": "2026-06-21",
+    "title": "Dropbox / AUTH_KEY / P2P — แชร์ไฟล์ได้ แต่ secret ต้องไม่รั่ว",
+    "summary": "เชื่อม P2P/Dropbox/CLI ได้ แต่ความสะดวกในการแชร์ต้องไม่กลายเป็นการรั่ว secret",
+    "channels": [
+      "public classroom chat",
+      "bot onboarding area",
+      "rules/setup area"
+    ],
+    "signals": [
+      "dropbox",
+      "credential-placeholder",
+      "export",
+      "profile",
+      "phd",
+      "bash"
+    ],
+    "skill": "แยก config ที่แชร์ได้ออกจาก credential ที่ต้องอยู่ใน env/private storage เท่านั้น",
+    "quiz": "ถ้าเอกสารสอนมี credential ควรใส่ค่าจริงไหม?",
+    "answer": "ไม่ควร ใส่ placeholder และอธิบายว่าให้โหลดจาก env/private store",
+    "tags": [
+      "security",
+      "p2p",
+      "docs"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "แชร์ไฟล์ได้ แต่อย่าแชร์กุญแจบ้าน",
+      "why": "หลายระบบพังไม่ใช่เพราะโค้ด แต่เพราะเอา token/key ไปวางในที่ public",
+      "metaphor": "Dropbox คือกล่องเอกสารกลาง ส่วน AUTH_KEY คือกุญแจบ้าน ห้ามแปะไว้หน้ากล่อง",
+      "try": "ดู config หนึ่งไฟล์ แล้วแยกว่าอะไรแชร์ได้ อะไรต้องเป็น placeholder"
+    }
+  },
+  {
+    "slug": "gale-framework-fleet-launchers",
+    "batch": "Batch 2",
+    "date": "2026-06-22",
+    "title": "Gale Framework / Launchers — ทำ agent ให้เปิดซ้ำได้อย่างเป็นระบบ",
+    "summary": "เมื่อมีหลาย Oracle ต้องมี framework/launcher ให้เปิดซ้ำได้ ไม่ขึ้นกับความจำของคนรัน",
+    "channels": [
+      "public classroom chat"
+    ],
+    "signals": [
+      "gale-framework",
+      "launchers",
+      "fork",
+      "env",
+      "fleet"
+    ],
+    "skill": "มอง launcher เป็น contract: env, role, cwd, command, restart boundary ต้องชัด",
+    "quiz": "ทำไม launcher ดีกว่าการจำคำสั่งยาว ๆ ในหัว?",
+    "answer": "เพราะมันลด human error และทำให้ fleet เปิดซ้ำ/ตรวจซ้ำได้",
+    "tags": [
+      "fleet",
+      "launcher",
+      "ops"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Launcher คือปุ่มเปิดงานซ้ำได้ ไม่ต้องจำคาถายาว ๆ",
+      "why": "เมื่อมี agent หลายตัว การพิมพ์คำสั่งมือจะเริ่มผิดง่าย ต้องทำให้เปิดซ้ำได้เหมือนเดิม",
+      "metaphor": "เหมือนทำ remote control แทนการต่อสายไฟเองทุกครั้ง",
+      "try": "เขียน checklist launcher: cwd, env, command, log, stop"
+    }
+  },
+  {
+    "slug": "codex-team-shell-hygiene",
+    "batch": "Batch 2",
+    "date": "2026-06-24",
+    "title": "Codex Team / Shell Hygiene — ทีม agent ต้องมีสภาพแวดล้อมสะอาด",
+    "summary": "จัด environment ให้ทีม Codex/agent ทำงานได้: shell, nvm, path, command output และลด noise",
+    "channels": [
+      "public classroom chat",
+      "audio/lounge area"
+    ],
+    "signals": [
+      "codex",
+      "team",
+      "nvm",
+      "sed",
+      "echo",
+      "dev"
+    ],
+    "skill": "ก่อนโทษ model ให้ตรวจ shell/env/path/output contract ก่อน",
+    "quiz": "ถ้า agent รันคำสั่งไม่เหมือนใน terminal คน ควรเริ่มตรวจอะไร?",
+    "answer": "ตรวจ shell, cwd, PATH, env และ wrapper output ก่อน",
+    "tags": [
+      "codex",
+      "shell",
+      "ops"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "ก่อนโทษ AI ให้เช็กห้องทำงานของมันก่อน",
+      "why": "หลายครั้ง agent ไม่ได้โง่ แต่ shell/path/env ทำให้เห็นโลกไม่เหมือนมนุษย์",
+      "metaphor": "เหมือนให้คนทำอาหาร แต่ครัวอีกห้องไม่มีมีด ไม่มีแก๊ส และวัตถุดิบคนละชุด",
+      "try": "เวลา command พัง ให้เช็ก cwd, PATH, env, permission ตามลำดับ"
+    }
+  },
+  {
+    "slug": "esp-webrtc-stt-llm",
+    "batch": "Batch 2",
+    "date": "2026-06-29",
+    "title": "ESP WebRTC / STT / LLM — จาก hardware ไปสู่ voice agent",
+    "summary": "เมื่ออุปกรณ์เล็กเริ่มสื่อสารเสียงได้ จะโยงไป STT, LLM และ realtime interaction",
+    "channels": [
+      "public classroom chat"
+    ],
+    "signals": [
+      "espressif",
+      "esp-webrtc-solution",
+      "stt",
+      "llm",
+      "research"
+    ],
+    "skill": "แยก pipeline voice agent: audio capture → transport → STT → LLM → response → device action",
+    "quiz": "STT อยู่ตรงไหนใน voice-agent pipeline?",
+    "answer": "อยู่ระหว่าง audio input กับ LLM ทำหน้าที่แปลงเสียงเป็นข้อความ",
+    "tags": [
+      "voice",
+      "esp32",
+      "llm"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Voice agent คือท่อเสียงหลายชั้น ไม่ใช่แค่ LLM พูดได้",
+      "why": "ต้องมี audio capture, network, STT, LLM และการตอบกลับอุปกรณ์ครบ จึงจะใช้งานจริง",
+      "metaphor": "เหมือนล่าม: ฟังเสียง → แปลเป็นข้อความ → คิดคำตอบ → พูดกลับ",
+      "try": "ชี้ว่า STT อยู่ตรงไหนระหว่าง microphone กับ LLM"
+    }
+  },
+  {
+    "slug": "mirror-index-tfidf-dashboard",
+    "batch": "Batch 2",
+    "date": "2026-07-03",
+    "title": "Mirror Index / TF-IDF Dashboard — จากฐานข้อความสู่แผนที่ความรู้",
+    "summary": "index, TF-IDF, dashboard, capture และ deploy ทำให้ความรู้ใน Discord มองเห็นได้",
+    "channels": [
+      "public classroom chat",
+      "audio/lounge area"
+    ],
+    "signals": [
+      "index",
+      "tfidf",
+      "capture",
+      "deploy",
+      "channels",
+      "esp32"
+    ],
+    "skill": "ออกแบบ dashboard จากคำถาม ไม่ใช่จากกราฟ",
+    "quiz": "ถ้าจะรู้ว่าช่วงไหนหัวข้อเปลี่ยน ควรดูอะไรใน dashboard?",
+    "answer": "ดู timeline + TF-IDF ต่อช่วงเวลา แล้วค่อยคลิกกลับไปอ่านข้อความจริง",
+    "tags": [
+      "mirror",
+      "dashboard",
+      "tf-idf"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Dashboard ที่ดีตอบคำถาม ไม่ใช่แค่โชว์กราฟสวย",
+      "why": "ถ้าไม่รู้ว่าต้องหาอะไร กราฟเยอะก็ทำให้หลงทางกว่าเดิม",
+      "metaphor": "เหมือนแผนที่ห้าง: ดีไม่ใช่เพราะสีเยอะ แต่เพราะพาเราไปห้องที่ต้องการได้",
+      "try": "เลือกคำถามหนึ่งข้อ แล้วบอกว่าต้องใช้ search, timeline หรือ TF-IDF"
+    }
+  },
+  {
+    "slug": "maw-tmux-webhook-control-room",
+    "batch": "Batch 2",
+    "date": "2026-07-05",
+    "title": "MAW / tmux / Webhook Relay — Control Room ต้องเห็นงานที่กำลังวิ่ง",
+    "summary": "Control room ต้องมี MAW, tmux, webhook relay, panel และ kill switch เพื่อให้ loop ยาวมองเห็นและหยุดได้",
+    "channels": [
+      "public classroom chat"
+    ],
+    "signals": [
+      "maw",
+      "tmux",
+      "webhook-relay-v3",
+      "panel",
+      "verb",
+      "kill-switch"
+    ],
+    "skill": "ระบบ agent ที่ดีต้องมี observe + control: เห็นสถานะ, ส่งคำสั่ง, หยุดเมื่อผิดทาง",
+    "quiz": "ทำไม kill switch สำคัญกับ loop ยาว?",
+    "answer": "เพราะ loop ยาวอาจวิ่งผิดทางได้นาน ถ้าไม่มีทางหยุดที่ชัดเจนจะเสี่ยงทั้งเวลาและผลลัพธ์",
+    "tags": [
+      "maw",
+      "control-room",
+      "ops"
+    ],
+    "interactive": false,
+    "human": {
+      "plain": "Loop ยาวต้องมีห้องควบคุม ไม่งั้นงานวิ่งหายไปในความมืด",
+      "why": "ระบบ agent ที่ทำงานนานต้องดูสถานะได้ สั่งต่อได้ และหยุดได้เมื่อผิดทาง",
+      "metaphor": "เหมือนโรงงานที่มีปุ่มหยุดฉุกเฉินกับจอมอนิเตอร์ ไม่ใช่ปล่อยเครื่องหมุนเองในห้องปิด",
+      "try": "บอก 3 อย่างที่ control room ต้องมี: status, command, kill switch"
+    }
+  }
 ]
