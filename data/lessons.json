@@ -1469,5 +1469,1032 @@
         "explain": "ถูก บทเรียน Atom Teach Axe ต้องคนเข้าใจก่อน แล้วค่อยลงหลักฐานและเครื่องมือ"
       }
     ]
+  },
+  {
+    "slug": "oracle-school-report-card-interaction",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-05",
+    "title": "SomTor Report Card — ทำข้อมูลโรงเรียนให้อยากอ่าน",
+    "summary": "SomTor ทำ Oracle School Site เป็นสมุดพก/สมุดรายงานผล ทำให้ตัวเลขและบทเรียนกลายเป็นเรื่องเล่าที่คนอยากเลื่อนอ่าน",
+    "channels": [
+      "free-for-all",
+      "SomTor oracle-school-site"
+    ],
+    "signals": [
+      "SomTor",
+      "oracle-school-site",
+      "report-card",
+      "interactive storytelling",
+      "usage time"
+    ],
+    "skill": "แปลงข้อมูลแห้งให้เป็น story + interaction ที่คนอยากสำรวจต่อ",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง SomTor Report Card — ทำข้อมูลโรงเรียนให้อยากอ่าน",
+    "answer": "เว็บเรียนรู้ที่ดีไม่ใช่แค่มีข้อมูล แต่ต้องมีฉาก มีรางวัล มีจังหวะให้คนอยากเล่นต่อ",
+    "tags": [
+      "somtor",
+      "interactive",
+      "storytelling",
+      "school-site"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "เว็บเรียนรู้ที่ดีไม่ใช่แค่มีข้อมูล แต่ต้องมีฉาก มีรางวัล มีจังหวะให้คนอยากเล่นต่อ",
+      "why": "ถ้าเว็บมีแต่ paragraph คนจะอ่านเหมือนเอกสารราชการ แต่ถ้ามี mission/score/badge คนจะรู้สึกว่าได้เล่นและได้ชนะ",
+      "metaphor": "เหมือนสมุดพกนักเรียน: ตัวเลขเดียวกัน แต่พอมีตราปั๊ม เกรด และหมวดวิชา มันกลายเป็นเรื่องเล่า",
+      "try": "ลองหยิบตัวเลข 1 ตัวจากโรงเรียน แล้วเขียนใหม่เป็น “ภารกิจ” ไม่ใช่ “สถิติ”"
+    },
+    "executive": {
+      "headline": "ข้อมูลโรงเรียนต้องถูกเล่าให้เล่นได้ ไม่ใช่กองเป็นตาราง",
+      "brief": "free-for-all แสดงตัวอย่างว่าเว็บความรู้ที่ดีต้องแปลง proof ให้เป็น experience: report card, badges, reveal, score และ story arc โดยยังตรวจสอบที่มาได้",
+      "why_now": "ถ้าเว็บมีแต่ paragraph คนจะอ่านเหมือนเอกสารราชการ แต่ถ้ามี mission/score/badge คนจะรู้สึกว่าได้เล่นและได้ชนะ",
+      "decision_lens": "ลงทุนกับ interaction เมื่อมันทำให้คนเข้าใจเร็วขึ้น อยู่กับเนื้อหานานขึ้น และกลับมาทบทวนเองได้",
+      "takeaway": "จำสั้น ๆ: data ที่ดีควรมีทั้ง proof และ play"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง SomTor Report Card — ทำข้อมูลโรงเรียนให้อยากอ่าน ว่าอะไร?",
+        "options": [
+          "เว็บเรียนรู้ที่ดีไม่ใช่แค่มีข้อมูล แต่ต้องมีฉาก มีรางวัล มีจังหวะให้คนอยากเล่นต่อ",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ แปลงข้อมูลแห้งให้เป็น story + interaction ที่คนอยากสำรวจต่อ ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "แปลงข้อมูลแห้งให้เป็น story + interaction ที่คนอยากสำรวจต่อ",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: แปลงข้อมูลแห้งให้เป็น story + interaction ที่คนอยากสำรวจต่อ"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "github-pages-astro-basepath",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "GitHub Pages + Astro — base path คือกับดัก 404",
+    "summary": "ห้อง free-for-all ไล่แก้ Pages หลายเว็บและเจอ pattern เดิม: เว็บไม่พัง แต่ link พังเพราะลืม /repo-name/",
+    "channels": [
+      "free-for-all",
+      "GitHub Pages deploy discussion"
+    ],
+    "signals": [
+      "GitHub Pages",
+      "Astro",
+      "base path",
+      "404",
+      "gh api"
+    ],
+    "skill": "แยกปัญหา deploy จริงออกจากปัญหา base path/link routing",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง GitHub Pages + Astro — base path คือกับดัก 404",
+    "answer": "GitHub Pages แบบ project site ต้องคิดเสมอว่า root จริงคือ /repo-name/ ไม่ใช่ /",
+    "tags": [
+      "github-pages",
+      "astro",
+      "basepath",
+      "404"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "GitHub Pages แบบ project site ต้องคิดเสมอว่า root จริงคือ /repo-name/ ไม่ใช่ /",
+      "why": "ถ้าลืม base path ผู้ใช้จะเห็น 404 ทั้งที่ build ผ่านและไฟล์มีอยู่จริง ทำให้ทีมเสียเวลาหาสาเหตุผิด",
+      "metaphor": "เหมือนย้ายร้านเข้าไปในห้าง แต่ยังบอกลูกค้าว่าอยู่ริมถนนใหญ่",
+      "try": "ลองดู URL หนึ่งอันแล้วถามว่า link นี้มีชื่อ repo คั่นกลางถูกไหม"
+    },
+    "executive": {
+      "headline": "Pages ผ่านไม่พอ ต้องคลิก route จริงให้ครบ",
+      "brief": "บทเรียนจากห้องคือ Astro/GitHub Pages ต้องมี site/base ที่ตรงกับ repo และต้อง spider link หลัง deploy",
+      "why_now": "ถ้าลืม base path ผู้ใช้จะเห็น 404 ทั้งที่ build ผ่านและไฟล์มีอยู่จริง ทำให้ทีมเสียเวลาหาสาเหตุผิด",
+      "decision_lens": "ถ้าความเสี่ยงคือเว็บ public ดูพัง ให้ gate ด้วย /, /about/, /blog/, /blog.json และ internal spider",
+      "takeaway": "จำสั้น ๆ: project Pages ต้องเคารพ /repo-name/"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง GitHub Pages + Astro — base path คือกับดัก 404 ว่าอะไร?",
+        "options": [
+          "GitHub Pages แบบ project site ต้องคิดเสมอว่า root จริงคือ /repo-name/ ไม่ใช่ /",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ แยกปัญหา deploy จริงออกจากปัญหา base path/link routing ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "แยกปัญหา deploy จริงออกจากปัญหา base path/link routing",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: แยกปัญหา deploy จริงออกจากปัญหา base path/link routing"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "public-blog-repo-boundary",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Public Blog Repo — อย่าเปิด brain repo ทั้งก้อน",
+    "summary": "Gon/SomTor/Tonk/Atom ย้ำ pattern เดียวกัน: brain/private repo เก็บ memory+secret, public repo มีเฉพาะเว็บ/blog ที่เผยแพร่ได้",
+    "channels": [
+      "free-for-all",
+      "Oracle blog deploy thread"
+    ],
+    "signals": [
+      "public repo",
+      "private brain",
+      "secret history",
+      "blog-only repo"
+    ],
+    "skill": "ออกแบบ boundary ระหว่างของเผยแพร่กับของส่วนตัวก่อน deploy",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Public Blog Repo — อย่าเปิด brain repo ทั้งก้อน",
+    "answer": "repo ใหม่สำหรับ blog ปลอดภัยกว่าการเปลี่ยน repo หลักเป็น public เพราะไม่มี secret history ติดมาแต่แรก",
+    "tags": [
+      "security",
+      "public-repo",
+      "blog",
+      "boundary"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "repo ใหม่สำหรับ blog ปลอดภัยกว่าการเปลี่ยน repo หลักเป็น public เพราะไม่มี secret history ติดมาแต่แรก",
+      "why": "ความผิดครั้งเดียวในการเปิด repo ผิดอาจเผย ψ/, config, token หรือประวัติที่ลบยาก",
+      "metaphor": "เหมือนทำหน้าร้านแยกจากห้องเก็บของ ไม่ใช่เปิดโกดังทั้งหลังให้ลูกค้าเดิน",
+      "try": "ลองแบ่งไฟล์ในหัวเป็น “เผยแพร่ได้” กับ “ห้ามออก public” ก่อน push"
+    },
+    "executive": {
+      "headline": "Public surface ต้องเป็น allowlist ไม่ใช่เอาทั้งสมองไปเปิด",
+      "brief": "free-for-all สอนว่า blog-only public repo เป็น default ที่ปลอดภัยสำหรับ Oracle ทุกตัว",
+      "why_now": "ความผิดครั้งเดียวในการเปิด repo ผิดอาจเผย ψ/, config, token หรือประวัติที่ลบยาก",
+      "decision_lens": "ถ้าต้องเปิด Pages ให้ถามก่อนว่า repo นี้มี memory/secret/history ไหม ถ้ามีให้สร้าง repo ใหม่",
+      "takeaway": "จำสั้น ๆ: blog public ได้ แต่ brain ต้อง private"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Public Blog Repo — อย่าเปิด brain repo ทั้งก้อน ว่าอะไร?",
+        "options": [
+          "repo ใหม่สำหรับ blog ปลอดภัยกว่าการเปลี่ยน repo หลักเป็น public เพราะไม่มี secret history ติดมาแต่แรก",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ ออกแบบ boundary ระหว่างของเผยแพร่กับของส่วนตัวก่อน deploy ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "ออกแบบ boundary ระหว่างของเผยแพร่กับของส่วนตัวก่อน deploy",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: ออกแบบ boundary ระหว่างของเผยแพร่กับของส่วนตัวก่อน deploy"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "feed-spec-maw-blog-federation",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "FEED-SPEC + maw blog — บล็อกที่ AI อ่านกันเองได้",
+    "summary": "ห้องเรียนต่อยอดจาก blog.json, blog-md และ maw blog ให้ Oracle อ่านบล็อกของกันและกันผ่าน command line ได้",
+    "channels": [
+      "free-for-all",
+      "maw blog discussion"
+    ],
+    "signals": [
+      "maw blog",
+      "blog.json",
+      "blog-md",
+      "FEED-SPEC",
+      "federation"
+    ],
+    "skill": "เข้าใจว่า feed contract สำคัญกว่า framework ที่ใช้สร้างเว็บ",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง FEED-SPEC + maw blog — บล็อกที่ AI อ่านกันเองได้",
+    "answer": "ถ้าเว็บมี blog.json และ markdown ที่อ่านได้ AI ตัวอื่นก็อ่าน/สรุป/อ้างอิงได้ ไม่จำเป็นต้องใช้ stack เดียวกัน",
+    "tags": [
+      "maw-blog",
+      "feed-spec",
+      "federation",
+      "blog-json"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "ถ้าเว็บมี blog.json และ markdown ที่อ่านได้ AI ตัวอื่นก็อ่าน/สรุป/อ้างอิงได้ ไม่จำเป็นต้องใช้ stack เดียวกัน",
+      "why": "นี่ทำให้ความรู้ของแต่ละ Oracle กลายเป็น network ไม่ใช่หน้าเว็บโดด ๆ",
+      "metaphor": "เหมือนห้องสมุดที่ทุกเล่มมีบัตรรายการมาตรฐาน ทำให้บรรณารักษ์หาเจอหมด",
+      "try": "ลองถามว่าเว็บหนึ่งมี /blog.json ไหม และ field พอให้เครื่องอ่านหรือไม่"
+    },
+    "executive": {
+      "headline": "บล็อกที่ดีต้องอ่านได้ทั้งมนุษย์และ agent",
+      "brief": "free-for-all แสดงว่า ChaiKlang/SomTor และตัวอย่างอื่น ๆ ใช้ FEED-SPEC เป็น protocol กลาง แม้ generator ต่างกัน",
+      "why_now": "นี่ทำให้ความรู้ของแต่ละ Oracle กลายเป็น network ไม่ใช่หน้าเว็บโดด ๆ",
+      "decision_lens": "ถ้าต้องให้ fleet ใช้ความรู้ร่วมกัน ให้ลงทุนกับ feed contract ก่อนแต่งหน้าเว็บ",
+      "takeaway": "จำสั้น ๆ: HTML ให้มนุษย์อ่าน, blog.json ให้ Oracle อ่าน"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง FEED-SPEC + maw blog — บล็อกที่ AI อ่านกันเองได้ ว่าอะไร?",
+        "options": [
+          "ถ้าเว็บมี blog.json และ markdown ที่อ่านได้ AI ตัวอื่นก็อ่าน/สรุป/อ้างอิงได้ ไม่จำเป็นต้องใช้ stack เดียวกัน",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ เข้าใจว่า feed contract สำคัญกว่า framework ที่ใช้สร้างเว็บ ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "เข้าใจว่า feed contract สำคัญกว่า framework ที่ใช้สร้างเว็บ",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: เข้าใจว่า feed contract สำคัญกว่า framework ที่ใช้สร้างเว็บ"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "spider-proof-verify-not-guess",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Spider Proof — 200 หน้าแรกไม่พอ",
+    "summary": "ห้อง free-for-all ใช้ spider และ endpoint checks แยก root, /about/, /blog/, /blog.json, blog-md เพื่อกันเว็บที่เหมือนผ่านแต่คลิกแล้วพัง",
+    "channels": [
+      "free-for-all",
+      "site verification"
+    ],
+    "signals": [
+      "spider",
+      "HTTP 200",
+      "bad links",
+      "redirect",
+      "verify-not-guess"
+    ],
+    "skill": "ตรวจเว็บแบบ path-specific ไม่เหมารวมจากหน้าแรก",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Spider Proof — 200 หน้าแรกไม่พอ",
+    "answer": "เว็บที่ root 200 อาจ redirect หรือมี link ข้างใน 404 ได้ จึงต้อง spider internal links และแยกผลแต่ละ endpoint",
+    "tags": [
+      "verification",
+      "spider",
+      "http",
+      "proof"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "เว็บที่ root 200 อาจ redirect หรือมี link ข้างใน 404 ได้ จึงต้อง spider internal links และแยกผลแต่ละ endpoint",
+      "why": "ถ้าไม่แยก proof ผู้ดูแลจะเข้าใจผิดว่า “เว็บใช้ได้แล้ว” ทั้งที่ผู้ใช้คลิกต่อไม่ได้",
+      "metaphor": "เหมือนตรวจรถแค่สตาร์ทติด แต่ไม่ลองเบรก ไฟเลี้ยว และประตู",
+      "try": "ลองเขียน checklist 5 route ที่ต้องผ่านก่อนประกาศ live"
+    },
+    "executive": {
+      "headline": "สร้าง proof ที่แยก claim กับ verified result ชัดเจน",
+      "brief": "free-for-all มีหลายเคสที่ root ผ่านแต่ path หรือ base path เป็นปัญหา จึงเกิดวัฒนธรรม spider proof",
+      "why_now": "ถ้าไม่แยก proof ผู้ดูแลจะเข้าใจผิดว่า “เว็บใช้ได้แล้ว” ทั้งที่ผู้ใช้คลิกต่อไม่ได้",
+      "decision_lens": "การประกาศ live ควรถูก gate ด้วย route สำคัญและ bad=0 ไม่ใช่แค่ curl หน้าแรก",
+      "takeaway": "จำสั้น ๆ: 200 root ยังไม่ใช่เว็บใช้ได้"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Spider Proof — 200 หน้าแรกไม่พอ ว่าอะไร?",
+        "options": [
+          "เว็บที่ root 200 อาจ redirect หรือมี link ข้างใน 404 ได้ จึงต้อง spider internal links และแยกผลแต่ละ endpoint",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ ตรวจเว็บแบบ path-specific ไม่เหมารวมจากหน้าแรก ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "ตรวจเว็บแบบ path-specific ไม่เหมารวมจากหน้าแรก",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: ตรวจเว็บแบบ path-specific ไม่เหมารวมจากหน้าแรก"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "verification-gap-teamwork",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Verification Gap — เพื่อนตรวจไม่ได้ ไม่ได้แปลว่าของผิด",
+    "summary": "Jizo บาง session มีแค่ read-only tools จึง verify สดไม่ได้ Atom/Orz/Tinky ช่วยปิด gap ด้วย curl/network และบอกข้อจำกัดแยกจากข้อเท็จจริง",
+    "channels": [
+      "free-for-all",
+      "Jizo verification gap"
+    ],
+    "signals": [
+      "tool limits",
+      "cross-check",
+      "curl",
+      "peer review"
+    ],
+    "skill": "อ่านรายงานเพื่อนโดยแยก capability gap ออกจาก failure จริง",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Verification Gap — เพื่อนตรวจไม่ได้ ไม่ได้แปลว่าของผิด",
+    "answer": "ถ้า agent ไม่มี network แล้วบอกว่า verify ไม่ได้ นั่นคือความซื่อสัตย์ ไม่ใช่หลักฐานว่าเว็บพัง",
+    "tags": [
+      "teamwork",
+      "verification-gap",
+      "jizo",
+      "cross-check"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "ถ้า agent ไม่มี network แล้วบอกว่า verify ไม่ได้ นั่นคือความซื่อสัตย์ ไม่ใช่หลักฐานว่าเว็บพัง",
+      "why": "ทีมที่ดีเอาข้อจำกัดของแต่ละตัวมาประกอบกัน ไม่ใช่ให้ตัวเดียวตัดสินทุกอย่าง",
+      "metaphor": "เหมือนหมอคนหนึ่งไม่มีเครื่อง X-ray จึงส่งให้แผนกที่มีเครื่องตรวจต่อ",
+      "try": "ลองอ่านคำว่า “ยังตรวจไม่ได้” แล้วถามว่าขาดเครื่องมืออะไร ไม่ใช่สรุปว่าผิด"
+    },
+    "executive": {
+      "headline": "ประสานงาน proof ระหว่าง agent ที่มี capability ต่างกัน",
+      "brief": "free-for-all แสดง workflow ที่ Jizo sanity-check แล้ว agent ที่มี curl ปิด gap ให้ด้วยหลักฐานสด",
+      "why_now": "ทีมที่ดีเอาข้อจำกัดของแต่ละตัวมาประกอบกัน ไม่ใช่ให้ตัวเดียวตัดสินทุกอย่าง",
+      "decision_lens": "ถ้าจะใช้ multi-agent ให้กำหนดว่าใครเป็น sanity checker ใครเป็น network verifier",
+      "takeaway": "จำสั้น ๆ: verify gap คืองานต่อ ไม่ใช่คำตัดสินสุดท้าย"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Verification Gap — เพื่อนตรวจไม่ได้ ไม่ได้แปลว่าของผิด ว่าอะไร?",
+        "options": [
+          "ถ้า agent ไม่มี network แล้วบอกว่า verify ไม่ได้ นั่นคือความซื่อสัตย์ ไม่ใช่หลักฐานว่าเว็บพัง",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ อ่านรายงานเพื่อนโดยแยก capability gap ออกจาก failure จริง ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "อ่านรายงานเพื่อนโดยแยก capability gap ออกจาก failure จริง",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: อ่านรายงานเพื่อนโดยแยก capability gap ออกจาก failure จริง"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "dark-scrollbar-ui-polish",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Dark Scrollbar — รายละเอียดเล็กที่ทำให้เว็บดูไม่หลุด",
+    "summary": "ครูนัทให้จดจำว่าเว็บพื้นดำ/เข้มไม่ควรมี scrollbar สีขาวตัดพื้น จึงเกิด rule สำหรับ scrollbar เข้าธีม",
+    "channels": [
+      "free-for-all",
+      "UI polish memory"
+    ],
+    "signals": [
+      "dark theme",
+      "scrollbar",
+      "visual polish",
+      "ARRA memory"
+    ],
+    "skill": "มอง UI polish เป็นส่วนหนึ่งของคุณภาพ ไม่ใช่ของแต่งปลายทาง",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Dark Scrollbar — รายละเอียดเล็กที่ทำให้เว็บดูไม่หลุด",
+    "answer": "scrollbar สีขาวบนเว็บดำทำให้ผู้ใช้รู้สึกว่างานยังไม่เนียน แม้เนื้อหาถูกทั้งหมด",
+    "tags": [
+      "ui-polish",
+      "dark-theme",
+      "scrollbar",
+      "memory"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "scrollbar สีขาวบนเว็บดำทำให้ผู้ใช้รู้สึกว่างานยังไม่เนียน แม้เนื้อหาถูกทั้งหมด",
+      "why": "รายละเอียดเล็ก ๆ เป็นสัญญาณว่าทีมตรวจภาพจริง ไม่ใช่แค่ build ผ่าน",
+      "metaphor": "เหมือนใส่สูทดีแต่รองเท้าสีหลุดธีม ทุกคนเห็นทันทีแม้ไม่มีใครบอกก่อน",
+      "try": "ลองเปิดเว็บ dark theme แล้วมอง scrollbar, focus ring, selection color ว่าเข้าธีมหรือไม่"
+    },
+    "executive": {
+      "headline": "ตรวจ visual tokens ให้ครบทั้งพื้นหลัง ขอบ ปุ่ม focus และ scrollbar",
+      "brief": "free-for-all แปลง observation เล็ก ๆ เป็น durable UI rule ผ่าน memory/readback",
+      "why_now": "รายละเอียดเล็ก ๆ เป็นสัญญาณว่าทีมตรวจภาพจริง ไม่ใช่แค่ build ผ่าน",
+      "decision_lens": "ถ้าเว็บเน้นภาพลักษณ์ ต้องมี visual polish checklist ก่อนประกาศ",
+      "takeaway": "จำสั้น ๆ: dark theme ต้อง dark scrollbar"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Dark Scrollbar — รายละเอียดเล็กที่ทำให้เว็บดูไม่หลุด ว่าอะไร?",
+        "options": [
+          "scrollbar สีขาวบนเว็บดำทำให้ผู้ใช้รู้สึกว่างานยังไม่เนียน แม้เนื้อหาถูกทั้งหมด",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ มอง UI polish เป็นส่วนหนึ่งของคุณภาพ ไม่ใช่ของแต่งปลายทาง ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "มอง UI polish เป็นส่วนหนึ่งของคุณภาพ ไม่ใช่ของแต่งปลายทาง",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: มอง UI polish เป็นส่วนหนึ่งของคุณภาพ ไม่ใช่ของแต่งปลายทาง"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "screenshot-proof-visual-evidence",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Screenshot Proof — ถ้าขอดูภาพ ต้องส่งภาพจริง",
+    "summary": "ห้องเรียนย้ำว่าเว็บ live ไม่ควรมีแค่ HTTP proof ถ้าผู้ใช้ขอ capture ต้องมี screenshot จริงที่ตรวจว่าไม่ blank และอ่านได้",
+    "channels": [
+      "free-for-all",
+      "website proof"
+    ],
+    "signals": [
+      "screenshot",
+      "visual sanity",
+      "attachment",
+      "not blank"
+    ],
+    "skill": "แยก technical live proof ออกจาก visual proof ที่มนุษย์ต้องเห็น",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Screenshot Proof — ถ้าขอดูภาพ ต้องส่งภาพจริง",
+    "answer": "HTTP 200 บอกว่า server ตอบ แต่ไม่ได้บอกว่าหน้าสวย อ่านได้ หรือไม่มี layout พัง",
+    "tags": [
+      "screenshot",
+      "visual-proof",
+      "website",
+      "qa"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "HTTP 200 บอกว่า server ตอบ แต่ไม่ได้บอกว่าหน้าสวย อ่านได้ หรือไม่มี layout พัง",
+      "why": "งานเว็บที่ใช้โชว์ครู/ผู้บริหารต้องพิสูจน์ด้วยสายตา ไม่ใช่ header status อย่างเดียว",
+      "metaphor": "เหมือนบอกว่าโปสเตอร์พิมพ์เสร็จ แต่ไม่เคยเปิดดูว่าภาพกลับหัวหรือเปล่า",
+      "try": "ลองทำ checklist: file exists, size > 0, dimensions, not blank, text readable"
+    },
+    "executive": {
+      "headline": "สร้าง visual sanity proof ก่อนสรุปว่าเว็บพร้อมอวด",
+      "brief": "free-for-all มีคำสั่งให้ capture หน้าจอและส่งลิงก์เว็บที่เข้าได้ เป็นมาตรฐานงานเว็บของโรงเรียน",
+      "why_now": "งานเว็บที่ใช้โชว์ครู/ผู้บริหารต้องพิสูจน์ด้วยสายตา ไม่ใช่ header status อย่างเดียว",
+      "decision_lens": "ถ้าเป้าหมายคือให้คนดูเว็บ ต้องตรวจ output แบบคนดูเว็บ",
+      "takeaway": "จำสั้น ๆ: curl พิสูจน์ว่าอยู่, screenshot พิสูจน์ว่าน่าดู"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Screenshot Proof — ถ้าขอดูภาพ ต้องส่งภาพจริง ว่าอะไร?",
+        "options": [
+          "HTTP 200 บอกว่า server ตอบ แต่ไม่ได้บอกว่าหน้าสวย อ่านได้ หรือไม่มี layout พัง",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ แยก technical live proof ออกจาก visual proof ที่มนุษย์ต้องเห็น ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "แยก technical live proof ออกจาก visual proof ที่มนุษย์ต้องเห็น",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: แยก technical live proof ออกจาก visual proof ที่มนุษย์ต้องเห็น"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "static-dynamic-buildtime-pages",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Static Hosting แต่ Dynamic Data — GitHub Pages ไม่ได้รัน server",
+    "summary": "ห้องเรียนแยกความหมาย dynamic ในเว็บ GitHub Pages: เป็น build-time generated เช่น blog.json/route generation ไม่ใช่ server-side runtime",
+    "channels": [
+      "free-for-all",
+      "GitHub Pages architecture"
+    ],
+    "signals": [
+      "static hosting",
+      "build-time",
+      "dynamic data",
+      "blog.json"
+    ],
+    "skill": "อธิบายสถาปัตยกรรม static site โดยไม่สับสนกับ backend runtime",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Static Hosting แต่ Dynamic Data — GitHub Pages ไม่ได้รัน server",
+    "answer": "คำว่า dynamic ทำให้คนเข้าใจผิดได้ ถ้าไม่บอกว่า dynamic เกิดตอน build หรือ runtime",
+    "tags": [
+      "static-site",
+      "dynamic-data",
+      "github-pages",
+      "architecture"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "คำว่า dynamic ทำให้คนเข้าใจผิดได้ ถ้าไม่บอกว่า dynamic เกิดตอน build หรือ runtime",
+      "why": "การเข้าใจข้อนี้ช่วยเลือก deploy target ถูกและ debug ถูกชั้น",
+      "metaphor": "เหมือนทำหนังสือที่มีสารบัญอัตโนมัติตอนพิมพ์ ไม่ใช่หนังสือที่เปลี่ยนตัวเองหลังวางขาย",
+      "try": "ลองถามว่า data นี้ถูกสร้างตอน build หรือถูกคำนวณทุก request"
+    },
+    "executive": {
+      "headline": "แยก build-time generation ออกจาก server-side runtime",
+      "brief": "free-for-all ใช้ blog.json, content collection และ blog-md เป็น dynamic-by-build บน static hosting",
+      "why_now": "การเข้าใจข้อนี้ช่วยเลือก deploy target ถูกและ debug ถูกชั้น",
+      "decision_lens": "ถ้าเว็บต้องมี runtime จริง GitHub Pages อย่างเดียวไม่พอ แต่ถ้าแค่ generate ตอน build ก็พอ",
+      "takeaway": "จำสั้น ๆ: Pages static ได้ แต่ build-time data ยังฉลาดได้"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Static Hosting แต่ Dynamic Data — GitHub Pages ไม่ได้รัน server ว่าอะไร?",
+        "options": [
+          "คำว่า dynamic ทำให้คนเข้าใจผิดได้ ถ้าไม่บอกว่า dynamic เกิดตอน build หรือ runtime",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ อธิบายสถาปัตยกรรม static site โดยไม่สับสนกับ backend runtime ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "อธิบายสถาปัตยกรรม static site โดยไม่สับสนกับ backend runtime",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: อธิบายสถาปัตยกรรม static site โดยไม่สับสนกับ backend runtime"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "oracle-census-counting-with-proof",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-05",
+    "title": "Oracle Census — ตัวเลขต้องมีสูตร ไม่ใช่เลขลอย",
+    "summary": "ห้องเรียนเคย converge ตัวเลขประชากร Oracle ด้วยการนับใบสมัคร หักซ้ำ และเทียบหลายแหล่ง แสดงว่าสถิติต้องมีที่มา",
+    "channels": [
+      "free-for-all",
+      "Oracle school census"
+    ],
+    "signals": [
+      "715",
+      "counting",
+      "dedupe",
+      "source-backed numbers"
+    ],
+    "skill": "อ่านตัวเลขใหญ่โดยถามวิธีนับและขอบเขตเสมอ",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Oracle Census — ตัวเลขต้องมีสูตร ไม่ใช่เลขลอย",
+    "answer": "เลขเดียวกันอาจต่างกันเพราะนิยามซ้ำ/ไม่ซ้ำหรือช่วงเวลาที่นับ จึงต้องบอกสูตรและ scope",
+    "tags": [
+      "metrics",
+      "census",
+      "dedupe",
+      "proof"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "เลขเดียวกันอาจต่างกันเพราะนิยามซ้ำ/ไม่ซ้ำหรือช่วงเวลาที่นับ จึงต้องบอกสูตรและ scope",
+      "why": "ผู้บริหารเชื่อ dashboard ได้ก็ต่อเมื่อรู้ว่าตัวเลขเกิดจากอะไร",
+      "metaphor": "เหมือนนับนักเรียน: ต้องรู้ว่าบัตรสมัครซ้ำกี่ใบ ไม่ใช่นับกองกระดาษตรงหน้า",
+      "try": "ลองเขียนตัวเลขหนึ่งตัวพร้อมสูตร เช่น total - duplicates = unique"
+    },
+    "executive": {
+      "headline": "อธิบาย metric พร้อม scope, formula และ limitation",
+      "brief": "free-for-all สอนให้ตัวเลขสำคัญต้องมี evidence และพร้อมให้เทียบ diff รายบรรทัด",
+      "why_now": "ผู้บริหารเชื่อ dashboard ได้ก็ต่อเมื่อรู้ว่าตัวเลขเกิดจากอะไร",
+      "decision_lens": "ถ้าต้องโชว์สถิติในเว็บเรียนรู้ ให้โชว์วิธีคิดใกล้ตัวเลข ไม่ซ่อนไว้ท้ายหน้า",
+      "takeaway": "จำสั้น ๆ: ตัวเลขที่ไม่มีวิธีนับคือคำโฆษณา"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Oracle Census — ตัวเลขต้องมีสูตร ไม่ใช่เลขลอย ว่าอะไร?",
+        "options": [
+          "เลขเดียวกันอาจต่างกันเพราะนิยามซ้ำ/ไม่ซ้ำหรือช่วงเวลาที่นับ จึงต้องบอกสูตรและ scope",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ อ่านตัวเลขใหญ่โดยถามวิธีนับและขอบเขตเสมอ ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "อ่านตัวเลขใหญ่โดยถามวิธีนับและขอบเขตเสมอ",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: อ่านตัวเลขใหญ่โดยถามวิธีนับและขอบเขตเสมอ"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "voice-scribe-two-bot-learning-loop",
+    "batch": "Batch 3 · Free-for-all Proof Labs",
+    "date": "2026-07-08",
+    "title": "Two-Bot Voice Scribe — จากเสียงสดสู่บทเรียนที่ค้นได้",
+    "summary": "SomTor blog/feed พูดถึงระบบจดเสียง Discord แบบ two-bot voice scribe ซึ่งเป็นตัวอย่างการแปลงเหตุการณ์สดเป็นความรู้ที่นำกลับมาเรียนได้",
+    "channels": [
+      "free-for-all",
+      "SomTor blog feed"
+    ],
+    "signals": [
+      "voice scribe",
+      "Discord voice",
+      "transcript",
+      "knowledge loop"
+    ],
+    "skill": "เห็นภาพ pipeline จากเหตุการณ์สด → transcript → summary → lesson",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Two-Bot Voice Scribe — จากเสียงสดสู่บทเรียนที่ค้นได้",
+    "answer": "ความรู้ในโรงเรียนไม่ได้อยู่แค่ text chat เสียงประชุมก็เป็น evidence ได้ถ้า capture อย่างมีระบบ",
+    "tags": [
+      "voice",
+      "scribe",
+      "transcript",
+      "learning-loop"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "ความรู้ในโรงเรียนไม่ได้อยู่แค่ text chat เสียงประชุมก็เป็น evidence ได้ถ้า capture อย่างมีระบบ",
+      "why": "ถ้าไม่มี pipeline จดเสียง ความรู้จะหายไปหลังประชุมจบ",
+      "metaphor": "เหมือนมีเลขาห้องเรียนที่จดทุกคำแล้วทำสารบัญให้กลับมาค้นได้",
+      "try": "ลองวาด flow 4 ช่อง: voice → transcript → summary → searchable lesson"
+    },
+    "executive": {
+      "headline": "ออกแบบ knowledge loop จากสื่อสดให้กลับมาสอนได้",
+      "brief": "free-for-all เชื่อมงาน blog/maw กับตัวอย่าง voice scribe เพื่อให้ความรู้ถูกอ่านต่อโดยคนและ agent",
+      "why_now": "ถ้าไม่มี pipeline จดเสียง ความรู้จะหายไปหลังประชุมจบ",
+      "decision_lens": "ถ้าต้องเพิ่ม coverage ของโรงเรียน ต้องคิดทั้งข้อความ เสียง repo และเว็บ proof",
+      "takeaway": "จำสั้น ๆ: ความรู้สดต้องมีทางกลับมาเป็นบทเรียน"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Two-Bot Voice Scribe — จากเสียงสดสู่บทเรียนที่ค้นได้ ว่าอะไร?",
+        "options": [
+          "ความรู้ในโรงเรียนไม่ได้อยู่แค่ text chat เสียงประชุมก็เป็น evidence ได้ถ้า capture อย่างมีระบบ",
+          "จำชื่อ command ให้ครบก่อนเข้าใจภาพใหญ่",
+          "ใช้ความรู้สึกแทนหลักฐานได้ถ้าคนในห้องเห็นด้วย"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ เห็นภาพ pipeline จากเหตุการณ์สด → transcript → summary → lesson ไม่ใช่ท่องศัพท์หรือเดาจากบรรยากาศ"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบและ decision ที่ต้องทำ",
+          "รายละเอียด implementation ก่อน",
+          "ข้อความ Discord ดิบทั้งหมด"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากภาพใหญ่และผลกระทบก่อน แล้วค่อยให้หลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "เห็นภาพ pipeline จากเหตุการณ์สด → transcript → summary → lesson",
+          "เปิดเว็บแล้วจำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: เห็นภาพ pipeline จากเหตุการณ์สด → transcript → summary → lesson"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าเสร็จโดยยังไม่ได้พิสูจน์จุดสำคัญ",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
   }
 ]

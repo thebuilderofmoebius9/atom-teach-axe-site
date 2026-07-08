@@ -11,136 +11,255 @@
 <main class="wrap">
   <section class="hero hero-split">
     <div>
-      <span class="badge">Atom Teach Axe · Cozy Quest Academy</span>
-      <h1>เรียนเรื่องยากแบบเกมเควส: อ่านง่าย เล่น quiz ได้ ไม่เครียด</h1>
-      <p>บรรยากาศสนามเด็กเล่นผสม RPG academy: บทเรียนสั้นแบบผู้บริหาร หลักฐาน public-safe และ quiz 5 ข้อต่อบทสำหรับเช็คความเข้าใจ</p>
+      <span class="badge">Atom Teach Axe · Quest Arcade</span>
+      <h1>สนามเล่นความรู้จาก Oracle School: อ่านสั้น เล่น quiz เก็บ XP</h1>
+      <p>เว็บนี้แปลงสิ่งที่เรียนใน free-for-all ให้เป็นเควส interactive: executive brief, public-safe evidence, glossary, boss quiz, progress badge และ arcade loop ที่ชวนเล่นต่อ</p>
       <nav class="nav" aria-label="ทางลัดบทเรียน">
         <a href="lessons/tf-idf-mini-lab/">เริ่ม TF-IDF Mini Lab</a>
+        <a href="lessons/oracle-school-report-card-interaction/">SomTor Report Card</a>
+        <a href="lessons/spider-proof-verify-not-guess/">Spider Proof</a>
         <a href="lessons/mirror-not-memory/">Mirror ≠ Memory</a>
         <a href="glossary/">Glossary</a>
         <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a>
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>15</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>75</b><span>XP checks</span></div>
+      <div class="stat"><b>26</b><span>เควสเรียนรู้</span></div>
+      <div class="stat"><b>130</b><span>XP checks</span></div>
+      <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>37</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
     </div>
   </section>
+  <section class="arcade-console" aria-label="Quest Console">
+    <div>
+      <p class="eyebrow">Quest Console</p>
+      <h2>เลือกเล่นตามอารมณ์</h2>
+      <p>ค้นหา กรองหัวข้อ หรือสุ่มเควสใหม่ ถ้าตอบ quiz ผ่าน เว็บจะจำ progress ไว้ในเครื่องนี้</p>
+    </div>
+    <div class="console-actions">
+      <label class="search-box"><span>ค้นหาเควส</span><input id="quest-search" type="search" placeholder="เช่น tmux, GitHub Pages, SomTor, spider"></label>
+      <button class="button" id="random-quest" type="button">สุ่มเควส</button>
+      <button class="button ghost" id="reset-progress" type="button">ล้าง XP</button>
+    </div>
+    <div class="coverage-grid"><button class="coverage-chip" type="button" data-filter="Mirror + Search"><b>Mirror + Search</b><span>FTS5, TF-IDF, backfill, dashboard</span></button><button class="coverage-chip" type="button" data-filter="Hardware + Voice"><b>Hardware + Voice</b><span>ESP32, WebRTC, STT/LLM, voice scribe</span></button><button class="coverage-chip" type="button" data-filter="Fleet Ops"><b>Fleet Ops</b><span>tmux, MAW, webhook relay, launchers</span></button><button class="coverage-chip" type="button" data-filter="Public Web"><b>Public Web</b><span>GitHub Pages, Astro, base path, spider proof</span></button><button class="coverage-chip" type="button" data-filter="Oracle Blog Network"><b>Oracle Blog Network</b><span>blog.json, FEED-SPEC, maw blog, blog-md</span></button><button class="coverage-chip" type="button" data-filter="Safety + Proof"><b>Safety + Proof</b><span>public repo boundary, secret scan, screenshot proof</span></button><button class="coverage-chip" type="button" data-filter="UI/UX Lessons"><b>UI/UX Lessons</b><span>dark scrollbar, playful learning, report-card storytelling</span></button></div>
+  </section>
   <section class="section three-steps">
     <div class="section-head"><p class="eyebrow">เริ่มเล่น</p><h2>วิธีเล่น</h2></div>
-    <div class="grid"><div class="card"><h3>1 · อ่านเควสหลัก</h3><p>เริ่มจาก Executive Brief และ “จำแบบนี้” ก่อน ไม่เริ่มจากศัพท์เทคนิค</p></div><div class="card"><h3>2 · เก็บหลักฐาน</h3><p>หลักฐานจาก mirror อยู่ในโหมด signals only เพื่อให้เห็นที่มาโดยไม่เผยข้อความดิบ</p></div><div class="card"><h3>3 · ตอบ Quiz เก็บ XP</h3><p>ตอบ 5 ข้อท้ายบท ระบบ feedback ทันทีว่าเข้าใจถูกจุดไหม</p></div></div>
+    <div class="grid"><div class="card"><h3>1 · อ่าน Mission Brief</h3><p>เริ่มจากภาพใหญ่แบบผู้บริหารก่อน ไม่เริ่มจากศัพท์เทคนิค</p></div><div class="card"><h3>2 · แตะหลักฐาน</h3><p>หลักฐานจาก mirror อยู่ในโหมด signals only เพื่อให้เห็นที่มาโดยไม่เผยข้อความดิบ</p></div><div class="card"><h3>3 · ตอบ Boss Quiz</h3><p>ตอบ 5 ข้อท้ายบท ระบบ feedback ทันทีและบันทึก XP เมื่อผ่าน</p></div></div>
   </section>
-  <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning: เห็นภาพใหญ่ ตัดสินใจได้ และถามต่อเป็น · ถ้างงศัพท์อย่าง tmux/shell/webhook ให้เปิด <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a></section>
-  <section class="section"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Foundation</h2></div><div class="lesson-grid">
-      <article class="lesson-card">
+  <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning playground: เห็นภาพใหญ่ ตัดสินใจได้ เล่น quiz แล้วกลับมาทวนได้ · ถ้างงศัพท์อย่าง tmux/shell/webhook ให้เปิด <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a></section>
+  <section class="section quest-zone" data-zone="Foundation"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Foundation</h2><span class="zone-count">2 quests</span></div><div class="lesson-grid">
+      <article class="lesson-card" data-lesson-card data-slug="mirror-not-memory" data-search="mirror ไม่ใช่ memory discord mirror คือฐานหลักฐานค้นได้ แต่ไม่ใช่ความทรงจำเต็มรูปแบบของห้องเรียน foundation backfill fts5 tf-idf judgment mirror memory search">
         <div class="kicker">2026-07-08 · Foundation</div>
         <h3>Mirror ไม่ใช่ Memory</h3>
         <p>Mirror คือสมุดจดคำพูด ไม่ใช่ความทรงจำทั้งห้อง</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="mirror-not-memory">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/mirror-not-memory/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="tf-idf-mini-lab" data-search="tf-idf mini lab tf-idf ช่วยดูว่าคำไหนเด่นในช่วงนี้ เมื่อเทียบกับช่วงอื่น foundation tf-idf topic salience timeline tf-idf mirror interactive">
         <div class="kicker">2026-07-08 · Foundation</div>
         <h3>TF-IDF Mini Lab</h3>
         <p>TF-IDF คือปากกาไฮไลต์ที่บอกว่า “คำนี้เด่นกว่าปกติ”</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="tf-idf-mini-lab">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/tf-idf-mini-lab/">เปิดเควส</a>
-      </article></div></section><section class="section"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Batch 1</h2></div><div class="lesson-grid">
-      <article class="lesson-card">
+      </article></div></section><section class="section quest-zone" data-zone="Batch 1"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Batch 1</h2><span class="zone-count">7 quests</span></div><div class="lesson-grid">
+      <article class="lesson-card" data-lesson-card data-slug="day-001-makers-esp32" data-search="day 001 — makers, esp32 และ claude เป็นสนามเล่น วันแรกของโรงเรียนเริ่มจากสนามทำของ: claude, makers, esp32 และ setup จริง batch 1 makers code-with-claude build-with-claude claude.com hardware claude makers">
         <div class="kicker">2026-06-04 · Batch 1</div>
         <h3>Day 001 — Makers, ESP32 และ Claude เป็นสนามเล่น</h3>
         <p>วันแรกคือ “จับของจริงก่อน” ไม่ใช่นั่งจำศัพท์</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="day-001-makers-esp32">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/day-001-makers-esp32/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="atlas-discordjs-voice" data-search="atlas / discord.js / voice — oracle ต้องมี runtime ไม่ใช่แค่ prompt oracle ที่ดีต้องมี runtime, connector, voice/websocket และเครื่องมือคุมงาน ไม่ใช่ prompt อย่างเดียว batch 1 atlas discord.js websocket voice maw runtime discord voice">
         <div class="kicker">2026-06-07 · Batch 1</div>
         <h3>Atlas / Discord.js / Voice — Oracle ต้องมี runtime ไม่ใช่แค่ prompt</h3>
         <p>Oracle ไม่ได้มีแค่สมอง มันต้องมีร่างกายที่ต่อกับโลกได้</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="atlas-discordjs-voice">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/atlas-discordjs-voice/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="workshop-awaken-reply-rules" data-search="workshop / awaken / reply rules — เกิด oracle ต้องมีกติกา การทำให้ oracle เกิดต้องมี protocol: ช่องไหนตอบได้, acknowledge อย่างไร, รักษาบริบทอย่างไร batch 1 workshop awaken acknowledgement reply channels awaken rules protocol">
         <div class="kicker">2026-06-08 · Batch 1</div>
         <h3>Workshop / Awaken / Reply Rules — เกิด Oracle ต้องมีกติกา</h3>
         <p>การปลุก Oracle ต้องมีกติกา ไม่งั้นมันตอบผิดที่ผิดเวลา</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="workshop-awaken-reply-rules">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/workshop-awaken-reply-rules/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="gpu-p2p-parquet-proposals" data-search="gpu / p2p / parquet — จากแชทสู่ระบบข้อมูล โรงเรียนขยับจากคุยกับบอทไปสู่ data/compute substrate: gpu, p2p, parquet, dataset, proposal batch 1 gpu p2p parquet proposal phd-satellite-data a100 gpu data p2p">
         <div class="kicker">2026-06-14 · Batch 1</div>
         <h3>GPU / P2P / Parquet — จากแชทสู่ระบบข้อมูล</h3>
         <p>พอทีมโต แชทอย่างเดียวไม่พอ ต้องมีระบบข้อมูลและพลังประมวลผล</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="gpu-p2p-parquet-proposals">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/gpu-p2p-parquet-proposals/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="netbird-wasm-mesh" data-search="netbird / wasm / mesh — เครือข่ายคือห้องเรียนที่ขยายได้ หลายเครื่อง/agent ต้องเชื่อมกันปลอดภัยผ่าน mesh/network และรันสิ่งเล็ก ๆ อย่าง wasm ได้ batch 1 netbird wasm mesh setup client device network wasm fleet">
         <div class="kicker">2026-06-16 · Batch 1</div>
         <h3>Netbird / WASM / Mesh — เครือข่ายคือห้องเรียนที่ขยายได้</h3>
         <p>หลายเครื่องต้องคุยกันได้อย่างปลอดภัย ก่อนจะเป็น fleet จริง</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="netbird-wasm-mesh">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/netbird-wasm-mesh/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="esp32-wasm-desk-pet" data-search="esp32-wasm desk pet — ของเล่นที่กลายเป็นบทเรียนระบบฝังตัว hardware lesson ที่ดีแยก asset pack, filesystem, display driver, runtime และ boot flow ออกจากกัน batch 1 workshop-04-esp32-wasm gif-wamr littlefs ili9xxx desk-pet esp32 wasm hardware">
         <div class="kicker">2026-06-17 · Batch 1</div>
         <h3>ESP32-WASM Desk Pet — ของเล่นที่กลายเป็นบทเรียนระบบฝังตัว</h3>
         <p>Desk pet คือของเล่นที่สอน pipeline ฝังตัวได้ดีมาก</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="esp32-wasm-desk-pet">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/esp32-wasm-desk-pet/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="backfill-midterm-nova-p2p" data-search="backfill midterm / nova / p2p — ความจำทีมต้องย้อนอดีตได้ ถ้าไม่มี backfill/sync ที่ดี agent จะตอบจากอดีตไม่ครบ และทีมจะเสีย continuity batch 1 workshop-05-backfill-midterm nova op-node p2p sync chain backfill memory p2p">
         <div class="kicker">2026-06-19 ถึง 2026-06-20 · Batch 1</div>
         <h3>Backfill Midterm / Nova / P2P — ความจำทีมต้องย้อนอดีตได้</h3>
         <p>Backfill คือการเอาอดีตกลับมาให้ค้นได้</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="backfill-midterm-nova-p2p">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/backfill-midterm-nova-p2p/">เปิดเควส</a>
-      </article></div></section><section class="section"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Batch 2</h2></div><div class="lesson-grid">
-      <article class="lesson-card">
+      </article></div></section><section class="section quest-zone" data-zone="Batch 2"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Batch 2</h2><span class="zone-count">6 quests</span></div><div class="lesson-grid">
+      <article class="lesson-card" data-lesson-card data-slug="dropbox-authkey-p2p-safety" data-search="dropbox / auth_key / p2p — แชร์ไฟล์ได้ แต่ secret ต้องไม่รั่ว เชื่อม p2p/dropbox/cli ได้ แต่ความสะดวกในการแชร์ต้องไม่กลายเป็นการรั่ว secret batch 2 dropbox credential-placeholder export profile phd bash security p2p docs">
         <div class="kicker">2026-06-21 · Batch 2</div>
         <h3>Dropbox / AUTH_KEY / P2P — แชร์ไฟล์ได้ แต่ secret ต้องไม่รั่ว</h3>
         <p>แชร์ไฟล์ได้ แต่อย่าแชร์กุญแจบ้าน</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="dropbox-authkey-p2p-safety">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/dropbox-authkey-p2p-safety/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="gale-framework-fleet-launchers" data-search="gale framework / launchers — ทำ agent ให้เปิดซ้ำได้อย่างเป็นระบบ เมื่อมีหลาย oracle ต้องมี framework/launcher ให้เปิดซ้ำได้ ไม่ขึ้นกับความจำของคนรัน batch 2 gale-framework launchers fork env fleet fleet launcher ops">
         <div class="kicker">2026-06-22 · Batch 2</div>
         <h3>Gale Framework / Launchers — ทำ agent ให้เปิดซ้ำได้อย่างเป็นระบบ</h3>
         <p>Launcher คือปุ่มเปิดงานซ้ำได้ ไม่ต้องจำคาถายาว ๆ</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="gale-framework-fleet-launchers">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/gale-framework-fleet-launchers/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="codex-team-shell-hygiene" data-search="codex team / shell hygiene — ทีม agent ต้องมีสภาพแวดล้อมสะอาด จัด environment ให้ทีม codex/agent ทำงานได้: shell, nvm, path, command output และลด noise batch 2 codex team nvm sed echo dev codex shell ops">
         <div class="kicker">2026-06-24 · Batch 2</div>
         <h3>Codex Team / Shell Hygiene — ทีม agent ต้องมีสภาพแวดล้อมสะอาด</h3>
         <p>ก่อนโทษ AI ให้เช็กห้องทำงานของมันก่อน</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="codex-team-shell-hygiene">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/codex-team-shell-hygiene/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="esp-webrtc-stt-llm" data-search="esp webrtc / stt / llm — จาก hardware ไปสู่ voice agent เมื่ออุปกรณ์เล็กเริ่มสื่อสารเสียงได้ จะโยงไป stt, llm และ realtime interaction batch 2 espressif esp-webrtc-solution stt llm research voice esp32 llm">
         <div class="kicker">2026-06-29 · Batch 2</div>
         <h3>ESP WebRTC / STT / LLM — จาก hardware ไปสู่ voice agent</h3>
         <p>Voice agent คือท่อเสียงหลายชั้น ไม่ใช่แค่ LLM พูดได้</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="esp-webrtc-stt-llm">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/esp-webrtc-stt-llm/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="mirror-index-tfidf-dashboard" data-search="mirror index / tf-idf dashboard — จากฐานข้อความสู่แผนที่ความรู้ index, tf-idf, dashboard, capture และ deploy ทำให้ความรู้ใน discord มองเห็นได้ batch 2 index tfidf capture deploy channels esp32 mirror dashboard tf-idf">
         <div class="kicker">2026-07-03 · Batch 2</div>
         <h3>Mirror Index / TF-IDF Dashboard — จากฐานข้อความสู่แผนที่ความรู้</h3>
         <p>Dashboard ที่ดีตอบคำถาม ไม่ใช่แค่โชว์กราฟสวย</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="mirror-index-tfidf-dashboard">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/mirror-index-tfidf-dashboard/">เปิดเควส</a>
       </article>
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="maw-tmux-webhook-control-room" data-search="maw / tmux / webhook relay — control room ต้องเห็นงานที่กำลังวิ่ง control room ต้องมี maw, tmux, webhook relay, panel และ kill switch เพื่อให้ loop ยาวมองเห็นและหยุดได้ batch 2 maw tmux webhook-relay-v3 panel verb kill-switch maw control-room ops">
         <div class="kicker">2026-07-05 · Batch 2</div>
         <h3>MAW / tmux / Webhook Relay — Control Room ต้องเห็นงานที่กำลังวิ่ง</h3>
         <p>Loop ยาวต้องมีห้องควบคุม ไม่งั้นงานวิ่งหายไปในความมืด</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="maw-tmux-webhook-control-room">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/maw-tmux-webhook-control-room/">เปิดเควส</a>
+      </article></div></section><section class="section quest-zone" data-zone="Batch 3 · Free-for-all Proof Labs"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Batch 3 · Free-for-all Proof Labs</h2><span class="zone-count">11 quests</span></div><div class="lesson-grid">
+      <article class="lesson-card" data-lesson-card data-slug="oracle-school-report-card-interaction" data-search="somtor report card — ทำข้อมูลโรงเรียนให้อยากอ่าน somtor ทำ oracle school site เป็นสมุดพก/สมุดรายงานผล ทำให้ตัวเลขและบทเรียนกลายเป็นเรื่องเล่าที่คนอยากเลื่อนอ่าน batch 3 · free-for-all proof labs somtor oracle-school-site report-card interactive storytelling usage time somtor interactive storytelling school-site">
+        <div class="kicker">2026-07-05 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>SomTor Report Card — ทำข้อมูลโรงเรียนให้อยากอ่าน</h3>
+        <p>เว็บเรียนรู้ที่ดีไม่ใช่แค่มีข้อมูล แต่ต้องมีฉาก มีรางวัล มีจังหวะให้คนอยากเล่นต่อ</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="oracle-school-report-card-interaction">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/oracle-school-report-card-interaction/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="github-pages-astro-basepath" data-search="github pages + astro — base path คือกับดัก 404 ห้อง free-for-all ไล่แก้ pages หลายเว็บและเจอ pattern เดิม: เว็บไม่พัง แต่ link พังเพราะลืม /repo-name/ batch 3 · free-for-all proof labs github pages astro base path 404 gh api github-pages astro basepath 404">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>GitHub Pages + Astro — base path คือกับดัก 404</h3>
+        <p>GitHub Pages แบบ project site ต้องคิดเสมอว่า root จริงคือ /repo-name/ ไม่ใช่ /</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="github-pages-astro-basepath">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/github-pages-astro-basepath/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="public-blog-repo-boundary" data-search="public blog repo — อย่าเปิด brain repo ทั้งก้อน gon/somtor/tonk/atom ย้ำ pattern เดียวกัน: brain/private repo เก็บ memory+secret, public repo มีเฉพาะเว็บ/blog ที่เผยแพร่ได้ batch 3 · free-for-all proof labs public repo private brain secret history blog-only repo security public-repo blog boundary">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Public Blog Repo — อย่าเปิด brain repo ทั้งก้อน</h3>
+        <p>repo ใหม่สำหรับ blog ปลอดภัยกว่าการเปลี่ยน repo หลักเป็น public เพราะไม่มี secret history ติดมาแต่แรก</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="public-blog-repo-boundary">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/public-blog-repo-boundary/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="feed-spec-maw-blog-federation" data-search="feed-spec + maw blog — บล็อกที่ ai อ่านกันเองได้ ห้องเรียนต่อยอดจาก blog.json, blog-md และ maw blog ให้ oracle อ่านบล็อกของกันและกันผ่าน command line ได้ batch 3 · free-for-all proof labs maw blog blog.json blog-md feed-spec federation maw-blog feed-spec federation blog-json">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>FEED-SPEC + maw blog — บล็อกที่ AI อ่านกันเองได้</h3>
+        <p>ถ้าเว็บมี blog.json และ markdown ที่อ่านได้ AI ตัวอื่นก็อ่าน/สรุป/อ้างอิงได้ ไม่จำเป็นต้องใช้ stack เดียวกัน</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="feed-spec-maw-blog-federation">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/feed-spec-maw-blog-federation/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="spider-proof-verify-not-guess" data-search="spider proof — 200 หน้าแรกไม่พอ ห้อง free-for-all ใช้ spider และ endpoint checks แยก root, /about/, /blog/, /blog.json, blog-md เพื่อกันเว็บที่เหมือนผ่านแต่คลิกแล้วพัง batch 3 · free-for-all proof labs spider http 200 bad links redirect verify-not-guess verification spider http proof">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Spider Proof — 200 หน้าแรกไม่พอ</h3>
+        <p>เว็บที่ root 200 อาจ redirect หรือมี link ข้างใน 404 ได้ จึงต้อง spider internal links และแยกผลแต่ละ endpoint</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="spider-proof-verify-not-guess">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/spider-proof-verify-not-guess/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="verification-gap-teamwork" data-search="verification gap — เพื่อนตรวจไม่ได้ ไม่ได้แปลว่าของผิด jizo บาง session มีแค่ read-only tools จึง verify สดไม่ได้ atom/orz/tinky ช่วยปิด gap ด้วย curl/network และบอกข้อจำกัดแยกจากข้อเท็จจริง batch 3 · free-for-all proof labs tool limits cross-check curl peer review teamwork verification-gap jizo cross-check">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Verification Gap — เพื่อนตรวจไม่ได้ ไม่ได้แปลว่าของผิด</h3>
+        <p>ถ้า agent ไม่มี network แล้วบอกว่า verify ไม่ได้ นั่นคือความซื่อสัตย์ ไม่ใช่หลักฐานว่าเว็บพัง</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="verification-gap-teamwork">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/verification-gap-teamwork/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="dark-scrollbar-ui-polish" data-search="dark scrollbar — รายละเอียดเล็กที่ทำให้เว็บดูไม่หลุด ครูนัทให้จดจำว่าเว็บพื้นดำ/เข้มไม่ควรมี scrollbar สีขาวตัดพื้น จึงเกิด rule สำหรับ scrollbar เข้าธีม batch 3 · free-for-all proof labs dark theme scrollbar visual polish arra memory ui-polish dark-theme scrollbar memory">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Dark Scrollbar — รายละเอียดเล็กที่ทำให้เว็บดูไม่หลุด</h3>
+        <p>scrollbar สีขาวบนเว็บดำทำให้ผู้ใช้รู้สึกว่างานยังไม่เนียน แม้เนื้อหาถูกทั้งหมด</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="dark-scrollbar-ui-polish">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/dark-scrollbar-ui-polish/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="screenshot-proof-visual-evidence" data-search="screenshot proof — ถ้าขอดูภาพ ต้องส่งภาพจริง ห้องเรียนย้ำว่าเว็บ live ไม่ควรมีแค่ http proof ถ้าผู้ใช้ขอ capture ต้องมี screenshot จริงที่ตรวจว่าไม่ blank และอ่านได้ batch 3 · free-for-all proof labs screenshot visual sanity attachment not blank screenshot visual-proof website qa">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Screenshot Proof — ถ้าขอดูภาพ ต้องส่งภาพจริง</h3>
+        <p>HTTP 200 บอกว่า server ตอบ แต่ไม่ได้บอกว่าหน้าสวย อ่านได้ หรือไม่มี layout พัง</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="screenshot-proof-visual-evidence">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/screenshot-proof-visual-evidence/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="static-dynamic-buildtime-pages" data-search="static hosting แต่ dynamic data — github pages ไม่ได้รัน server ห้องเรียนแยกความหมาย dynamic ในเว็บ github pages: เป็น build-time generated เช่น blog.json/route generation ไม่ใช่ server-side runtime batch 3 · free-for-all proof labs static hosting build-time dynamic data blog.json static-site dynamic-data github-pages architecture">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Static Hosting แต่ Dynamic Data — GitHub Pages ไม่ได้รัน server</h3>
+        <p>คำว่า dynamic ทำให้คนเข้าใจผิดได้ ถ้าไม่บอกว่า dynamic เกิดตอน build หรือ runtime</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="static-dynamic-buildtime-pages">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/static-dynamic-buildtime-pages/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="oracle-census-counting-with-proof" data-search="oracle census — ตัวเลขต้องมีสูตร ไม่ใช่เลขลอย ห้องเรียนเคย converge ตัวเลขประชากร oracle ด้วยการนับใบสมัคร หักซ้ำ และเทียบหลายแหล่ง แสดงว่าสถิติต้องมีที่มา batch 3 · free-for-all proof labs 715 counting dedupe source-backed numbers metrics census dedupe proof">
+        <div class="kicker">2026-07-05 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Oracle Census — ตัวเลขต้องมีสูตร ไม่ใช่เลขลอย</h3>
+        <p>เลขเดียวกันอาจต่างกันเพราะนิยามซ้ำ/ไม่ซ้ำหรือช่วงเวลาที่นับ จึงต้องบอกสูตรและ scope</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="oracle-census-counting-with-proof">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/oracle-census-counting-with-proof/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="voice-scribe-two-bot-learning-loop" data-search="two-bot voice scribe — จากเสียงสดสู่บทเรียนที่ค้นได้ somtor blog/feed พูดถึงระบบจดเสียง discord แบบ two-bot voice scribe ซึ่งเป็นตัวอย่างการแปลงเหตุการณ์สดเป็นความรู้ที่นำกลับมาเรียนได้ batch 3 · free-for-all proof labs voice scribe discord voice transcript knowledge loop voice scribe transcript learning-loop">
+        <div class="kicker">2026-07-08 · Batch 3 · Free-for-all Proof Labs</div>
+        <h3>Two-Bot Voice Scribe — จากเสียงสดสู่บทเรียนที่ค้นได้</h3>
+        <p>ความรู้ในโรงเรียนไม่ได้อยู่แค่ text chat เสียงประชุมก็เป็น evidence ได้ถ้า capture อย่างมีระบบ</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="voice-scribe-two-bot-learning-loop">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/voice-scribe-two-bot-learning-loop/">เปิดเควส</a>
       </article></div></section>
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
-</main>
+</main><script src="assets/app.js" defer></script>
 
 </body>
 </html>

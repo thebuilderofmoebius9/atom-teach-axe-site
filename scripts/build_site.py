@@ -31,12 +31,14 @@ def dots(items, prefix=''):
     return ''.join(f'<span class="dot">{prefix}{e(x)}</span>' for x in items)
 
 def card(lesson):
+    haystack=' '.join([lesson.get('title',''), lesson.get('summary',''), lesson.get('batch',''), ' '.join(lesson.get('signals',[])), ' '.join(lesson.get('tags',[]))])
     return f'''
-      <article class="lesson-card">
+      <article class="lesson-card" data-lesson-card data-slug="{e(lesson['slug'])}" data-search="{e(haystack.lower())}">
         <div class="kicker">{e(lesson['date'])} · {e(lesson['batch'])}</div>
         <h3>{e(lesson['title'])}</h3>
         <p>{e(lesson['human']['plain'])}</p>
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="{e(lesson['slug'])}">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/{e(lesson['slug'])}/">เปิดเควส</a>
       </article>'''
 
@@ -44,18 +46,33 @@ bybatch=collections.defaultdict(list)
 for l in lessons:
     bybatch[l['batch']].append(l)
 sections=[]
-for batch in ['Foundation','Batch 1','Batch 2']:
+ordered_batches=['Foundation','Batch 1','Batch 2']
+ordered_batches += [b for b in bybatch.keys() if b not in ordered_batches]
+for batch in ordered_batches:
     if batch in bybatch:
-        sections.append(f'<section class="section"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>{e(batch)}</h2></div><div class="lesson-grid">' + ''.join(card(l) for l in bybatch[batch]) + '</div></section>')
+        sections.append(f'<section class="section quest-zone" data-zone="{e(batch)}"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>{e(batch)}</h2><span class="zone-count">{len(bybatch[batch])} quests</span></div><div class="lesson-grid">' + ''.join(card(l) for l in bybatch[batch]) + '</div></section>')
+
+coverage_items=[
+    ('Mirror + Search','FTS5, TF-IDF, backfill, dashboard'),
+    ('Hardware + Voice','ESP32, WebRTC, STT/LLM, voice scribe'),
+    ('Fleet Ops','tmux, MAW, webhook relay, launchers'),
+    ('Public Web','GitHub Pages, Astro, base path, spider proof'),
+    ('Oracle Blog Network','blog.json, FEED-SPEC, maw blog, blog-md'),
+    ('Safety + Proof','public repo boundary, secret scan, screenshot proof'),
+    ('UI/UX Lessons','dark scrollbar, playful learning, report-card storytelling'),
+]
+coverage=''.join(f'<button class="coverage-chip" type="button" data-filter="{e(a)}"><b>{e(a)}</b><span>{e(b)}</span></button>' for a,b in coverage_items)
 
 index_body=f'''<main class="wrap">
   <section class="hero hero-split">
     <div>
-      <span class="badge">Atom Teach Axe · Cozy Quest Academy</span>
-      <h1>เรียนเรื่องยากแบบเกมเควส: อ่านง่าย เล่น quiz ได้ ไม่เครียด</h1>
-      <p>บรรยากาศสนามเด็กเล่นผสม RPG academy: บทเรียนสั้นแบบผู้บริหาร หลักฐาน public-safe และ quiz 5 ข้อต่อบทสำหรับเช็คความเข้าใจ</p>
+      <span class="badge">Atom Teach Axe · Quest Arcade</span>
+      <h1>สนามเล่นความรู้จาก Oracle School: อ่านสั้น เล่น quiz เก็บ XP</h1>
+      <p>เว็บนี้แปลงสิ่งที่เรียนใน free-for-all ให้เป็นเควส interactive: executive brief, public-safe evidence, glossary, boss quiz, progress badge และ arcade loop ที่ชวนเล่นต่อ</p>
       <nav class="nav" aria-label="ทางลัดบทเรียน">
         <a href="lessons/tf-idf-mini-lab/">เริ่ม TF-IDF Mini Lab</a>
+        <a href="lessons/oracle-school-report-card-interaction/">SomTor Report Card</a>
+        <a href="lessons/spider-proof-verify-not-guess/">Spider Proof</a>
         <a href="lessons/mirror-not-memory/">Mirror ≠ Memory</a>
         <a href="glossary/">Glossary</a>
         <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a>
@@ -64,18 +81,32 @@ index_body=f'''<main class="wrap">
     <div class="hero-panel" aria-label="สรุปคอร์ส">
       <div class="stat"><b>{len(lessons)}</b><span>เควสเรียนรู้</span></div>
       <div class="stat"><b>{len(lessons)*5}</b><span>XP checks</span></div>
+      <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>{len(tech_glossary)}</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
     </div>
   </section>
+  <section class="arcade-console" aria-label="Quest Console">
+    <div>
+      <p class="eyebrow">Quest Console</p>
+      <h2>เลือกเล่นตามอารมณ์</h2>
+      <p>ค้นหา กรองหัวข้อ หรือสุ่มเควสใหม่ ถ้าตอบ quiz ผ่าน เว็บจะจำ progress ไว้ในเครื่องนี้</p>
+    </div>
+    <div class="console-actions">
+      <label class="search-box"><span>ค้นหาเควส</span><input id="quest-search" type="search" placeholder="เช่น tmux, GitHub Pages, SomTor, spider"></label>
+      <button class="button" id="random-quest" type="button">สุ่มเควส</button>
+      <button class="button ghost" id="reset-progress" type="button">ล้าง XP</button>
+    </div>
+    <div class="coverage-grid">{coverage}</div>
+  </section>
   <section class="section three-steps">
     <div class="section-head"><p class="eyebrow">เริ่มเล่น</p><h2>วิธีเล่น</h2></div>
-    <div class="grid"><div class="card"><h3>1 · อ่านเควสหลัก</h3><p>เริ่มจาก Executive Brief และ “จำแบบนี้” ก่อน ไม่เริ่มจากศัพท์เทคนิค</p></div><div class="card"><h3>2 · เก็บหลักฐาน</h3><p>หลักฐานจาก mirror อยู่ในโหมด signals only เพื่อให้เห็นที่มาโดยไม่เผยข้อความดิบ</p></div><div class="card"><h3>3 · ตอบ Quiz เก็บ XP</h3><p>ตอบ 5 ข้อท้ายบท ระบบ feedback ทันทีว่าเข้าใจถูกจุดไหม</p></div></div>
+    <div class="grid"><div class="card"><h3>1 · อ่าน Mission Brief</h3><p>เริ่มจากภาพใหญ่แบบผู้บริหารก่อน ไม่เริ่มจากศัพท์เทคนิค</p></div><div class="card"><h3>2 · แตะหลักฐาน</h3><p>หลักฐานจาก mirror อยู่ในโหมด signals only เพื่อให้เห็นที่มาโดยไม่เผยข้อความดิบ</p></div><div class="card"><h3>3 · ตอบ Boss Quiz</h3><p>ตอบ 5 ข้อท้ายบท ระบบ feedback ทันทีและบันทึก XP เมื่อผ่าน</p></div></div>
   </section>
-  <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning: เห็นภาพใหญ่ ตัดสินใจได้ และถามต่อเป็น · ถ้างงศัพท์อย่าง tmux/shell/webhook ให้เปิด <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a></section>
+  <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning playground: เห็นภาพใหญ่ ตัดสินใจได้ เล่น quiz แล้วกลับมาทวนได้ · ถ้างงศัพท์อย่าง tmux/shell/webhook ให้เปิด <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a></section>
   {''.join(sections)}
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
-</main>'''
+</main><script src="assets/app.js" defer></script>'''
 (ROOT/'index.html').write_text(page('Atom Teach Axe — Cozy Quest Academy', index_body), encoding='utf-8')
 
 for l in lessons:
@@ -104,7 +135,7 @@ for l in lessons:
   <section class="section"><div class="section-head"><p class="eyebrow">Evidence</p><h2>หลักฐานจาก Mirror</h2></div><div class="grid"><div class="card"><h3>พื้นที่ที่พบสัญญาณ</h3><ul>{channels}</ul></div><div class="card"><h3>Topic Signals</h3><div class="progress">{signals}</div><p class="note">public_evidence_mode: signals_only · raw_quote_allowed: false</p></div></div></section>
   <section class="section"><div class="section-head"><p class="eyebrow">Skill</p><h2>ทักษะที่ต้องเรียน</h2></div><div class="card"><p>{e(l['skill'])}</p><div class="progress">{tags}</div></div></section>
   {media}
-  <section class="section quiz-section"><div class="section-head"><p class="eyebrow">Quiz Arena</p><h2>Quiz Arena 5 ข้อ</h2></div>{quiz_items}<div class="score-card" id="score-card">ตอบให้ครบ 5 ข้อ ระบบจะสรุปคะแนนให้ตรงนี้</div></section>
+  <section class="section quiz-section" data-lesson-slug="{e(l['slug'])}"><div class="section-head"><p class="eyebrow">Boss Quiz</p><h2>Boss Quiz 5 ข้อ</h2></div>{quiz_items}<div class="score-card" id="score-card">ตอบให้ครบ 5 ข้อ ระบบจะสรุปคะแนนและเก็บ XP ให้ตรงนี้</div></section>
   <footer class="footer"><a href="../../glossary/">เปิด Glossary</a> · <a href="../../technical-glossary/">Item Glossary: ศัพท์เทคนิค</a> · <a href="../../">กลับหน้าแรก</a></footer>
 </main>'''
     (d/'index.html').write_text(page(l['title'], lesson_body, depth=2, script=True), encoding='utf-8')
