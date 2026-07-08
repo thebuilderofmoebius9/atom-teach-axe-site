@@ -3,6 +3,7 @@ import json, html, pathlib, collections
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 lessons=json.loads((ROOT/'data/lessons.json').read_text(encoding='utf-8'))
 glossary=json.loads((ROOT/'data/glossary.json').read_text(encoding='utf-8'))
+tech_glossary=json.loads((ROOT/'data/technical-glossary.json').read_text(encoding='utf-8'))
 CSS='assets/styles.css'
 
 def e(x): return html.escape(str(x), quote=True)
@@ -57,19 +58,21 @@ index_body=f'''<main class="wrap">
         <a href="lessons/tf-idf-mini-lab/">เริ่ม TF-IDF Mini Lab</a>
         <a href="lessons/mirror-not-memory/">Mirror ≠ Memory</a>
         <a href="glossary/">Glossary</a>
+        <a href="technical-glossary/">ศัพท์เทคนิคภาษาคน</a>
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
       <div class="stat"><b>{len(lessons)}</b><span>บทเรียน</span></div>
       <div class="stat"><b>{len(lessons)*5}</b><span>quiz checks</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
+      <div class="stat"><b>{len(tech_glossary)}</b><span>ศัพท์เทคนิคภาษาคน</span></div>
     </div>
   </section>
   <section class="section three-steps">
     <div class="section-head"><p class="eyebrow">How to learn</p><h2>วิธีเรียน</h2></div>
     <div class="grid"><div class="card"><h3>1 · อ่านภาพใหญ่</h3><p>เริ่มจาก Executive Brief และ “จำแบบนี้” ก่อน ไม่เริ่มจากศัพท์เทคนิค</p></div><div class="card"><h3>2 · ดูหลักฐาน</h3><p>หลักฐานจาก mirror อยู่ในโหมด signals only เพื่อให้เห็นที่มาโดยไม่เผยข้อความดิบ</p></div><div class="card"><h3>3 · ทำ quiz</h3><p>ตอบ 5 ข้อท้ายบท ระบบ feedback ทันทีว่าเข้าใจถูกจุดไหม</p></div></div>
   </section>
-  <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning: เห็นภาพใหญ่ ตัดสินใจได้ และถามต่อเป็น</section>
+  <section class="section callout"><b>หลักจำ:</b> เว็บนี้ไม่ใช่คู่มือปฏิบัติงาน แต่เป็น executive learning: เห็นภาพใหญ่ ตัดสินใจได้ และถามต่อเป็น · ถ้างงศัพท์อย่าง tmux/shell/webhook ให้เปิด <a href="technical-glossary/">ศัพท์เทคนิคภาษาคน</a></section>
   {''.join(sections)}
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
 </main>'''
@@ -102,10 +105,15 @@ for l in lessons:
   <section class="section"><div class="section-head"><p class="eyebrow">Skill</p><h2>ทักษะที่ต้องเรียน</h2></div><div class="card"><p>{e(l['skill'])}</p><div class="progress">{tags}</div></div></section>
   {media}
   <section class="section quiz-section"><div class="section-head"><p class="eyebrow">Interactive check</p><h2>Quiz ตรวจความเข้าใจ 5 ข้อ</h2></div>{quiz_items}<div class="score-card" id="score-card">ตอบให้ครบ 5 ข้อ ระบบจะสรุปคะแนนให้ตรงนี้</div></section>
-  <footer class="footer"><a href="../../glossary/">เปิด Glossary</a> · <a href="../../">กลับหน้าแรก</a></footer>
+  <footer class="footer"><a href="../../glossary/">เปิด Glossary</a> · <a href="../../technical-glossary/">ศัพท์เทคนิคภาษาคน</a> · <a href="../../">กลับหน้าแรก</a></footer>
 </main>'''
     (d/'index.html').write_text(page(l['title'], lesson_body, depth=2, script=True), encoding='utf-8')
 
 gloss_cards=''.join(f'<div class="card"><h3>{e(x["term"])}</h3><p>{e(x["definition"])}</p></div>' for x in glossary)
 g_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p><section class="hero"><span class="badge">Reference</span><h1>Glossary</h1><p>ศัพท์สั้นสำหรับบทเรียน Discord Mirror และ Atom Teach Axe</p></section><section class="section"><div class="grid">{gloss_cards}</div></section></main>'''
 (ROOT/'glossary'/'index.html').write_text(page('Glossary — Atom Teach Axe', g_body, depth=1), encoding='utf-8')
+
+tech_dir=ROOT/'technical-glossary'; tech_dir.mkdir(parents=True, exist_ok=True)
+tech_cards=''.join(f'''<article class="term-card"><h3>{e(x["term"])}</h3><p class="term-plain">{e(x["plain"])}</p><dl><dt>ทำไมต้องรู้</dt><dd>{e(x["why"])}</dd><dt>ภาพจำ</dt><dd>{e(x["metaphor"])}</dd><dt>ตัวอย่างในเว็บนี้</dt><dd>{e(x["example"])}</dd></dl></article>''' for x in tech_glossary)
+tech_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p><section class="hero"><span class="badge">Technical Glossary for Humans</span><h1>ศัพท์เทคนิคภาษาคน</h1><p>หน้านี้แปลคำอย่าง tmux, shell, PATH, webhook, broker, systemd ให้คนไม่เขียนโค้ดอ่านรู้เรื่องก่อนเข้า lesson หลัก</p></section><section class="section callout"><b>วิธีใช้:</b> ถ้าเจอคำแปลกในบทเรียน ให้เปิดหน้านี้แล้วอ่าน 3 ช่อง: แปลว่าอะไร · ทำไมต้องรู้ · ภาพจำ</section><section class="section"><div class="term-grid">{tech_cards}</div></section></main>'''
+(tech_dir/'index.html').write_text(page('ศัพท์เทคนิคภาษาคน — Atom Teach Axe', tech_body, depth=1), encoding='utf-8')
