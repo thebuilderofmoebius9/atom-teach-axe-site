@@ -1,0 +1,14 @@
+[
+  {"term":"Backfill","definition":"ดึงข้อความย้อนหลังให้กลายเป็นหลักฐานค้นได้ ไม่ใช่รอแต่ข้อความใหม่จาก gateway"},
+  {"term":"FTS5","definition":"ระบบ full-text search ใน SQLite เหมาะกับคำถามว่า ‘ข้อความไหนมีคำนี้’"},
+  {"term":"TF-IDF","definition":"วิธีให้คะแนนคำที่เด่นในเอกสารหรือช่วงหนึ่งเมื่อเทียบกับทั้งหมด"},
+  {"term":"Judgment","definition":"การตีความบริบทหลังเห็นหลักฐาน ไม่ปล่อยให้ keyword ตัดสินแทนทั้งหมด"},
+  {"term":"Presence","definition":"บรรยากาศ ความสัมพันธ์ และ context ตอนอยู่ในห้องจริง ซึ่ง mirror แทนได้ไม่ครบ"},
+  {"term":"Mesh","definition":"โครงสร้างให้หลายเครื่องหรือหลาย agent ติดต่อกันได้ยืดหยุ่น"},
+  {"term":"Parquet","definition":"รูปแบบไฟล์ข้อมูลเชิงตารางสำหรับวิเคราะห์ซ้ำได้"},
+  {"term":"WASM","definition":"runtime เบาที่พา logic ไปวิ่งข้ามสภาพแวดล้อมได้"},
+  {"term":"Shell Hygiene","definition":"การทำให้ cwd, PATH, env และ output contract สะอาดก่อนให้ agent ทำงาน"},
+  {"term":"Control Room","definition":"ชั้น observe/control สำหรับ loop ยาว: status, panel, command, kill switch"},
+  {"term":"STT","definition":"Speech-to-text: แปลงเสียงเป็นข้อความก่อนส่งเข้า LLM"},
+  {"term":"Credential Placeholder","definition":"เอกสาร public ควรใช้ placeholder แทน secret จริงเสมอ"}
+]
