@@ -2496,5 +2496,288 @@
         "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
       }
     ]
+  },
+  {
+    "slug": "discord-channel-plugin-setup",
+    "batch": "Batch 4 · Today’s School Updates",
+    "date": "2026-07-09",
+    "title": "Discord Channel Plugin — channel ไม่ใช่ tool ธรรมดา",
+    "summary": "วันนี้โรงเรียนคุยเรื่องบทความ/โค้ดสำหรับเซ็ต Discord channel plugin และย้ำให้เทียบ source จริง ไม่เชื่อแค่สรุป",
+    "channels": [
+      "free-for-all",
+      "Oracle blog network",
+      "Atom blog"
+    ],
+    "signals": [
+      "Discord channel",
+      "MCP notification",
+      "stdio bridge",
+      "Gateway",
+      "access control"
+    ],
+    "skill": "แยก channel plugin ออกจาก tool plugin และอธิบาย flow ขาเข้า/ขาออกได้",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Discord Channel Plugin — channel ไม่ใช่ tool ธรรมดา",
+    "answer": "channel ต้องมี trust boundary เพราะรับข้อความจากคนภายนอกเข้าหา agent",
+    "tags": [
+      "discord",
+      "channel-plugin",
+      "mcp",
+      "security"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "Channel คือสะพานที่ให้คนข้างนอกส่งข้อความเข้าหา agent ได้ ไม่ใช่แค่ปุ่มให้ agent เรียกใช้",
+      "why": "ถ้าแยกไม่ออก จะออกแบบ security ผิด เพราะ channel รับ input จากโลกภายนอก ต้องมี gate และ scope ชัด",
+      "metaphor": "เหมือนประตูหน้าบ้านกับกล่องเครื่องมือ: ประตูรับคนเข้า ส่วนเครื่องมือไว้ให้คนในบ้านหยิบใช้",
+      "try": "ลองวาด flow 4 ช่อง: Discord message → Gateway/server → MCP notification → Claude/agent"
+    },
+    "executive": {
+      "headline": "Channel design ต้องเริ่มจาก trust boundary",
+      "brief": "สรุปบทเรียนจากห้อง: setup Discord plugin ไม่ใช่แค่เปิด bot token แต่ต้องเข้าใจ channel, tool, transport, scope และ access control",
+      "why_now": "ถ้าแยกไม่ออก จะออกแบบ security ผิด เพราะ channel รับ input จากโลกภายนอก ต้องมี gate และ scope ชัด",
+      "decision_lens": "ถ้าจะทำ plugin จริง ให้ถามก่อนว่า input มาจากใคร เข้ามาทางไหน และถูกจำกัดสิทธิ์อย่างไร",
+      "takeaway": "จำสั้น ๆ: channel ต้องมี trust boundary เพราะรับข้อความจากคนภายนอกเข้าหา agent"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Discord Channel Plugin — channel ไม่ใช่ tool ธรรมดา ว่าอะไร?",
+        "options": [
+          "channel ต้องมี trust boundary เพราะรับข้อความจากคนภายนอกเข้าหา agent",
+          "จำชื่อเครื่องมือก่อนเข้าใจ flow",
+          "ปล่อยให้ระบบอัปเดตเองโดยไม่ตรวจผล"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ แยก channel plugin ออกจาก tool plugin และอธิบาย flow ขาเข้า/ขาออกได้"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบต่อความน่าเชื่อถือและการใช้งาน",
+          "รายละเอียด command ทั้งหมดตั้งแต่บรรทัดแรก",
+          "ข้อความ Discord ดิบทั้งหมดแบบไม่กรอง"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากผลกระทบและ decision ก่อน แล้วค่อยเปิดหลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "แยก channel plugin ออกจาก tool plugin และอธิบาย flow ขาเข้า/ขาออกได้",
+          "จำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: แยก channel plugin ออกจาก tool plugin และอธิบาย flow ขาเข้า/ขาออกได้"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าอัปเดตแล้วโดยยังไม่มี proof",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "code-block-spacing-discord-rendering",
+    "batch": "Batch 4 · Today’s School Updates",
+    "date": "2026-07-09",
+    "title": "Code Block Spacing — กล่องโค้ดติดกันทำให้อ่านยาก",
+    "summary": "วันนี้โรงเรียนย้ำ practice เรื่อง Discord render: code block หลายกล่องต้องมีช่องว่าง ไม่ให้มุมกล่องดำติดกันจนดูเละ",
+    "channels": [
+      "free-for-all",
+      "Discord formatting feedback"
+    ],
+    "signals": [
+      "Discord formatting",
+      "code block",
+      "spacing",
+      "readability",
+      "skill practice"
+    ],
+    "skill": "จัดข้อความ Discord ให้ code block แยกกันอย่างอ่านง่ายและไม่ติดกัน",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Code Block Spacing — กล่องโค้ดติดกันทำให้อ่านยาก",
+    "answer": "proof ที่ดีต้องอ่านง่าย: code block ต้องไม่ติดกันจนเสีย readability",
+    "tags": [
+      "discord-format",
+      "code-block",
+      "readability",
+      "ui-polish"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "เวลาใส่ code block หลายอันติดกัน ต้องเว้นบรรทัด/หัวข้อให้ตาแยกกล่องออก",
+      "why": "Discord ไม่ใช่ Markdown renderer แบบเอกสารยาว ถ้ากล่องติดกัน คนอ่านจะสแกนยากและดูไม่เรียบร้อย",
+      "metaphor": "เหมือนวางกล่องดำสองกล่องชิดกันจนขอบชน ต้องเว้นที่หายใจให้แต่ละกล่อง",
+      "try": "ลองเขียนตัวอย่าง command 2 ชุด โดยใส่คำอธิบายสั้น ๆ และเว้นบรรทัดระหว่าง code block"
+    },
+    "executive": {
+      "headline": "การสื่อสาร technical ต้องดูดีพอให้คนอยากอ่าน",
+      "brief": "บทเรียนนี้แปลง feedback เรื่องความสวยงามในห้องให้เป็น practice: proof ไม่พอ ต้อง render อ่านง่ายด้วย",
+      "why_now": "Discord ไม่ใช่ Markdown renderer แบบเอกสารยาว ถ้ากล่องติดกัน คนอ่านจะสแกนยากและดูไม่เรียบร้อย",
+      "decision_lens": "ก่อนส่งคำตอบยาวใน Discord ให้เช็กว่า code block แต่ละก้อนมี label และ spacing พอไหม",
+      "takeaway": "จำสั้น ๆ: proof ที่ดีต้องอ่านง่าย: code block ต้องไม่ติดกันจนเสีย readability"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Code Block Spacing — กล่องโค้ดติดกันทำให้อ่านยาก ว่าอะไร?",
+        "options": [
+          "proof ที่ดีต้องอ่านง่าย: code block ต้องไม่ติดกันจนเสีย readability",
+          "จำชื่อเครื่องมือก่อนเข้าใจ flow",
+          "ปล่อยให้ระบบอัปเดตเองโดยไม่ตรวจผล"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ จัดข้อความ Discord ให้ code block แยกกันอย่างอ่านง่ายและไม่ติดกัน"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบต่อความน่าเชื่อถือและการใช้งาน",
+          "รายละเอียด command ทั้งหมดตั้งแต่บรรทัดแรก",
+          "ข้อความ Discord ดิบทั้งหมดแบบไม่กรอง"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากผลกระทบและ decision ก่อน แล้วค่อยเปิดหลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "จัดข้อความ Discord ให้ code block แยกกันอย่างอ่านง่ายและไม่ติดกัน",
+          "จำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: จัดข้อความ Discord ให้ code block แยกกันอย่างอ่านง่ายและไม่ติดกัน"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าอัปเดตแล้วโดยยังไม่มี proof",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
+  },
+  {
+    "slug": "scheduled-refresh-cronjob-boundary",
+    "batch": "Batch 4 · Today’s School Updates",
+    "date": "2026-07-09",
+    "title": "Scheduled Refresh — cronjob ช่วยได้ แต่ต้องมี guardrail",
+    "summary": "หลังเว็บบทเรียนโตขึ้น คำถามคือควรอัปเดตอัตโนมัติทุกวันไหม บทนี้แยก cron job ที่ดีออกจาก auto-publish ที่เสี่ยง",
+    "channels": [
+      "Atom Teach Axe",
+      "deployment workflow"
+    ],
+    "signals": [
+      "cron job",
+      "daily refresh",
+      "manual review",
+      "auto deploy",
+      "guardrail"
+    ],
+    "skill": "แยก daily scan/recommend ออกจาก auto publish และรู้ว่าจุดไหนต้องมี human review",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง Scheduled Refresh — cronjob ช่วยได้ แต่ต้องมี guardrail",
+    "answer": "ตั้ง cron ได้ แต่ควรเริ่มแบบ draft-only ไม่ใช่ auto-publish เต็มตัว",
+    "tags": [
+      "cron",
+      "automation",
+      "safety",
+      "deploy-gate"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "เว็บสอนควรอัปเดตสม่ำเสมอ แต่ไม่ควรเอาทุกข้อความใหม่ไป publish อัตโนมัติโดยไม่มีการคัดกรอง",
+      "why": "ถ้า cron job publish เองทุกวัน อาจเอา noise, secret, หรือบทเรียนที่ยังไม่สุกขึ้นเว็บ public ได้",
+      "metaphor": "เหมือนมีเลขาช่วยสรุปทุกเช้า แต่เจ้าของยังต้องเซ็นก่อนส่งจดหมายออกนอกบ้าน",
+      "try": "ลองแยก pipeline เป็น 3 ชั้น: scan → draft lesson candidates → human/Atom verify → deploy"
+    },
+    "executive": {
+      "headline": "Automation ที่ดีควรสร้าง draft และ proof ก่อน ไม่ใช่ publish ทุกอย่างทันที",
+      "brief": "แนวทางที่เหมาะกับ Atom Teach Axe คือ daily candidate report แล้วค่อย publish เมื่อผ่าน safety/quality gate",
+      "why_now": "ถ้า cron job publish เองทุกวัน อาจเอา noise, secret, หรือบทเรียนที่ยังไม่สุกขึ้นเว็บ public ได้",
+      "decision_lens": "เริ่มจาก cron แบบ draft-only จะปลอดภัยกว่า auto-deploy รายวัน",
+      "takeaway": "จำสั้น ๆ: ตั้ง cron ได้ แต่ควรเริ่มแบบ draft-only ไม่ใช่ auto-publish เต็มตัว"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "บทนี้ต้องการให้จำเรื่อง Scheduled Refresh — cronjob ช่วยได้ แต่ต้องมี guardrail ว่าอะไร?",
+        "options": [
+          "ตั้ง cron ได้ แต่ควรเริ่มแบบ draft-only ไม่ใช่ auto-publish เต็มตัว",
+          "จำชื่อเครื่องมือก่อนเข้าใจ flow",
+          "ปล่อยให้ระบบอัปเดตเองโดยไม่ตรวจผล"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะหัวใจคือ แยก daily scan/recommend ออกจาก auto publish และรู้ว่าจุดไหนต้องมี human review"
+      },
+      {
+        "question": "ถ้าจะเล่าให้ผู้บริหารฟัง ควรเริ่มจากอะไร?",
+        "options": [
+          "ผลกระทบต่อความน่าเชื่อถือและการใช้งาน",
+          "รายละเอียด command ทั้งหมดตั้งแต่บรรทัดแรก",
+          "ข้อความ Discord ดิบทั้งหมดแบบไม่กรอง"
+        ],
+        "answer": 0,
+        "explain": "ถูก ต้องเริ่มจากผลกระทบและ decision ก่อน แล้วค่อยเปิดหลักฐานรองรับ"
+      },
+      {
+        "question": "หลักฐานแบบไหนเหมาะกับบทเรียน public-safe?",
+        "options": [
+          "สัญญาณหัวข้อ + URL/สถานะที่ตรวจได้",
+          "raw dump ทั้งห้อง",
+          "secret หรือ config จริงเพื่อให้ดูน่าเชื่อ"
+        ],
+        "answer": 0,
+        "explain": "ถูก public lesson ควรใช้หลักฐานที่ตรวจได้โดยไม่เผย raw Discord หรือ secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ เด็กควรทำอะไรได้?",
+        "options": [
+          "แยก daily scan/recommend ออกจาก auto publish และรู้ว่าจุดไหนต้องมี human review",
+          "จำสีปุ่มได้เท่านั้น",
+          "ตอบตามเพื่อนโดยไม่ตรวจซ้ำ"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือทำ skill นี้ได้: แยก daily scan/recommend ออกจาก auto publish และรู้ว่าจุดไหนต้องมี human review"
+      },
+      {
+        "question": "กับดักที่ควรหลีกเลี่ยงคืออะไร?",
+        "options": [
+          "เคลมว่าอัปเดตแล้วโดยยังไม่มี proof",
+          "อธิบายเป็นภาษาคนก่อน",
+          "แยก claim กับ verified result"
+        ],
+        "answer": 0,
+        "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
+      }
+    ]
   }
 ]
