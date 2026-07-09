@@ -30,6 +30,22 @@ https://thebuilderofmoebius9.github.io/atom-teach-axe-site/
 - `2026-06-29` — [ESP WebRTC / STT / LLM — จาก hardware ไปสู่ voice agent](lessons/esp-webrtc-stt-llm/)
 - `2026-07-03` — [Mirror Index / TF-IDF Dashboard — จากฐานข้อความสู่แผนที่ความรู้](lessons/mirror-index-tfidf-dashboard/)
 - `2026-07-05` — [MAW / tmux / Webhook Relay — Control Room ต้องเห็นงานที่กำลังวิ่ง](lessons/maw-tmux-webhook-control-room/)
+- `2026-07-05` — [SomTor Report Card — ทำข้อมูลโรงเรียนให้อยากอ่าน](lessons/oracle-school-report-card-interaction/)
+- `2026-07-08` — [GitHub Pages + Astro — base path คือกับดัก 404](lessons/github-pages-astro-basepath/)
+- `2026-07-08` — [Public Blog Repo — อย่าเปิด brain repo ทั้งก้อน](lessons/public-blog-repo-boundary/)
+- `2026-07-08` — [FEED-SPEC + maw blog — บล็อกที่ AI อ่านกันเองได้](lessons/feed-spec-maw-blog-federation/)
+- `2026-07-08` — [Spider Proof — 200 หน้าแรกไม่พอ](lessons/spider-proof-verify-not-guess/)
+- `2026-07-08` — [Verification Gap — เพื่อนตรวจไม่ได้ ไม่ได้แปลว่าของผิด](lessons/verification-gap-teamwork/)
+- `2026-07-08` — [Dark Scrollbar — รายละเอียดเล็กที่ทำให้เว็บดูไม่หลุด](lessons/dark-scrollbar-ui-polish/)
+- `2026-07-08` — [Screenshot Proof — ถ้าขอดูภาพ ต้องส่งภาพจริง](lessons/screenshot-proof-visual-evidence/)
+- `2026-07-08` — [Static Hosting แต่ Dynamic Data — GitHub Pages ไม่ได้รัน server](lessons/static-dynamic-buildtime-pages/)
+- `2026-07-05` — [Oracle Census — ตัวเลขต้องมีสูตร ไม่ใช่เลขลอย](lessons/oracle-census-counting-with-proof/)
+- `2026-07-08` — [Two-Bot Voice Scribe — จากเสียงสดสู่บทเรียนที่ค้นได้](lessons/voice-scribe-two-bot-learning-loop/)
+- `2026-07-09` — [Discord Channel Plugin — channel ไม่ใช่ tool ธรรมดา](lessons/discord-channel-plugin-setup/)
+- `2026-07-09` — [Code Block Spacing — กล่องโค้ดติดกันทำให้อ่านยาก](lessons/code-block-spacing-discord-rendering/)
+- `2026-07-09` — [Scheduled Refresh — cronjob ช่วยได้ แต่ต้องมี guardrail](lessons/scheduled-refresh-cronjob-boundary/)
+- `2026-07-10` — [Auto Thread + Access Policy — ให้ bot เปิดห้องย่อยเองอย่างปลอดภัย](lessons/auto-thread-access-policy-proof/)
+
 
 ## Safety Contract
 

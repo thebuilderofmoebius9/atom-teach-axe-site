@@ -285,5 +285,40 @@
     "why": "ใช้ส่งเหตุการณ์ขาเข้า เช่น Discord message เข้า agent โดยไม่บังคับให้เป็น tool call",
     "metaphor": "เหมือนกดกริ่งบอกว่ามีคนมา ไม่ใช่สั่งให้ทำงานทันที",
     "example": "Discord Gateway → server → notifications/claude/channel"
+  },
+  {
+    "term": "Auto-thread",
+    "plain": "งานอัตโนมัติที่ให้ bot เปิด thread ย่อยจากข้อความ",
+    "why": "ช่วยจัดบทสนทนาให้เป็นห้องย่อย แต่ต้องคุมไม่ให้ spam หรือเปิดผิดห้อง",
+    "metaphor": "เหมือนผู้ช่วยที่เปิดห้องประชุมย่อยให้เมื่อมีหัวข้อใหม่",
+    "example": "Discord message → policy check → create thread"
+  },
+  {
+    "term": "Discord REST",
+    "plain": "API แบบ HTTP ที่ใช้สั่ง Discord ทำงาน เช่น ส่งข้อความหรือสร้าง thread",
+    "why": "ช่วยพิสูจน์ว่ารู้ endpoint จริง ไม่ได้พึ่ง magic ของ library อย่างเดียว",
+    "metaphor": "เหมือนกดปุ่มควบคุม Discord โดยตรงผ่านแบบฟอร์ม HTTP",
+    "example": "POST /channels/{channel_id}/messages/{message_id}/threads"
+  },
+  {
+    "term": "Zod",
+    "plain": "ไลบรารี TypeScript สำหรับตรวจ shape ของข้อมูลตอน runtime",
+    "why": "TypeScript เช็กตอน compile แต่ config/env เข้ามาตอน runtime จึงต้อง validate อีกชั้น",
+    "metaphor": "เหมือนด่านตรวจเอกสารก่อนปล่อยคนเข้าห้อง",
+    "example": "AccessPolicySchema ตรวจ config ก่อนใช้"
+  },
+  {
+    "term": "Access Policy",
+    "plain": "กติกาว่าใครหรือช่องไหนมีสิทธิ์ trigger automation",
+    "why": "ป้องกัน bot ทำงานกับคนหรือห้องที่ไม่ควรแตะ",
+    "metaphor": "เหมือนรายชื่อแขกที่เข้าห้องประชุมได้",
+    "example": "allowUsers, allowChannels, requireMention"
+  },
+  {
+    "term": "Default-deny",
+    "plain": "ถ้าข้อมูลไม่ชัดหรือ config ผิด ให้ปฏิเสธสิทธิ์ไว้ก่อน",
+    "why": "เป็นค่าเริ่มต้นที่ปลอดภัยสำหรับระบบที่แตะห้องจริง",
+    "metaphor": "เหมือนประตูที่ล็อกไว้ก่อนจนกว่าจะเห็นบัตรผ่านถูกต้อง",
+    "example": "parse fail → empty policy → ไม่อนุญาต trigger"
   }
 ]

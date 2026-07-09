@@ -2779,5 +2779,101 @@
         "explain": "ถูก โรงเรียนสอนให้ verify-not-guess ก่อนประกาศผล"
       }
     ]
+  },
+  {
+    "slug": "auto-thread-access-policy-proof",
+    "batch": "Batch 5 · Daily Refresh Confirmed",
+    "date": "2026-07-10",
+    "title": "Auto Thread + Access Policy — ให้ bot เปิดห้องย่อยเองอย่างปลอดภัย",
+    "summary": "หลัง daily refresh รอบเที่ยงคืน Axe confirm ให้ publish บทเรียนใหม่จากสัญญาณโรงเรียน: หลาย Oracle เขียน auto_thread เองด้วย raw Discord REST และคุม policy ด้วย schema/default-deny",
+    "channels": [
+      "free-for-all daily signals",
+      "Oracle relay repos",
+      "Atom Teach Axe daily refresh"
+    ],
+    "signals": [
+      "auto_thread",
+      "raw Discord REST",
+      "thread archived proof",
+      "Zod AccessPolicySchema",
+      "default-deny on parse fail"
+    ],
+    "skill": "อธิบาย flow auto-thread จาก message → REST endpoint → thread และแยก policy public API ออกจาก runtime validation ได้",
+    "quiz": "บทนี้เช็กความเข้าใจเรื่อง auto-thread, REST proof และ access policy",
+    "answer": "auto-thread ที่ดีไม่ใช่แค่สร้าง thread ได้ แต่ต้องพิสูจน์แบบไม่ spam และ default-deny เมื่อ config ผิด",
+    "tags": [
+      "discord-rest",
+      "auto-thread",
+      "zod",
+      "access-policy",
+      "default-deny"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "Auto-thread คือให้ bot เห็นข้อความแล้วเปิด thread ย่อยให้เอง แต่ต้องมี policy คุมว่าใคร/ช่องไหนทำได้ ไม่ใช่เปิดทุกอย่างมั่ว ๆ",
+      "why": "ถ้าไม่มี policy หรือ validation ที่ดี bot อาจสร้าง thread ผิดห้อง spam ห้องจริง หรือพังทั้ง service เมื่อ config ผิด",
+      "metaphor": "เหมือนพนักงานต้อนรับที่เปิดห้องประชุมให้แขก: ต้องดูบัตรผ่านก่อน และถ้าระบบอ่านบัตรไม่ได้ ให้ปฏิเสธไว้ก่อน",
+      "try": "ลองวาด flow 5 ช่อง: message เข้า → policy check → POST create thread → proof แบบ self-test/archived → log ผลลัพธ์โดยไม่เผย token"
+    },
+    "executive": {
+      "headline": "Automation ที่แตะ Discord จริง ต้องมีทั้ง proof และ guardrail",
+      "brief": "สัญญาณ 24 ชม. ล่าสุดชี้ไปทางเดียวกัน: Oracles เริ่มเขียน auto_thread เอง ไม่พึ่งแค่ library สำเร็จรูป และยกระดับ config ให้ validate ด้วย schema เพื่อให้ผิดแล้วปิดสิทธิ์ ไม่ใช่เปิดกว้าง",
+      "why_now": "เมื่อ bot เริ่มสร้าง thread หรือแตะห้องจริง ความเสี่ยงย้ายจาก “โค้ดรันได้ไหม” ไปเป็น “รันแล้วกระทบห้องจริงอย่างไร”",
+      "decision_lens": "ก่อนเปิด automation ให้ถาม 3 ข้อ: endpoint ไหนถูกเรียก, ใครมีสิทธิ์ trigger, ถ้า config parse fail ระบบ default-deny หรือไม่",
+      "takeaway": "จำสั้น ๆ: auto-thread ที่ดีไม่ใช่แค่สร้าง thread ได้ แต่ต้องพิสูจน์แบบไม่ spam และ default-deny เมื่อ config ผิด"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "Auto-thread ในบทนี้หมายถึงอะไร?",
+        "options": [
+          "bot เห็นข้อความแล้วเปิด thread ย่อยตาม policy ที่กำหนด",
+          "การอัปโหลดวิดีโอ YouTube อัตโนมัติ",
+          "การเปลี่ยนสีหน้าเว็บให้เหมือน Discord"
+        ],
+        "answer": 0,
+        "explain": "ถูก เพราะ auto-thread คือ automation ฝั่ง Discord thread ไม่ใช่ YouTube หรือ UI theme"
+      },
+      {
+        "question": "ทำไมบทเรียนนี้เน้น raw Discord REST proof?",
+        "options": [
+          "เพื่อเข้าใจ endpoint/ผลกระทบจริง ไม่ซ่อนทุกอย่างไว้หลัง library",
+          "เพื่อเก็บ token ลงเว็บ public",
+          "เพื่อเลี่ยงการ verify live"
+        ],
+        "answer": 0,
+        "explain": "ถูก การรู้ REST endpoint ช่วยให้พิสูจน์และ debug ได้ตรงขึ้น โดยยังต้อง redacted secret เสมอ"
+      },
+      {
+        "question": "ถ้า AccessPolicy config parse ไม่ผ่าน ควรทำอย่างไรเป็น default ที่ปลอดภัย?",
+        "options": [
+          "default-deny: ไม่ให้สิทธิ์ แล้ว log issue แบบปลอดภัย",
+          "default-allow เพื่อไม่ให้ผู้ใช้ติดขัด",
+          "หยุดอ่าน log และเดาว่าระบบปกติ"
+        ],
+        "answer": 0,
+        "explain": "ถูก ระบบที่แตะห้องจริงควรปิดสิทธิ์ไว้ก่อนเมื่อ config ผิด"
+      },
+      {
+        "question": "proof แบบไหนเหมาะกับ auto-thread ที่ไม่อยาก spam ห้อง?",
+        "options": [
+          "self-test ที่สร้าง/ตรวจ/archive thread และบันทึกผลแบบ redacted",
+          "ยิงข้อความซ้ำหลายรอบในห้องจริงเพื่อให้เห็นชัด",
+          "แคป raw token มาโชว์ว่าเรียก API ได้"
+        ],
+        "answer": 0,
+        "explain": "ถูก proof ต้องพิสูจน์พฤติกรรมจริงโดยลดผลกระทบและไม่เผย secret"
+      },
+      {
+        "question": "หลังเรียนบทนี้ควรถามอะไรทุกครั้งก่อนเปิด automation?",
+        "options": [
+          "endpoint ไหนถูกเรียก ใคร trigger ได้ และ fail แล้ว deny หรือไม่",
+          "หน้าเว็บใช้ font อะไร",
+          "ใครตอบใน Discord เร็วที่สุด"
+        ],
+        "answer": 0,
+        "explain": "ถูก นี่คือเลนส์ตัดสินใจที่ทำให้ automation ปลอดภัยขึ้น"
+      }
+    ]
   }
 ]
