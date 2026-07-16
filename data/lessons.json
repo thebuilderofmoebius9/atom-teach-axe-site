@@ -2875,5 +2875,93 @@
         "explain": "ถูก นี่คือเลนส์ตัดสินใจที่ทำให้ automation ปลอดภัยขึ้น"
       }
     ]
+  },
+  {
+    "slug": "mcp-notification-queue-not-tool-call",
+    "batch": "Architecture Patterns",
+    "date": "2026-07-17",
+    "title": "MCP ใน Session คือ Notification Queue ไม่ใช่ Tool Call",
+    "summary": "MCP (Model Context Protocol) ใน session run คือ asynchronous notification queue ไม่ใช่ synchronous tool call ซึ่งเปลี่ยนวิธีคิด session lifecycle และการอยู่รอด error handling",
+    "channels": [
+      "oracle learning",
+      "architecture design"
+    ],
+    "signals": [
+      "MCP",
+      "notification",
+      "queue",
+      "async",
+      "architecture",
+      "protocol",
+      "session"
+    ],
+    "skill": "แยกความหลากหลายระหว่าง notification queue กับ tool call ใน MCP ใน-session architecture",
+    "quiz": "MCP-in-session จะทำงาน synchronous หรือ asynchronous ถ้า session ปิดไปหลังจาก stdin EOF?",
+    "answer": "Asynchronous — MCP จะรับข้อมูลจนกว่า stdin EOF, ไม่รอ session ก่อน",
+    "tags": [
+      "mcp",
+      "notification",
+      "async",
+      "queue",
+      "architecture"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "MCP ใน session run คือ asynchronous notification queue ไม่ใช่ synchronous tool call — session จะปิดได้ แต่ MCP ยังรับข้อมูลต่อจากอื่น",
+      "why": "ถ้าสับสนสองอย่างนี้ code จะ deadlock: chờ response ที่มาจาก queue เพราะคิดว่าต้อง synchronous จำขาด timeout logic หรือ assume MCP callback มาตรงเวลา",
+      "metaphor": "tool call เหมือนสั่งอาหาร: 'ฉันต้องการ X' → เชฟทำ → นำมา | MCP queue เหมือน inbox: ได้ข้อความจากคนหลาย ๆ คน ลำดับไม่แน่ session ของเราปิดแล้ว แต่ข้อความยังไหลเข้ามา",
+      "try": "จินตนาการ: session เปิด → stdin ไปถึง MCP → MCP subscribe → session task ปิดไป (สำเร็จ) → ยัง stdout รับ notifications → session ผู้ใช้จะ consume messages จากข้อมูลเก่า"
+    },
+    "executive": {
+      "headline": "ความหลากหลายระหว่าง queue notification vs synchronous tool call เปลี่ยนวิธีออกแบบ MCP protocol",
+      "brief": "ใจความ: MCP ใน session คือ async queue ไม่ใช่ sync tool call — ประเด็นนี้ไม่ใช่งานปฏิบัติการเล็ก แต่เป็นวิธีมองระบบ: ต้องรู้ว่า session lifecycle ของเรา vs MCP message lifecycle เป็นคนละตน",
+      "why_now": "สำคัญเพราะ ถ้าสับสนสองอย่างนี้ code จะ deadlock: chอว response ที่ไม่มา หรือ assume MCP message มาตรงเวลา ถ้าเข้าใจผิด ทีมจะใช้เวลาหาสาเหตุ timeout ที่บอกไม่ชัด",
+      "decision_lens": "มองผ่านเลนส์ผู้บริหาร: ถ้าออกแบบระบบที่ใช้ MCP ต้องตอบได้ว่า notification queue lifecycle กับ session lifecycle เราคิดเป็นอันเดียวหรือแยก — คำตอบเปลี่ยนการ allocate resource",
+      "takeaway": "จำสั้น ๆ: MCP ใน session คือ async queue ไม่ใช่ sync tool call ใช้ timeout + heartbeat เพื่อจัดการกรณีที่ queue ขาด"
+    },
+    "media": [
+      {
+        "title": "Channel vs Tool (Orz Blog 07-09)",
+        "url": "https://tordash.github.io/somtor-oracle-blog/blog/channel-layers-book/",
+        "note": "อธิบายเหตุที่ MCP-in-session ทำงานเป็น notification queue ไม่ใช่ tool call"
+      },
+      {
+        "title": "MQTT Channel Minimal",
+        "url": "#",
+        "note": "ตัวอย่าง minimal MCP queue implementation แบบ MQTT"
+      }
+    ],
+    "quiz_items": [
+      {
+        "question": "MCP-in-session จะทำงาน synchronous หรือ asynchronous ถ้า session ปิดไปหลังจาก stdin EOF?",
+        "options": [
+          "Synchronous — session ต้องรอ MCP response ก่อนปิด",
+          "Asynchronous — MCP จะรับข้อมูลต่อจนกว่า stdin EOF, session ปิดได้ก่อน",
+          "ขึ้นอยู่กับ MCP implementation"
+        ],
+        "answer": 1,
+        "explain": "ถูก MCP ใน-session ทำงาน asynchronous — stdin EOF เป็นสัญญาณให้ MCP หยุดรับอินพุตใหม่ แต่ output/notifications ยังไหลต่อ session ไม่ต้องรอ"
+      },
+      {
+        "question": "ถ้า session ปิดแล้ว MCP notification จะไปไหน?",
+        "options": [
+          "หายไป (discard)",
+          "เก็บไว้ใน queue จนกว่า session เปิดใหม่",
+          "ส่งไปที่ fallback handler ถ้ามี"
+        ],
+        "answer": 2,
+        "explain": "ถูก notification queue แบบ async ต้องมี fallback handler หรือ dead-letter queue สำหรับกรณี session ปิดไม่ทัน"
+      },
+      {
+        "question": "เหตุใดการสับสนระหว่าง tool call กับ notification queue จึงอันตรายในระบบ distributed?",
+        "options": [
+          "เพราะ tool call ได้ผลลัพธ์เร็วกว่า queue",
+          "เพราะ queue ถูกกว่า tool call",
+          "เพราะถ้าคิดว่า tool call synchronous แล้ว queue asynchronous code จะ deadlock หรือ timeout ไม่ชัด"
+        ],
+        "answer": 2,
+        "explain": "ถูก ความเข้าใจผิดจะนำไปสู่ bug ที่เข้าใจยากเพราะสาเหตุ (timeout logic หรือ deadlock) ไม่ชัด"
+      }
+    ]
   }
 ]
