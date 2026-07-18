@@ -4,6 +4,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 lessons=json.loads((ROOT/'data/lessons.json').read_text(encoding='utf-8'))
 glossary=json.loads((ROOT/'data/glossary.json').read_text(encoding='utf-8'))
 tech_glossary=json.loads((ROOT/'data/technical-glossary.json').read_text(encoding='utf-8'))
+quiz_total=sum(len(l.get('quiz_items',[])) for l in lessons)  # actual XP checks across all quests (len*5 over-counts when a quest has <5)
 CSS='assets/styles.css'
 
 def e(x): return html.escape(str(x), quote=True)
@@ -80,7 +81,7 @@ index_body=f'''<main class="wrap">
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
       <div class="stat"><b>{len(lessons)}</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>{len(lessons)*5}</b><span>XP checks</span></div>
+      <div class="stat"><b>{quiz_total}</b><span>XP checks</span></div>
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>{len(tech_glossary)}</b><span>Item Glossary: ศัพท์เทคนิค</span></div>

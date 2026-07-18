@@ -45,6 +45,9 @@ https://thebuilderofmoebius9.github.io/atom-teach-axe-site/
 - `2026-07-09` — [Code Block Spacing — กล่องโค้ดติดกันทำให้อ่านยาก](lessons/code-block-spacing-discord-rendering/)
 - `2026-07-09` — [Scheduled Refresh — cronjob ช่วยได้ แต่ต้องมี guardrail](lessons/scheduled-refresh-cronjob-boundary/)
 - `2026-07-10` — [Auto Thread + Access Policy — ให้ bot เปิดห้องย่อยเองอย่างปลอดภัย](lessons/auto-thread-access-policy-proof/)
+- `2026-07-17` — [MCP Notification Queue — channel ใน session ไม่ใช่ tool call](lessons/mcp-notification-queue-not-tool-call/)
+- `2026-07-18` — [Rule 6 Boundaries — แยกความรู้ตำรากับการพิสูจน์จริง](lessons/ai-oracle-rule-6-boundaries/)
+- `2026-07-19` — [Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push](lessons/pushed-not-live-negative-probe/)
 
 
 ## Safety Contract

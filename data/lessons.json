@@ -3070,5 +3070,113 @@
         "explain": "ถูก ข้อมูลเชิงปฏิบัติการระบบจริงไม่สามารถเดาได้จากตำรา ต้องรัน Tool เพื่อเช็คความจริงเชิงประจักษ์เท่านั้น"
       }
     ]
+  },
+  {
+    "slug": "pushed-not-live-negative-probe",
+    "batch": "Verification & Proof",
+    "date": "2026-07-19",
+    "title": "Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push",
+    "summary": "git push สำเร็จไม่ได้แปลว่าหน้าเว็บขึ้น live แล้ว เพราะขั้นตอน deploy (เช่น GitHub Actions Pages) มีช่วง drift 1-2 นาที การยืนยันว่าเว็บใช้งานจริงต้องยิง HTTP สด: หน้าจริงต้องได้ 200 และ URL ปลอมต้องได้ 404 เพื่อพิสูจน์ว่าเซิร์ฟเวอร์ route จริง ไม่ใช่หน้า SPA ที่คืน 200 ให้ทุก URL",
+    "channels": [
+      "public classroom chat",
+      "oracle school"
+    ],
+    "signals": [
+      "Deployment",
+      "Drift",
+      "HTTP 200",
+      "Negative Probe",
+      "HTTP 404",
+      "Live Verify",
+      "Pushed≠Live"
+    ],
+    "skill": "ยืนยันเว็บที่ deploy แล้วด้วย HTTP probe สด คู่กับ negative probe (URL ปลอมต้องได้ 404) แทนการเชื่อว่า git push เท่ากับ live",
+    "quiz": "หลัง git push ขึ้น main สำเร็จแล้ว วิธีใดพิสูจน์ได้จริงว่าหน้าเว็บใหม่ขึ้น live และ route จริง?",
+    "answer": "ยิง HTTP สดที่ URL จริงต้องได้ 200 และยิง URL ปลอมที่ไม่มีอยู่จริงต้องได้ 404 (negative probe) จึงจะยืนยันได้ว่า deploy สำเร็จและเซิร์ฟเวอร์ route จริง",
+    "tags": [
+      "deployment",
+      "live-verify",
+      "http-probe",
+      "negative-probe",
+      "drift"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "แค่ push โค้ดขึ้น repo ยังไม่พอจะบอกว่าเว็บ live แล้ว เพราะระบบ deploy อย่าง GitHub Pages ใช้เวลา 1-2 นาทีกว่าจะอัปเดตจริง และบางครั้งเว็บดูเหมือนผ่านเพราะคืน 200 ทุก URL ทั้งที่จริง ๆ เป็นหน้า SPA ก้อนเดียวที่ catch หมด วิธีตรวจให้แน่ใจคือยิง HTTP สดทั้งหน้าจริง (ต้อง 200) และ URL ปลอม (ต้อง 404)",
+      "why": "เพื่อกันคำกล่าวอ้างว่า 'verified live' ทั้งที่จริง ๆ ยังอ่านเวอร์ชันเก่าหรือไม่ได้ route จริง จนทำให้รายงานส่งไปแล้วเพื่อนคลิกตามแล้วเจอหน้าพัง",
+      "metaphor": "เหมือนส่งพัสดุ: ได้ใบเสร็จรับของ (git push success) ยังไม่แปลว่าของถึงมือลูกค้า (live) ต้องโทรไปเช็คเบอร์จริงว่าได้รับหรือยัง และลองส่งผิดเบอร์ดูว่าระบบปฏิเสธจริงไหม",
+      "try": "หลัง push รอ 1-2 นาทีแล้ว curl สด 2 ครั้ง: URL จริงของบทเรียนใหม่ (คาดหวัง 200) กับ URL ปลอม เช่น /__fake_probe__/ (คาดหวัง 404) ถ้าทั้งคู่ตรงจึงรายงานว่า verified live"
+    },
+    "executive": {
+      "headline": "แยก 'push สำเร็จ' ออกจาก 'live จริง' ด้วย HTTP probe คู่ positive/negative เพื่อกันรายงานเท็จ",
+      "brief": "git push สำเร็จเป็นเพียงสถานะฝั่ง repo ส่วนสถานะที่ผู้ใช้เห็นจริงต้องรอ deploy ผ่าน pipeline ซึ่งมี drift การยืนยัน live ที่ซื่อตรงต้องใช้ HTTP probe สดสองด้าน: หน้าจริงต้อง 200 และหน้าปลอมต้อง 404 เพื่อแยกเว็บที่ route จริงออกจากหน้า catch-all ที่คืน 200 หมด",
+      "why_now": "สำคัญเพราะห้องเรียนเพิ่งเจอเคส 'pushed แล้วอ้าง verified 200 แต่จริง ๆ ยัง drift' ทำให้เพื่อนคลิกตามแล้วเจอเวอร์ชันเก่าหรือหน้าพัง จึงต้องมีกติกา verify สดทุกครั้งก่อนรายงาน",
+      "decision_lens": "มองผ่านเลนส์ผู้บริหาร: อย่าให้ทีมรายงานสถานะจากสิ่งที่ตั้งใจทำ (push) แต่ให้รายงานจากผลลัพธ์ที่วัดได้จริง (HTTP สด + negative probe) เพื่อให้ตัวเลขและสถานะที่ส่งต่อเชื่อถือได้",
+      "takeaway": "จำสั้น ๆ: push สำเร็จ ≠ live ต้อง curl สดคู่กัน หน้าจริง 200 และหน้าปลอม 404 ถึงจะเรียกว่า verified live"
+    },
+    "media": [
+      {
+        "title": "Live-verify receipt pattern (curl สด + fake URL → 404)",
+        "url": "#",
+        "note": "รูปแบบหลักฐานที่ห้องเรียนใช้: แสดง HTTP code ของหน้าจริงและ negative probe คู่กัน"
+      },
+      {
+        "title": "Spider Proof — 200 หน้าแรกไม่พอ (บทเรียนเดิม)",
+        "url": "#",
+        "note": "บทเรียนเดิมเน้น positive check หลาย endpoint บทเรียนนี้เติม negative probe และ drift ของการ deploy"
+      }
+    ],
+    "quiz_items": [
+      {
+        "question": "หลัง git push ขึ้น main สำเร็จทันที ข้อใดถูกต้องที่สุดเกี่ยวกับสถานะ live ของเว็บ?",
+        "options": [
+          "ยังไม่แน่ใจ เพราะ push สำเร็จเป็นเพียงสถานะ repo ต้องรอ deploy แล้วยิง HTTP สดอีกครั้ง",
+          "แน่นอนว่า live แล้ว เพราะ push success หมายถึงผู้ใช้เห็นเวอร์ชันใหม่ทันที",
+          "ต้องรอ 24 ชม. ก่อนเช็ค เพราะ GitHub คง cache ไว้"
+        ],
+        "answer": 0,
+        "explain": "ถูก push สำเร็จไม่เท่ากับ live เพราะ pipeline deploy มี drift ต้องยืนยันด้วย HTTP สดอีกครั้งก่อนรายงาน"
+      },
+      {
+        "question": "ทำไมต้องยิง URL ปลอม (เช่น /__fake_probe__/) แล้วคาดหวัง 404?",
+        "options": [
+          "เพื่อพิสูจน์ว่าเซิร์ฟเวอร์ route จริง ไม่ใช่หน้า SPA/catch-all ที่คืน 200 ให้ทุก URL",
+          "เพื่อให้เว็บเก็บ cache ของหน้าปลอมไว้ใช้ภายหลัง",
+          "เพื่อบังคับให้ GitHub Actions รัน deploy เร็วขึ้น"
+        ],
+        "answer": 0,
+        "explain": "ถูก negative probe (หน้าปลอมต้อง 404) แยกเว็บที่ route จริงออกจากเว็บที่คืน 200 หมดซึ่งอาจหลอกว่าใช้ได้"
+      },
+      {
+        "question": "เว็บคืน HTTP 200 ให้ทุก URL รวมถึง URL ที่ไม่มีอยู่จริง แปลว่าอะไร?",
+        "options": [
+          "น่าสงสัยว่าเป็นหน้า catch-all ที่ไม่ได้ route จริง อาจทำให้คิดว่าหน้าใหม่ขึ้นทั้งที่ไม่ขึ้น",
+          "เว็บแข็งแรงมาก เพราะไม่มี error เลย",
+          "เว็บนั้น deploy เสร็จสมบูรณ์และพร้อมใช้งานทันที"
+        ],
+        "answer": 0,
+        "explain": "ถูก ถ้า URL ปลอมก็ได้ 200 แสดงว่าเป็น catch-all ไม่ใช่การ route จริง จึงยืนยัน live ไม่ได้"
+      },
+      {
+        "question": "บทเรียน Spider Proof ตรวจหลาย endpoint ที่ต้อง 200 ส่วนบทเรียนนี้เพิ่มอะไร?",
+        "options": [
+          "เพิ่ม negative probe (URL ปลอมต้อง 404) และระวัง drift ระหว่าง push กับ live",
+          "เพิ่มการนับจำนวน Oracle ในระบบ",
+          "เพิ่มการส่ง screenshot แทนการ curl"
+        ],
+        "answer": 0,
+        "explain": "ถูก Spider Proof เป็น positive check บทเรียนนี้เติม negative probe และแนวคิด pushed ≠ live"
+      },
+      {
+        "question": "ก่อนรายงานว่า 'verified live' ในห้องเรียน หลักฐานขั้นต่ำที่ควรมีคือ?",
+        "options": [
+          "ผล curl สดของหน้าจริงที่ได้ 200 และ negative probe ที่ได้ 404",
+          "แค่ commit hash ที่ push สำเร็จ",
+          "แค่คำบอกเล่าว่าเพิ่ง deploy เสร็จ"
+        ],
+        "answer": 0,
+        "explain": "ถูก ตามหลัก prove before claiming ต้องมี HTTP probe สดคู่ positive/negative ไม่ใช่แค่ commit hash หรือคำบอกเล่า"
+      }
+    ]
   }
 ]
