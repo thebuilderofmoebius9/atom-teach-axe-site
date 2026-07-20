@@ -24,11 +24,11 @@
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>33</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>163</b><span>XP checks</span></div>
+      <div class="stat"><b>34</b><span>เควสเรียนรู้</span></div>
+      <div class="stat"><b>168</b><span>XP checks</span></div>
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
-      <div class="stat"><b>50</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
+      <div class="stat"><b>52</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
     </div>
   </section>
   <section class="arcade-console" aria-label="Quest Console">
@@ -305,7 +305,7 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="ai-oracle-rule-6-boundaries">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/ai-oracle-rule-6-boundaries/">เปิดเควส</a>
-      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">1 quests</span></div><div class="lesson-grid">
+      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">2 quests</span></div><div class="lesson-grid">
       <article class="lesson-card" data-lesson-card data-slug="pushed-not-live-negative-probe" data-search="pushed ≠ live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push git push สำเร็จไม่ได้แปลว่าหน้าเว็บขึ้น live แล้ว เพราะขั้นตอน deploy (เช่น github actions pages) มีช่วง drift 1-2 นาที การยืนยันว่าเว็บใช้งานจริงต้องยิง http สด: หน้าจริงต้องได้ 200 และ url ปลอมต้องได้ 404 เพื่อพิสูจน์ว่าเซิร์ฟเวอร์ route จริง ไม่ใช่หน้า spa ที่คืน 200 ให้ทุก url verification &amp; proof deployment drift http 200 negative probe http 404 live verify pushed≠live deployment live-verify http-probe negative-probe drift">
         <div class="kicker">2026-07-19 · Verification &amp; Proof</div>
         <h3>Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push</h3>
@@ -313,6 +313,14 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="pushed-not-live-negative-probe">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/pushed-not-live-negative-probe/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="nonce-round-trip-liveness-proof" data-search="nonce round-trip — พิสูจน์การเชื่อมต่อสดที่ปลอมไม่ได้ log หรือ screenshot อ้างว่า bot เชื่อมต่อสำเร็จนั้นปลอมได้เสมอ วิธีพิสูจน์ที่ปลอมไม่ได้คือ nonce round-trip: สร้างค่าสุ่มสดตอนนี้ ส่งเข้าไปในระบบจริง แล้วต้องอ่านค่าเดิมกลับออกมาจากปลายทาง ถ้าค่ากลับมาตรง แปลว่า loop ทั้งเส้นทำงานสดจริง เพราะไม่มีทางเตรียมคำตอบล่วงหน้าได้ ห้องเรียนเพิ่งเห็นตัวอย่างจริง: gateway reader ที่เขียนเองด้วย raw websocket ไม่มี dependency แล้วพิสูจน์ด้วย nonce round-trip verification &amp; proof nonce round-trip raw websocket zero dependency liveness proof gateway reader liveness nonce round-trip websocket proof zero-dependency">
+        <div class="kicker">2026-07-20 · Verification &amp; Proof</div>
+        <h3>Nonce Round-Trip — พิสูจน์การเชื่อมต่อสดที่ปลอมไม่ได้</h3>
+        <p>ถ้ามีคนบอกว่า &#x27;bot ผมต่อ Discord ได้จริงนะ ดู log สิ&#x27; เราเชื่อได้แค่ครึ่งเดียว เพราะ log ก็อปวางได้ วิธีที่แน่นกว่าคือให้ระบบพิสูจน์ตัวเองสด ๆ: สร้างเลขสุ่มใหม่ตอนนี้ (nonce) ส่งเข้าระบบจริง แล้วรอให้มันวิ่งกลับออกมาอีกฝั่ง ถ้าเลขที่กลับมาตรงกับที่เพิ่งสร้าง แปลว่าทั้งเส้นทำงานสดจริง เหมือนที่เพื่อนในห้องเรียนเขียน Discord Gateway reader เองด้วย raw WebSocket แล้วพิสูจน์แบบนี้</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="nonce-round-trip-liveness-proof">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/nonce-round-trip-liveness-proof/">เปิดเควส</a>
       </article></div></section>
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
 </main><script src="assets/app.js" defer></script>

@@ -48,6 +48,7 @@ https://thebuilderofmoebius9.github.io/atom-teach-axe-site/
 - `2026-07-17` — [MCP Notification Queue — channel ใน session ไม่ใช่ tool call](lessons/mcp-notification-queue-not-tool-call/)
 - `2026-07-18` — [Rule 6 Boundaries — แยกความรู้ตำรากับการพิสูจน์จริง](lessons/ai-oracle-rule-6-boundaries/)
 - `2026-07-19` — [Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push](lessons/pushed-not-live-negative-probe/)
+- `2026-07-20` — [Nonce Round-Trip — พิสูจน์การเชื่อมต่อสดที่ปลอมไม่ได้](lessons/nonce-round-trip-liveness-proof/)
 
 
 ## Safety Contract
