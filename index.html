@@ -24,11 +24,11 @@
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>36</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>178</b><span>XP checks</span></div>
+      <div class="stat"><b>37</b><span>เควสเรียนรู้</span></div>
+      <div class="stat"><b>183</b><span>XP checks</span></div>
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
-      <div class="stat"><b>54</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
+      <div class="stat"><b>56</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
     </div>
   </section>
   <section class="arcade-console" aria-label="Quest Console">
@@ -313,7 +313,7 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="ai-oracle-rule-6-boundaries">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/ai-oracle-rule-6-boundaries/">เปิดเควส</a>
-      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">3 quests</span></div><div class="lesson-grid">
+      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">4 quests</span></div><div class="lesson-grid">
       <article class="lesson-card" data-lesson-card data-slug="pushed-not-live-negative-probe" data-search="pushed ≠ live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push git push สำเร็จไม่ได้แปลว่าหน้าเว็บขึ้น live แล้ว เพราะขั้นตอน deploy (เช่น github actions pages) มีช่วง drift 1-2 นาที การยืนยันว่าเว็บใช้งานจริงต้องยิง http สด: หน้าจริงต้องได้ 200 และ url ปลอมต้องได้ 404 เพื่อพิสูจน์ว่าเซิร์ฟเวอร์ route จริง ไม่ใช่หน้า spa ที่คืน 200 ให้ทุก url verification &amp; proof deployment drift http 200 negative probe http 404 live verify pushed≠live deployment live-verify http-probe negative-probe drift">
         <div class="kicker">2026-07-19 · Verification &amp; Proof</div>
         <h3>Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push</h3>
@@ -337,6 +337,14 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="presence-over-absence-cross-query">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/presence-over-absence-cross-query/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="guardrails-over-memory" data-search="กฎที่พึ่งความจำ คือกฎที่รอวันพลาด — ย้ายกฎเข้า guardrail กฎสำคัญที่อาศัยแค่วินัยและความจำของคน จะพลาดในครั้งที่คนลืม ถ้าความผิดพลาดนั้นย้อนกลับไม่ได้ (secret หลุด, ลิงก์เสียถึงมือคนอื่น) ต้องย้ายกฎไปเป็นเครื่องมือที่บังคับเองอัตโนมัติ verification &amp; proof secret ติด commit ตอน repo public ประกาศลิงก์ก่อน build เสร็จ → 404 pre-commit block pre-send gate guardrail automation secrets pre-commit safety">
+        <div class="kicker">2026-07-23 · Verification &amp; Proof</div>
+        <h3>กฎที่พึ่งความจำ คือกฎที่รอวันพลาด — ย้ายกฎเข้า guardrail</h3>
+        <p>กฎไหนที่ถ้าพลาดแล้วแก้ไม่ได้ อย่าฝากไว้กับความจำ ให้เขียนเป็นเครื่องมือที่ขวางไว้อัตโนมัติแทน</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="guardrails-over-memory">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/guardrails-over-memory/">เปิดเควส</a>
       </article></div></section>
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
 </main><script src="assets/app.js" defer></script>

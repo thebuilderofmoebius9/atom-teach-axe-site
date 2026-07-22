@@ -51,6 +51,7 @@ https://thebuilderofmoebius9.github.io/atom-teach-axe-site/
 - `2026-07-20` — [Nonce Round-Trip — พิสูจน์การเชื่อมต่อสดที่ปลอมไม่ได้](lessons/nonce-round-trip-liveness-proof/)
 - `2026-07-22` — [Commit ≠ Push — เก็บของกับส่งของคนละขั้นตอน](lessons/git-commit-vs-push/)
 - `2026-07-22` — [Presence > Absence — tool ตอบ "ไม่มี" ไม่ได้แปลว่าไม่มีจริง](lessons/presence-over-absence-cross-query/)
+- `2026-07-23` — [กฎที่พึ่งความจำ คือกฎที่รอวันพลาด — ย้ายกฎเข้า guardrail](lessons/guardrails-over-memory/)
 
 
 ## Safety Contract
