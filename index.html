@@ -24,11 +24,11 @@
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>38</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>188</b><span>XP checks</span></div>
+      <div class="stat"><b>39</b><span>เควสเรียนรู้</span></div>
+      <div class="stat"><b>193</b><span>XP checks</span></div>
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
-      <div class="stat"><b>57</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
+      <div class="stat"><b>58</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
     </div>
   </section>
   <section class="arcade-console" aria-label="Quest Console">
@@ -297,7 +297,7 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="auto-thread-access-policy-proof">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/auto-thread-access-policy-proof/">เปิดเควส</a>
-      </article></div></section><section class="section quest-zone" data-zone="Architecture Patterns"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Architecture Patterns</h2><span class="zone-count">1 quests</span></div><div class="lesson-grid">
+      </article></div></section><section class="section quest-zone" data-zone="Architecture Patterns"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Architecture Patterns</h2><span class="zone-count">2 quests</span></div><div class="lesson-grid">
       <article class="lesson-card" data-lesson-card data-slug="mcp-notification-queue-not-tool-call" data-search="mcp ใน session คือ notification queue ไม่ใช่ tool call mcp (model context protocol) ใน session run คือ asynchronous notification queue ไม่ใช่ synchronous tool call ซึ่งเปลี่ยนวิธีคิด session lifecycle และการอยู่รอด error handling architecture patterns mcp notification queue async architecture protocol session mcp notification async queue architecture">
         <div class="kicker">2026-07-17 · Architecture Patterns</div>
         <h3>MCP ใน Session คือ Notification Queue ไม่ใช่ Tool Call</h3>
@@ -305,6 +305,14 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="mcp-notification-queue-not-tool-call">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/mcp-notification-queue-not-tool-call/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="glyph-drawn-not-placed-font-never-wrong" data-search="วาด glyph ≠ วาง glyph — ฟอนต์ไม่เคยผิด วรรณยุกต์ที่หายไปไม่ได้หายที่ฟอนต์ ในการแสดงผลข้อความที่ข้อมูลไหลผ่านหลายชั้น (ฟอนต์ → ตัวจัดรูป → ตัววาดผล) ความถูกต้องคือสัญญาที่ต้องครบทุกชั้น ไม่ใช่คุณสมบัติของชั้นเดียว เมื่อวรรณยุกต์หรือสระบนหาย นิ้วมักชี้ไปที่ฟอนต์ ทั้งที่ฟอนต์มีทั้งรูป glyph และคำสั่งตำแหน่ง (anchor) ครบ — ตัวการจริงมักอยู่ที่ชั้นก่อนหน้าที่คืนความกว้างเป็น 0 ให้ตัวเสริม แล้วตัดทิ้งไปก่อนที่ฟอนต์จะได้วางมัน architecture patterns วรรณยุกต์/สระบนหายบน console ทั้งที่เครื่องรันปกติ ฟอนต์มี glyph ครบ และมี gpos anchor บอกตำแหน่งครบ ตัวอ่านฟอนต์ (terminal/console) ไม่เคยเปิดอ่าน anchor ฟังก์ชันความกว้างคืน 0 ให้ combining mark แล้วทิ้งตั้งแต่รับ input แก้ที่ตัวจัดรูปจริง (harfbuzz) บนชั้นที่วาดผล ไม่ใช่ที่ฟอนต์ font glyph i18n thai rendering layered-systems misattribution">
+        <div class="kicker">2026-07-24 · Architecture Patterns</div>
+        <h3>วาด glyph ≠ วาง glyph — ฟอนต์ไม่เคยผิด วรรณยุกต์ที่หายไปไม่ได้หายที่ฟอนต์</h3>
+        <p>การวาดรูปตัวอักษร (glyph) เก็บไว้ในฟอนต์ กับ การเอารูปนั้นไปวางให้ถูกที่บนจอ คือคนละเรื่อง ฟอนต์ไทยที่ดีมีทั้งรูปวรรณยุกต์ครบ และมีคำสั่งตำแหน่งที่บอกว่าให้วางไม้เอก ไม้โท หรือสระบนตรงไหน แต่ถ้าโปรแกรมที่อ่านฟอนต์ไม่เปิดอ่านคำสั่งตำแหน่งเลย หรือทิ้งตัวอักษรที่ไม่มีความกว้างของตัวเองไปก่อนแล้ว วรรณยุกต์ก็หาย ทั้งที่ฟอนต์ไม่ได้ผิด</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="glyph-drawn-not-placed-font-never-wrong">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/glyph-drawn-not-placed-font-never-wrong/">เปิดเควส</a>
       </article></div></section><section class="section quest-zone" data-zone="Rule 6 &amp; Identity"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Rule 6 &amp; Identity</h2><span class="zone-count">1 quests</span></div><div class="lesson-grid">
       <article class="lesson-card" data-lesson-card data-slug="ai-oracle-rule-6-boundaries" data-search="ai oracle กับขอบเขต rule 6: การแยกแยะความรู้ตำราและการพิสูจน์จริง ai oracle ตอบข้อมูลประวัติศาสตร์และคำสอนได้ในฐานะผู้สืบค้นตำรา (history &amp; doctrine) แต่ต้องไม่สวมรอยเป็นผู้รู้ธรรมหรือมนุษย์ (rule 6) และแยกแยะข้อมูลตำราออกจากสถานะระบบจริงที่ต้องตรวจผ่านเครื่องมือ (tool proof) rule 6 &amp; identity rule 6 doctrine provenance evidence tool proof fact verification rule-6 doctrine provenance verification">
         <div class="kicker">2026-07-18 · Rule 6 &amp; Identity</div>
