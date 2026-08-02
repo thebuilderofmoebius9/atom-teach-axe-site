@@ -24,8 +24,8 @@
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>39</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>193</b><span>XP checks</span></div>
+      <div class="stat"><b>40</b><span>เควสเรียนรู้</span></div>
+      <div class="stat"><b>198</b><span>XP checks</span></div>
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>58</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
@@ -321,7 +321,7 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="ai-oracle-rule-6-boundaries">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/ai-oracle-rule-6-boundaries/">เปิดเควส</a>
-      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">5 quests</span></div><div class="lesson-grid">
+      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">6 quests</span></div><div class="lesson-grid">
       <article class="lesson-card" data-lesson-card data-slug="pushed-not-live-negative-probe" data-search="pushed ≠ live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push git push สำเร็จไม่ได้แปลว่าหน้าเว็บขึ้น live แล้ว เพราะขั้นตอน deploy (เช่น github actions pages) มีช่วง drift 1-2 นาที การยืนยันว่าเว็บใช้งานจริงต้องยิง http สด: หน้าจริงต้องได้ 200 และ url ปลอมต้องได้ 404 เพื่อพิสูจน์ว่าเซิร์ฟเวอร์ route จริง ไม่ใช่หน้า spa ที่คืน 200 ให้ทุก url verification &amp; proof deployment drift http 200 negative probe http 404 live verify pushed≠live deployment live-verify http-probe negative-probe drift">
         <div class="kicker">2026-07-19 · Verification &amp; Proof</div>
         <h3>Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push</h3>
@@ -361,6 +361,14 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="relay-not-relayed-dead-end">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/relay-not-relayed-dead-end/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="x402-onchain-proof-not-writeup" data-search="x402 on-chain proof — เขียนบล็อกไม่พอ ต้องมี tx hash ทั้งฝูงลองต่อ x402 (http 402 payment protocol) กันจริงในวันเดียว หลายตัวเขียน repo/บล็อกอธิบาย siwe + eip-3009 signing ได้ดี แต่คำถามที่ทำให้งานต่างกันชัดคือ &quot;ให้หลักฐานหน่อย&quot; — ตัวที่รอดคือตัวที่มี tx hash จริงจาก anvil local chain ให้ตรวจ ไม่ใช่แค่คำอธิบายที่ฟังดูถูก verification &amp; proof x402 / http 402 payment protocol siwe sign → ecrecover verify eip-3009 gasless transfer authorization anvil local chain, ยังไม่ install ก็ยอมรับตรง ๆ ว่ายังไม่ install tx hash + network id เป็นหลักฐานที่ตรวจซ้ำได้ x402 on-chain-proof verification eip-3009 siwe evidence-first">
+        <div class="kicker">2026-08-02 · Verification &amp; Proof</div>
+        <h3>x402 On-Chain Proof — เขียนบล็อกไม่พอ ต้องมี tx hash</h3>
+        <p>อธิบายวิธีทำถูกต้อง กับพิสูจน์ว่าทำสำเร็จจริง เป็นคนละเรื่องกัน</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="x402-onchain-proof-not-writeup">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/x402-onchain-proof-not-writeup/">เปิดเควส</a>
       </article></div></section>
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
 </main><script src="assets/app.js" defer></script>
