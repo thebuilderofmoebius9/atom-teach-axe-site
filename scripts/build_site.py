@@ -4,6 +4,8 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 lessons=json.loads((ROOT/'data/lessons.json').read_text(encoding='utf-8'))
 glossary=json.loads((ROOT/'data/glossary.json').read_text(encoding='utf-8'))
 tech_glossary=json.loads((ROOT/'data/technical-glossary.json').read_text(encoding='utf-8'))
+ai_dict=json.loads((ROOT/'data/ai-dictionary.json').read_text(encoding='utf-8'))
+ai_dict_total=sum(len(s['terms']) for s in ai_dict['sections'])
 quiz_total=sum(len(l.get('quiz_items',[])) for l in lessons)  # actual XP checks across all quests (len*5 over-counts when a quest has <5)
 CSS='assets/styles.css'
 
@@ -77,6 +79,7 @@ index_body=f'''<main class="wrap">
         <a href="lessons/mirror-not-memory/">Mirror ≠ Memory</a>
         <a href="glossary/">Glossary</a>
         <a href="technical-glossary/">Item Glossary: ศัพท์เทคนิค</a>
+        <a href="ai-dictionary/">AI Coding Dictionary ไทย</a>
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
@@ -85,6 +88,7 @@ index_body=f'''<main class="wrap">
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>{len(tech_glossary)}</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
+      <div class="stat"><b>{ai_dict_total}</b><span>AI Coding Dictionary ไทย</span></div>
     </div>
   </section>
   <section class="arcade-console" aria-label="Quest Console">
@@ -137,7 +141,7 @@ for l in lessons:
   <section class="section"><div class="section-head"><p class="eyebrow">Skill</p><h2>ทักษะที่ต้องเรียน</h2></div><div class="card"><p>{e(l['skill'])}</p><div class="progress">{tags}</div></div></section>
   {media}
   <section class="section quiz-section" data-lesson-slug="{e(l['slug'])}"><div class="section-head"><p class="eyebrow">Boss Quiz</p><h2>Boss Quiz 5 ข้อ</h2></div>{quiz_items}<div class="score-card" id="score-card">ตอบให้ครบ 5 ข้อ ระบบจะสรุปคะแนนและเก็บ XP ให้ตรงนี้</div></section>
-  <footer class="footer"><a href="../../glossary/">เปิด Glossary</a> · <a href="../../technical-glossary/">Item Glossary: ศัพท์เทคนิค</a> · <a href="../../">กลับหน้าแรก</a></footer>
+  <footer class="footer"><a href="../../glossary/">เปิด Glossary</a> · <a href="../../technical-glossary/">Item Glossary: ศัพท์เทคนิค</a> · <a href="../../ai-dictionary/">AI Coding Dictionary ไทย</a> · <a href="../../">กลับหน้าแรก</a></footer>
 </main>'''
     (d/'index.html').write_text(page(l['title'], lesson_body, depth=2, script=True), encoding='utf-8')
 
@@ -149,3 +153,27 @@ tech_dir=ROOT/'technical-glossary'; tech_dir.mkdir(parents=True, exist_ok=True)
 tech_cards=''.join(f'''<article class="term-card"><h3>{e(x["term"])}</h3><p class="term-plain">{e(x["plain"])}</p><dl><dt>ทำไมต้องรู้</dt><dd>{e(x["why"])}</dd><dt>ภาพจำ</dt><dd>{e(x["metaphor"])}</dd><dt>ตัวอย่างในเว็บนี้</dt><dd>{e(x["example"])}</dd></dl></article>''' for x in tech_glossary)
 tech_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p><section class="hero"><span class="badge">RPG Item Glossary</span><h1>Item Glossary: ศัพท์เทคนิค</h1><p>หน้านี้แปลคำอย่าง tmux, shell, PATH, webhook, broker, systemd ให้คนไม่เขียนโค้ดอ่านรู้เรื่องก่อนเข้า lesson หลัก</p></section><section class="section callout"><b>วิธีใช้:</b> ถ้าเจอคำแปลกในเควส ให้เปิดหน้านี้แล้วอ่าน 3 ช่อง: แปลว่าอะไร · ทำไมต้องรู้ · ภาพจำ</section><section class="section"><div class="term-grid">{tech_cards}</div></section></main>'''
 (tech_dir/'index.html').write_text(page('Item Glossary: ศัพท์เทคนิค — Atom Teach Axe', tech_body, depth=1), encoding='utf-8')
+
+# --- AI Coding Dictionary (Thai) ---------------------------------------------
+# รายการคำ + ลำดับการเรียน อ้างจาก Curriculum ของ mattpocock/dictionary-of-ai-coding
+# คำอธิบายภาษาไทยเขียนใหม่ทั้งหมด ไม่ใช่คำแปลตรงตัว
+dict_dir=ROOT/'ai-dictionary'; dict_dir.mkdir(parents=True, exist_ok=True)
+src=ai_dict['source']
+dict_sections=''.join(
+    f'''<section class="section" id="sec-{i}">
+  <div class="section-head"><p class="eyebrow">Section {i}</p><h2>{e(s['title'])}</h2><p>{e(s['intro'])}</p></div>
+  <div class="term-grid">''' + ''.join(
+        f'''<article class="term-card"><h3>{e(t['term'])}</h3><p class="term-plain"><b>{e(t['thai'])}</b> — {e(t['plain'])}</p><dl><dt>ทำไมต้องรู้</dt><dd>{e(t['why'])}</dd></dl></article>'''
+        for t in s['terms']
+    ) + '</div></section>'
+    for i,s in enumerate(ai_dict['sections'],1)
+)
+dict_toc=''.join(f'<a href="#sec-{i}">{e(s["title"])}</a>' for i,s in enumerate(ai_dict['sections'],1))
+dict_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p>
+<section class="hero"><span class="badge">AI Coding Dictionary · ฉบับภาษาไทย</span><h1>พจนานุกรมศัพท์ AI Coding {ai_dict_total} คำ</h1><p>ศัพท์ที่ต้องรู้เวลาสั่งงาน AI ให้เขียนโค้ด เรียงตามลำดับการเรียน 7 หมวด จากตัวโมเดล → context → เครื่องมือ → ความพัง → การส่งต่อ → ความจำ → รูปแบบการทำงาน</p>
+<nav class="nav" aria-label="หมวดคำศัพท์">{dict_toc}</nav></section>
+<section class="section callout"><b>ที่มา:</b> รายการคำและลำดับการเรียนอ้างจากโครงการ <a href="{e(src['upstream_url'])}" target="_blank" rel="noopener">{e(src['upstream'])}</a> (fork ไว้ที่ <a href="{e(src['fork_url'])}" target="_blank" rel="noopener">thebuilderofmoebius9</a>) · คำอธิบายภาษาไทยทุกคำเขียนใหม่โดย Atom Oracle ไม่ใช่คำแปลตรงตัว ถ้าต้องการนิยามต้นฉบับแบบเต็มให้เปิดลิงก์ต้นทาง</section>
+{dict_sections}
+<footer class="footer"><a href="../technical-glossary/">Item Glossary: ศัพท์เทคนิค</a> · <a href="../glossary/">Glossary</a> · <a href="../">กลับหน้าแรก</a></footer>
+</main>'''
+(dict_dir/'index.html').write_text(page('AI Coding Dictionary ฉบับไทย — Atom Teach Axe', dict_body, depth=1), encoding='utf-8')
