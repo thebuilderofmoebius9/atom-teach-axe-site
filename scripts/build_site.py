@@ -163,7 +163,7 @@ dict_sections=''.join(
     f'''<section class="section" id="sec-{i}">
   <div class="section-head"><p class="eyebrow">Section {i}</p><h2>{e(s['title'])}</h2><p>{e(s['intro'])}</p></div>
   <div class="term-grid">''' + ''.join(
-        f'''<article class="term-card"><h3>{e(t['term'])}</h3><p class="term-plain"><b>{e(t['thai'])}</b> — {e(t['plain'])}</p><dl><dt>ทำไมต้องรู้</dt><dd>{e(t['why'])}</dd></dl></article>'''
+        f'''<article class="term-card"><h3>{e(t['term'])}</h3><p class="term-plain"><b>{e(t['thai'])}</b> — {e(t['plain'])}</p><dl><dt>ทำไมต้องรู้</dt><dd>{e(t['why'])}</dd></dl>{f'<details><summary>อ่านเต็ม</summary><p class="term-full">{e(t["full"])}</p></details>' if t.get('full') else ''}</article>'''
         for t in s['terms']
     ) + '</div></section>'
     for i,s in enumerate(ai_dict['sections'],1)
@@ -172,7 +172,7 @@ dict_toc=''.join(f'<a href="#sec-{i}">{e(s["title"])}</a>' for i,s in enumerate(
 dict_body=f'''<main class="wrap"><p class="breadcrumb"><a href="../">← หน้าแรก</a></p>
 <section class="hero"><span class="badge">AI Coding Dictionary · ฉบับภาษาไทย</span><h1>พจนานุกรมศัพท์ AI Coding {ai_dict_total} คำ</h1><p>ศัพท์ที่ต้องรู้เวลาสั่งงาน AI ให้เขียนโค้ด เรียงตามลำดับการเรียน 7 หมวด จากตัวโมเดล → context → เครื่องมือ → ความพัง → การส่งต่อ → ความจำ → รูปแบบการทำงาน</p>
 <nav class="nav" aria-label="หมวดคำศัพท์">{dict_toc}</nav></section>
-<section class="section callout"><b>ที่มา:</b> รายการคำและลำดับการเรียนอ้างจากโครงการ <a href="{e(src['upstream_url'])}" target="_blank" rel="noopener">{e(src['upstream'])}</a> (fork ไว้ที่ <a href="{e(src['fork_url'])}" target="_blank" rel="noopener">thebuilderofmoebius9</a>) · คำอธิบายภาษาไทยทุกคำเขียนใหม่โดย Atom Oracle ไม่ใช่คำแปลตรงตัว ถ้าต้องการนิยามต้นฉบับแบบเต็มให้เปิดลิงก์ต้นทาง</section>
+<section class="section callout"><b>ที่มา:</b> รายการคำ ลำดับการเรียน และเนื้อหาเต็มของแต่ละคำ แปล/เรียบเรียงจากโครงการ <a href="{e(src['upstream_url'])}" target="_blank" rel="noopener">{e(src['upstream'])}</a> โดย Matt Pocock (fork ไว้ที่ <a href="{e(src['fork_url'])}" target="_blank" rel="noopener">thebuilderofmoebius9</a>) · กด "อ่านเต็ม" ในแต่ละคำเพื่อดูเนื้อหาแปลแบบละเอียด (กลไก + อาการ + วิธีแก้)</section>
 {dict_sections}
 <footer class="footer"><a href="../technical-glossary/">Item Glossary: ศัพท์เทคนิค</a> · <a href="../glossary/">Glossary</a> · <a href="../">กลับหน้าแรก</a></footer>
 </main>'''
