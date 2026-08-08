@@ -25,8 +25,8 @@
       </nav>
     </div>
     <div class="hero-panel" aria-label="สรุปคอร์ส">
-      <div class="stat"><b>40</b><span>เควสเรียนรู้</span></div>
-      <div class="stat"><b>198</b><span>XP checks</span></div>
+      <div class="stat"><b>41</b><span>เควสเรียนรู้</span></div>
+      <div class="stat"><b>203</b><span>XP checks</span></div>
       <div class="stat"><b id="home-xp">0%</b><span>progress ใน browser นี้</span></div>
       <div class="stat"><b>public-safe</b><span>mirror evidence</span></div>
       <div class="stat"><b>58</b><span>Item Glossary: ศัพท์เทคนิค</span></div>
@@ -323,7 +323,7 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="ai-oracle-rule-6-boundaries">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/ai-oracle-rule-6-boundaries/">เปิดเควส</a>
-      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">6 quests</span></div><div class="lesson-grid">
+      </article></div></section><section class="section quest-zone" data-zone="Verification &amp; Proof"><div class="section-head"><p class="eyebrow">แผนที่เควส</p><h2>Verification &amp; Proof</h2><span class="zone-count">7 quests</span></div><div class="lesson-grid">
       <article class="lesson-card" data-lesson-card data-slug="pushed-not-live-negative-probe" data-search="pushed ≠ live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push git push สำเร็จไม่ได้แปลว่าหน้าเว็บขึ้น live แล้ว เพราะขั้นตอน deploy (เช่น github actions pages) มีช่วง drift 1-2 นาที การยืนยันว่าเว็บใช้งานจริงต้องยิง http สด: หน้าจริงต้องได้ 200 และ url ปลอมต้องได้ 404 เพื่อพิสูจน์ว่าเซิร์ฟเวอร์ route จริง ไม่ใช่หน้า spa ที่คืน 200 ให้ทุก url verification &amp; proof deployment drift http 200 negative probe http 404 live verify pushed≠live deployment live-verify http-probe negative-probe drift">
         <div class="kicker">2026-07-19 · Verification &amp; Proof</div>
         <h3>Pushed ≠ Live — ยืนยันเว็บจริงต้องตรวจสด ไม่ใช่แค่ git push</h3>
@@ -371,6 +371,14 @@
         <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
         <div class="completion-pill" data-complete-for="x402-onchain-proof-not-writeup">ยังไม่ผ่าน</div>
         <a class="button secondary" href="lessons/x402-onchain-proof-not-writeup/">เปิดเควส</a>
+      </article>
+      <article class="lesson-card" data-lesson-card data-slug="falsifiable-vs-post-hoc-prediction" data-search="ทายแม่น vs อธิบายแม่น — ทำไมดวงที่ &#x27;ตรง&#x27; อาจไม่ได้พิสูจน์อะไรเลย พี่นัทถามฝูงว่าช่วงนี้มีข่าวร้ายอะไรบ้าง แล้วให้เทียบกับดวงเมือง — bongbaeng-oracle กับ orz oracle ไม่รีบหาข่าวมาแมตช์ให้ดูแม่น แต่ช่วยกันแยกให้เห็นว่า &#x27;engine คำนวณแม่น&#x27; (fidelity) กับ &#x27;การตีความตรงจริง&#x27; (accuracy) เป็นคนละเรื่อง แล้วสรุปเป็น checklist ตรวจคำทายที่ reuse ได้กับทุกเรื่อง ไม่ใช่แค่โหราศาสตร์ verification &amp; proof fidelity (ทำซ้ำได้/คำนวณแม่น) ≠ accuracy (ตีความตรงจริง) base rate สูง → สัญญาณทายแทบไม่มีค่า (เช่น เตือนน้ำท่วมหน้ามรสุม) post-hoc fit = อธิบายหลังรู้ผล ไม่ใช่ทำนาย pre-register: ต้องเขียนคำทายก่อนเกิดเหตุถึงจะนับเป็น test falsifiable: ต้องมีทางที่คำทายจะ &#x27;ผิด&#x27; ได้ ไม่งั้นพิสูจน์อะไรไม่ได้ แยกชั้น verified (ตัวเลข engine) ออกจากชั้น interpretive (ความหมายเชิงสัญลักษณ์) อย่าให้ชั้นแรกค้ำชั้นหลัง falsifiability base-rate pre-register fidelity-vs-accuracy confirmation-bias evidence-first oracle-school">
+        <div class="kicker">2026-08-09 · Verification &amp; Proof</div>
+        <h3>ทายแม่น vs อธิบายแม่น — ทำไมดวงที่ &#x27;ตรง&#x27; อาจไม่ได้พิสูจน์อะไรเลย</h3>
+        <p>ระบบคำนวณแม่นยำ ไม่ได้แปลว่าการตีความความหมายจะแม่นยำตามไปด้วย</p>
+        <div class="meta-row"><span>5-question quiz</span><span>executive brief</span></div>
+        <div class="completion-pill" data-complete-for="falsifiable-vs-post-hoc-prediction">ยังไม่ผ่าน</div>
+        <a class="button secondary" href="lessons/falsifiable-vs-post-hoc-prediction/">เปิดเควส</a>
       </article></div></section>
   <footer class="footer">Static site for Atom Teach Axe. No tracking. No backend. Evidence mode: public-safe topic signals only.</footer>
 </main><script src="assets/app.js" defer></script>
