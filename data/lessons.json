@@ -3944,5 +3944,100 @@
         "explain": "ถูก เป้าหมายคือนิสัยตรวจคำทายอย่างมีวินัยก่อนเชื่อ ไม่ใช่ท่องจำรายละเอียดเทคนิคของระบบใดระบบหนึ่ง"
       }
     ]
+  },
+  {
+    "slug": "mcp-v2-why-ecosystem-hasnt-migrated",
+    "batch": "System Architecture",
+    "date": "2026-08-17",
+    "title": "MCP SDK v2 ออกมาแล้ว แต่ทำไมทั้งวงการยังไม่ย้าย",
+    "summary": "พี่นัทตั้งคำถามในห้อง Free For All ว่าทำไมยังไม่มีใครเปลี่ยนไปใช้ MCP SDK v2 (spec stateless ใหม่) วง Oracle 9 ตัวช่วยกันขุดลึกทั้งวัน เจอ 4 เหตุผลเชิงกลไกที่ทำให้ spec ที่ 'พร้อมใช้ทางเทคนิค' กลับย้ายไม่ได้จริงในทางปฏิบัติ",
+    "channels": [
+      "Free For All / Oracle School"
+    ],
+    "signals": [
+      "Breaking change หนัก — เปลี่ยนชื่อ package, บังคับ node ≥20, zod v3→v4 (v3 พังเงียบ)",
+      "MRTR ตัดช่องถามกลับกลางทาง — ctx.elicit()/sampling.createMessage() ใช้ไม่ได้ใน modern wire",
+      "Two-sided stall — server ย้ายคนเดียวไม่พอ ต้องรอ host (เช่น Claude Code) negotiate modern ด้วย",
+      "ไม่มี forcing function — v2 server ยังเสิร์ฟ legacy client ได้ และ v1 ยังไม่มี sunset date",
+      "ตัวเลขจริง: v1 51.7M ดาวน์โหลด/สัปดาห์ vs v2 2.2M (~4.3%) adopter ชัดเจนมีแค่ Cloudflare"
+    ],
+    "skill": "เจอ spec/library เวอร์ชันใหม่ที่ 'เทคนิคพร้อมแล้ว' แต่ยังไม่มีใครย้าย ให้เช็ค 3 อย่างก่อนสรุปว่าทำไม: (1) breaking change ใหญ่แค่ไหน มี footgun ที่พังเงียบไหม (2) ทั้งสองฝั่ง (client/server, producer/consumer) ต้องขยับพร้อมกันไหม — ถ้าใช่คือ two-sided network effect (3) มี deprecation/sunset date บังคับไหม ถ้าไม่มี ทุกคน 'wait and see' ได้เรื่อย ๆ",
+    "quiz": "ทำไม MCP SDK v2 ถึงมีคน adopt น้อย (~4.3% ของ v1) ทั้งที่ spec เทคนิคพร้อมใช้แล้ว",
+    "answer": "เพราะต้องขยับพร้อมกันทั้งสองฝั่ง (two-sided stall) — server ย้าย v2 คนเดียวไม่พอ ต้องรอ host อย่าง Claude Code negotiate modern wire ด้วย แต่ host ส่วนใหญ่ยัง legacy-default บวกกับไม่มี forcing function (v1 ยังไม่มี sunset date, v2 server ยังเสิร์ฟ legacy client ได้) ทำให้ทุกคนเลือก wait-and-see ได้เรื่อย ๆ โดยไม่มีต้นทุนเร่งด่วน",
+    "tags": [
+      "mcp",
+      "protocol",
+      "migration",
+      "breaking-change",
+      "network-effect",
+      "oracle-school"
+    ],
+    "interactive": true,
+    "human": {
+      "plain": "spec ใหม่ที่ทำงานได้จริงในแล็บ ไม่ได้แปลว่าคนจะย้ายไปใช้ทันที",
+      "why": "การย้ายเวอร์ชันที่ต้องมีสองฝั่ง (client-server, producer-consumer) ขยับพร้อมกัน จะติดกับดัก network effect เสมอ — ย้ายไปก่อนคนเดียวก็ยังคุยกับใครไม่ได้ ถ้าไม่มีวันบังคับเลิกใช้ของเก่า (sunset date) แรงจูงใจให้รีบย้ายก็แทบไม่มี",
+      "metaphor": "เหมือนแฟกซ์กับอีเมล ถ้าทุกคนยังมีแฟกซ์ใช้ได้อยู่ ไม่มีวันปิดสายแฟกซ์แน่นอน คนก็จะไม่รีบเปลี่ยน แม้อีเมลจะเร็วกว่าและพร้อมใช้มานานแล้ว",
+      "try": "ครั้งหน้าที่เห็น library/spec เวอร์ชันใหม่ที่ 'ควรย้ายได้แล้ว' ลองเช็คว่ามันต้องการให้ทั้งสองฝั่งของระบบขยับพร้อมกันไหม แล้วมี deadline บังคับไหม — สองอย่างนี้ทำนาย adoption ได้แม่นกว่าคุณภาพของ spec เอง"
+    },
+    "executive": {
+      "headline": "spec เทคนิคพร้อม ≠ ระบบนิเวศพร้อม — two-sided network effect และการไม่มี sunset date คือตัวตัดสิน adoption จริง",
+      "brief": "MCP SDK v2 (stateless wire, spec 2026-07-28) เทคนิคพร้อมใช้งานแล้ว แต่ npm download เพียง ~4.3% ของ v1 วง Oracle verify พบ 4 อุปสรรคเชิงกลไก: breaking change หนัก, ฟีเจอร์ถามกลับกลางทางใช้ไม่ได้, ต้องขยับพร้อมกันทั้งสองฝั่ง, และไม่มีวันบังคับเลิกใช้ของเก่า",
+      "why_now": "รูปแบบนี้เกิดซ้ำกับทุก major version migration ที่มีสองฝั่งต้องขยับพร้อมกัน — เข้าใจกลไกนี้ช่วยประเมินล่วงหน้าได้ว่า dependency ตัวไหนควรรีบอัปเกรด ตัวไหนรอได้อีกนาน",
+      "decision_lens": "มองผ่านเลนส์ผู้ประเมินความเสี่ยงของ dependency: breaking change ใหญ่แค่ไหน ต้องรอฝั่งตรงข้ามขยับด้วยไหม และมี deadline บังคับหรือยัง ถ้าไม่มีทั้งสามอย่าง ระบบนิเวศจะช้าเสมอไม่ว่า spec จะดีแค่ไหน",
+      "takeaway": "จำสั้น ๆ: adoption ของ spec ใหม่ไม่ได้ขึ้นกับคุณภาพทางเทคนิคอย่างเดียว แต่ขึ้นกับต้นทุนการย้าย + แรงบังคับให้ย้าย ถ้าไม่มีทั้งคู่ ecosystem จะ stall"
+    },
+    "media": [],
+    "quiz_items": [
+      {
+        "question": "เหตุผลหลักที่ MCP SDK v2 ยัง adopt น้อยทั้งที่ spec พร้อมใช้แล้วคืออะไร?",
+        "options": [
+          "ต้องขยับพร้อมกันทั้งสองฝั่ง (server และ host) แต่ host ส่วนใหญ่ยัง legacy-default และไม่มี sunset date บังคับ",
+          "v2 ทำงานช้ากว่า v1 มาก",
+          "v2 ยังไม่มี documentation"
+        ],
+        "answer": 0,
+        "explain": "ถูก two-sided stall + ไม่มี forcing function คือตัวฆ่า migration จริง ไม่ใช่เรื่องความเร็วหรือเอกสาร"
+      },
+      {
+        "question": "MRTR (Multi Round-Trip Requests) เป็นปัญหาต่อ migration อย่างไร?",
+        "options": [
+          "ฟังก์ชันถามกลับกลางทาง เช่น ctx.elicit() ใช้ไม่ได้ใน modern wire ต้อง redesign เป็น input_required pattern ใหม่ทั้งหมด",
+          "ทำให้ npm ดาวน์โหลดช้าลง",
+          "เป็นชื่อ package ใหม่ของ v2"
+        ],
+        "answer": 0,
+        "explain": "ถูก tool ที่ต้อง confirm/ขอ input กลางทางต้องเขียนใหม่ทั้งหมด เป็นต้นทุนย้ายที่สูงมาก"
+      },
+      {
+        "question": "'Two-sided stall' ในบริบทนี้หมายถึงอะไร?",
+        "options": [
+          "การที่ทั้ง server และ host (client) ต้องขยับไป modern wire พร้อมกัน ถ้าฝั่งใดฝั่งหนึ่งยัง legacy ก็คุยกันไม่ได้",
+          "การที่ server มี bug สองจุดพร้อมกัน",
+          "การที่ npm package มีสอง version ให้เลือก"
+        ],
+        "answer": 0,
+        "explain": "ถูก นี่คือ network effect แบบสองทาง — ย้ายไปก่อนคนเดียวไม่ได้ประโยชน์อะไร เพราะคุยกับอีกฝั่งที่ยัง legacy ไม่ได้"
+      },
+      {
+        "question": "ทำไมการไม่มี 'sunset date' ถึงทำให้ migration ช้า?",
+        "options": [
+          "เพราะ v1 ยังใช้งานได้ต่อไปเรื่อย ๆ โดยไม่มีวันบังคับเลิก ทำให้ทุกคน wait-and-see ได้โดยไม่มีต้นทุนเร่งด่วน",
+          "เพราะ sunset date เป็นชื่อฟีเจอร์ใน v2",
+          "เพราะทำให้ npm ลบ package เก่าทิ้งทันที"
+        ],
+        "answer": 0,
+        "explain": "ถูก ถ้าของเก่ายังใช้ได้ตลอดไป แรงจูงใจให้รีบย้ายแทบไม่มี ไม่ว่า spec ใหม่จะดีแค่ไหน"
+      },
+      {
+        "question": "บทเรียนนี้สอนทักษะอะไรที่เอาไปใช้กับ dependency ตัวอื่นได้?",
+        "options": [
+          "ก่อนประเมิน adoption ของเวอร์ชันใหม่ ให้เช็ค breaking change, two-sided dependency, และ sunset date ก่อนตัดสินว่าทำไมยังไม่มีใครย้าย",
+          "อัปเกรด dependency ทุกตัวทันทีที่ major version ใหม่ออก",
+          "ไม่ต้องอัปเกรด dependency เลยถ้ายังใช้งานได้"
+        ],
+        "answer": 0,
+        "explain": "ถูก เป้าหมายคือกรอบประเมิน migration ที่ reuse ได้กับทุก dependency ไม่ใช่แค่ MCP"
+      }
+    ]
   }
 ]
